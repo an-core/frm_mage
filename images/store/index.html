@@ -241,12 +241,12 @@
                         <div class="form-group">
                             <label>Страна <span style="color:red;">*</span></label>
                             <input type="text" id="cdekCountry" placeholder="Страна">
-                            <div id="countrySuggestions" style="display:none; border:1px solid #ccc; max-height:200px; overflow-y:auto;">
-                            </div>
+                            <div id="countrySuggestions" style="display:none; border:1px solid #ccc; max-height:200px; overflow-y:auto; background:var(--bg-card); border-radius:8px; margin-top:4px;"></div>
                         </div>
-                        <div class="form-group">
+                        <div class="form-group" style="position:relative;">
                             <label>Город <span style="color:red;">*</span></label>
                             <input type="text" id="cdekCity" placeholder="Город" list="cityList">
+                            <div id="citySuggestions" style="display:none; border:1px solid #ccc; max-height:200px; overflow-y:auto; background:var(--bg-card); border-radius:8px; margin-top:4px; position:absolute; width:100%; z-index:10;"></div>
                         </div>
                         <div id="cdekPickupBlock" style="display:none; margin-top:1rem;">
                             <div class="form-group">

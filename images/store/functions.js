@@ -31,6 +31,7 @@
       let announcementHiddenByScroll = false;
       let menuWasOpenBeforeModal = false;
       let announcementHiddenByModal = false;
+      let cities = [];
 
       async function loadProducts() {
           const saved = localStorage.getItem(JSON_CACHE_KEY);
@@ -164,6 +165,38 @@
 
       const countryInput = document.getElementById('cdekCountry');
       const suggestions = document.getElementById('countrySuggestions');
+
+      const cityInput = document.getElementById('cdekCity');
+      const citySuggestions = document.getElementById('citySuggestions');
+
+      function selectCity(city) {
+          cityInput.value = city;
+          citySuggestions.style.display = 'none';
+          loadPickupPoints(city);
+      }
+
+      cityInput.addEventListener('input', function() {
+          const val = this.value.trim().toLowerCase();
+          if (val.length < 2) {
+              citySuggestions.style.display = 'none';
+              return;
+          }
+          const matched = cities.filter(c => c.toLowerCase().includes(val));
+          if (matched.length) {
+              citySuggestions.innerHTML = matched.map(c =>
+                  `<div style="padding:6px 12px; cursor:pointer; border-bottom:1px solid var(--border-card);" onclick="selectCity('${c.replace(/'/g, "\\'")}')">${c}</div>`
+              ).join('');
+              citySuggestions.style.display = 'block';
+          } else {
+              citySuggestions.style.display = 'none';
+          }
+      });
+
+      cityInput.addEventListener('blur', function() {
+          setTimeout(() => {
+              citySuggestions.style.display = 'none';
+          }, 200);
+      });
 
       const countryList = [
           'Адыгея (Республика Адыгея)',
@@ -743,8 +776,12 @@
           } else if (deliveryType === 'cdek') {
               const city = document.getElementById('cdekCity').value.trim();
               const pickup = document.getElementById('cdekPickup').value;
-              const cityOptions = document.getElementById('cityList').querySelectorAll('option');
-              const cityExists = Array.from(cityOptions).some(opt => opt.value.toLowerCase() === city.toLowerCase());
+              const cityExists = cities.some(c => c.toLowerCase() === city.toLowerCase());
+
+              if (!cities.length) {
+                  document.getElementById('orderStatus').innerHTML = '<span style="color:#ef4444;">⚠️ Список городов ещё не загружен, подождите...</span>';
+                  return;
+              }
 
               if (!city) {
                   document.getElementById('orderStatus').innerHTML = '<span style="color:#ef4444;">⚠️ Введите город</span>';
@@ -2946,8 +2983,10 @@
                   if (!response.ok) throw new Error('Не удалось загрузить список городов');
                   const data = await response.json();
                   const points = data.pvz || [];
-                  const cities = points.map(p => p.city).filter(Boolean);
-                  const uniqueCities = [...new Set(cities)].sort();
+                  const citiesArray = points.map(p => p.city).filter(Boolean);
+                  const uniqueCities = [...new Set(citiesArray)].sort();
+
+                  cities = uniqueCities;
 
                   let datalist = document.getElementById('cityList');
                   if (!datalist) {
