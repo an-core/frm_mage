@@ -31,6 +31,7 @@
       let announcementHiddenByScroll = false;
       let menuWasOpenBeforeModal = false;
       let announcementHiddenByModal = false;
+      let pickupPoints = [];
 
       async function loadProducts() {
           const saved = localStorage.getItem(JSON_CACHE_KEY);
@@ -2925,6 +2926,43 @@
           const cdekCityInput = document.getElementById('cdekCity');
           const cdekPickupBlock = document.getElementById('cdekPickupBlock');
           const cdekPickupSelect = document.getElementById('cdekPickup');
+          const pickupInput = document.getElementById('cdekPickupInput');
+          const pickupSuggestions = document.getElementById('pickupSuggestions');
+
+          function selectPickup(address) {
+              pickupInput.value = address;
+              pickupSuggestions.style.display = 'none';
+              const select = document.getElementById('cdekPickup');
+              for (let opt of select.options) {
+                  if (opt.value === address) {
+                      select.value = address;
+                      break;
+                  }
+              }
+          }
+
+          pickupInput.addEventListener('input', function() {
+              const val = this.value.trim().toLowerCase();
+              if (val.length < 2) {
+                  pickupSuggestions.style.display = 'none';
+                  return;
+              }
+              const matched = pickupPoints.filter(addr => addr.toLowerCase().includes(val));
+              if (matched.length) {
+                  pickupSuggestions.innerHTML = matched.map(addr =>
+                      `<div style="padding:6px 12px; cursor:pointer; border-bottom:1px solid var(--border-card);" onclick="selectPickup('${addr.replace(/'/g, "\\'")}')">${addr}</div>`
+                  ).join('');
+                  pickupSuggestions.style.display = 'block';
+              } else {
+                  pickupSuggestions.style.display = 'none';
+              }
+          });
+
+          pickupInput.addEventListener('blur', function() {
+              setTimeout(() => {
+                  pickupSuggestions.style.display = 'none';
+              }, 200);
+          });
 
           function toggleDelivery() {
               const selected = document.querySelector('input[name="delivery"]:checked');
@@ -2956,31 +2994,32 @@
           });
 
           async function loadPickupPoints(city) {
-              if (!city)
-                  return;
+              if (!city) return;
               try {
                   const response = await fetch('cdek-points.json');
                   const data = await response.json();
                   const points = data.pvz || [];
                   const cityLower = city.trim().toLowerCase();
                   const filtered = points.filter(p =>
-                      p.city && p.city.toLowerCase().includes(cityLower));
-                  const addresses = filtered.map(p => p.fullAddress || p.address).filter(Boolean);
+                      p.city && p.city.toLowerCase().includes(cityLower)
+                  );
+                  pickupPoints = filtered.map(p => p.fullAddress || p.address).filter(Boolean);
+
                   const select = document.getElementById('cdekPickup');
                   select.innerHTML = '<option value="">-- выберите пункт --</option>';
-                  if (addresses.length > 0) {
-                      addresses.forEach(addr => {
+                  if (pickupPoints.length > 0) {
+                      pickupPoints.forEach(addr => {
                           const opt = document.createElement('option');
                           opt.value = addr;
                           opt.textContent = addr;
                           select.appendChild(opt);
                       });
                   } else {
-                      select.innerHTML = '<option value="">Нет пунктов для этого города</option>';
+                      select.innerHTML = '<option value="">Нет пунктов</option>';
                   }
                   document.getElementById('cdekPickupBlock').style.display = 'block';
               } catch (err) {
-                  alert('Не удалось загрузить список пунктов. Проверьте путь к файлу.');
+                  alert('Не удалось загрузить список пунктов.');
                   console.error(err);
               }
           }
@@ -3013,20 +3052,9 @@
               }
           });
 
-          const searchInput = document.getElementById('cdekPickupSearch');
           const pickupSelect = document.getElementById('cdekPickup');
-
-          function filterPickupPoints() {
-              const query = searchInput.value.toLowerCase().trim();
-              const options = pickupSelect.options;
-              for (let i = 0; i < options.length; i++) {
-                  const text = options[i].textContent.toLowerCase();
-                  options[i].style.display = text.includes(query) ? '' : 'none';
-              }
-          }
-
+		  
           searchInput.value = '';
-          filterPickupPoints();
           searchInput.addEventListener('input', filterPickupPoints);
           loadCitiesDatalist();
           window.loadPickupPoints = loadPickupPoints;

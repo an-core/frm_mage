@@ -249,14 +249,11 @@
                             <div id="citySuggestions" style="display:none; border:1px solid #ccc; max-height:200px; overflow-y:auto; background:var(--bg-card); border-radius:8px; margin-top:4px; position:absolute; width:100%; z-index:10;"></div>
                         </div>
                         <div id="cdekPickupBlock" style="display:none; margin-top:1rem;">
-                            <div class="form-group">
-                                <label>🔍 Поиск пункта</label>
-                                <small style="color:var(--text-muted); display:block; margin-bottom:0.3rem;">Введите текст в поле, чтобы отфильтровать список</small>
-                                <input type="text" id="cdekPickupSearch" placeholder="достаточно части названия">
-                            </div>
-                            <div class="form-group">
+                            <div class="form-group" style="position:relative;">
                                 <label>Пункт выдачи <span style="color:red;">*</span></label>
-                                <select id="cdekPickup">
+                                <input type="text" id="cdekPickupInput" placeholder="Начните вводить адрес пункта выдачи" autocomplete="off">
+                                <div id="pickupSuggestions" style="display:none; border:1px solid #ccc; max-height:200px; overflow-y:auto; background:var(--bg-card); border-radius:8px; margin-top:4px; position:absolute; width:100%; z-index:10;"></div>
+                                <select id="cdekPickup" style="display:none;">
                                     <option value="">-- выберите пункт --</option>
                                 </select>
                             </div>
