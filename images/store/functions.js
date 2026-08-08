@@ -2949,8 +2949,12 @@
                   const cities = points.map(p => p.city).filter(Boolean);
                   const uniqueCities = [...new Set(cities)].sort();
 
-                  const datalist = document.getElementById('cityList');
-                  if (!datalist) return;
+                  let datalist = document.getElementById('cityList');
+                  if (!datalist) {
+                      datalist = document.createElement('datalist');
+                      datalist.id = 'cityList';
+                      document.body.appendChild(datalist);
+                  }
                   datalist.innerHTML = '';
                   uniqueCities.forEach(city => {
                       const option = document.createElement('option');
