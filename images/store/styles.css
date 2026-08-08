@@ -2529,7 +2529,7 @@ body,
         overflow-x: hidden;
     }
 	#logoImage {
-        margin-top: -50px !important;
+        margin-top: -60px !important;
     }
 	/* Кнопки в корзине */
     .cart-actions .btn-primary,
@@ -2723,10 +2723,6 @@ body,
         width: 34px;
         height: 34px;
         padding: 8px 6px;
-    }
-    #logoImage {
-        max-width: 130px;
-        margin-top: -35px;
     }
     .header-wrapper { margin-top: 70px; }
     .header-left h1 {
