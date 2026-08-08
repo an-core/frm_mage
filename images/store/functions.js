@@ -2931,7 +2931,9 @@
                   }
               }
           }
-
+		  
+		  window.selectPickup = selectPickup;
+		  
           pickupInput.addEventListener('input', function() {
               const val = this.value.trim().toLowerCase();
               if (val.length < 2) {
