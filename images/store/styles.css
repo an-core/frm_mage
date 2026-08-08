@@ -2528,6 +2528,9 @@ body,
     body {
         overflow-x: hidden;
     }
+	#logoImage {
+        margin-top: -50px !important;
+    }
 	/* Кнопки в корзине */
     .cart-actions .btn-primary,
     .cart-actions .btn-secondary {
