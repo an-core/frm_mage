@@ -31,7 +31,6 @@
       let announcementHiddenByScroll = false;
       let menuWasOpenBeforeModal = false;
       let announcementHiddenByModal = false;
-      let cities = [];
 
       async function loadProducts() {
           const saved = localStorage.getItem(JSON_CACHE_KEY);
@@ -138,6 +137,7 @@
           'Сертификаты'
       ];
 
+      let cities = [];
       let cart = [];
       let activeCategory = null;
       let activeSubcategory = 'Все';
@@ -235,11 +235,19 @@
           }
           const matched = countryList.filter(c => c.toLowerCase().includes(val));
           if (matched.length) {
-              suggestions.innerHTML = matched.map(c => `<div style="padding:4px 8px; cursor:pointer;" onclick="selectCountry('${c}')">${c}</div>`).join('');
+              suggestions.innerHTML = matched.map(c =>
+                  `<div style="padding:6px 12px; cursor:pointer; border-bottom:1px solid var(--border-card);" onclick="selectCountry('${c.replace(/'/g, "\\'")}')">${c}</div>`
+              ).join('');
               suggestions.style.display = 'block';
           } else {
               suggestions.style.display = 'none';
           }
+      });
+
+      countryInput.addEventListener('blur', function() {
+          setTimeout(() => {
+              suggestions.style.display = 'none';
+          }, 200);
       });
 
       function selectCountry(country) {
@@ -3035,6 +3043,7 @@
           filterPickupPoints();
           searchInput.addEventListener('input', filterPickupPoints);
           loadCitiesDatalist();
+          window.loadPickupPoints = loadPickupPoints;
       });
 
       (async function init() {
