@@ -2161,7 +2161,7 @@
           if (enabled) {
               const isDark = document.documentElement.getAttribute('data-theme') === 'dark';
               animIcon.textContent = '⛔';
-              animText.textContent = 'Выключить анимацию';
+              animText.textContent = 'Выключить огоньки';
               animToggle.classList.remove('off');
               animToggle.classList.add('active');
               if (isDark) {
@@ -2173,7 +2173,7 @@
               }
           } else {
               animIcon.textContent = '✨';
-              animText.textContent = 'Включить анимацию';
+              animText.textContent = 'Включить огоньки';
               animToggle.classList.add('off');
               animToggle.classList.remove('active');
               container.style.opacity = '0';
