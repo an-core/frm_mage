@@ -2925,7 +2925,6 @@
           const cdekBlock = document.getElementById('cdekDelivery');
           const cdekCityInput = document.getElementById('cdekCity');
           const cdekPickupBlock = document.getElementById('cdekPickupBlock');
-          const cdekPickupSelect = document.getElementById('cdekPickup');
           const pickupInput = document.getElementById('cdekPickupInput');
           const pickupSuggestions = document.getElementById('pickupSuggestions');
 
@@ -3052,12 +3051,9 @@
               }
           });
 
-          const pickupSelect = document.getElementById('cdekPickup');
-		  
-          searchInput.value = '';
-          searchInput.addEventListener('input', filterPickupPoints);
-          loadCitiesDatalist();
           window.loadPickupPoints = loadPickupPoints;
+
+          loadCitiesDatalist();
       });
 
       (async function init() {
