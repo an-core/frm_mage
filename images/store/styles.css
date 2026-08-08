@@ -2752,6 +2752,14 @@ body,
         font-size: .9rem;
         padding: 4px 10px;
     }
+	.slide-menu-body .menu-toggle:hover {
+    background: var(--bg-category-hover);
+    transition: background 0.2s;
+    }
+
+    .menu-item .menu-toggle:hover {
+    background: var(--bg-category-hover);
+    }
     .contact-phone { font-size: 1rem; }
     .categories-row {
         display: flex;
