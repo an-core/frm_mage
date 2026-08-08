@@ -2993,21 +2993,7 @@
                   const points = data.pvz || [];
                   const citiesArray = points.map(p => p.city).filter(Boolean);
                   const uniqueCities = [...new Set(citiesArray)].sort();
-
                   cities = uniqueCities;
-
-                  let datalist = document.getElementById('cityList');
-                  if (!datalist) {
-                      datalist = document.createElement('datalist');
-                      datalist.id = 'cityList';
-                      document.body.appendChild(datalist);
-                  }
-                  datalist.innerHTML = '';
-                  uniqueCities.forEach(city => {
-                      const option = document.createElement('option');
-                      option.value = city;
-                      datalist.appendChild(option);
-                  });
                   console.log('Список городов загружен, всего:', uniqueCities.length);
               } catch (err) {
                   console.warn('Ошибка загрузки городов для подсказок:', err);
