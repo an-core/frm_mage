@@ -2828,14 +2828,6 @@
           }
       });
 
-      document.addEventListener('keydown', function(e) {
-          if (e.key === 'Escape') {
-              if (jugglingNewsModal.classList.contains('active')) closeJugglingNews();
-              if (fireNewsModal.classList.contains('active')) closeFireNews();
-              if (festivalsModal.classList.contains('active')) closeFestivals();
-          }
-      });
-
       if (pickupBtn && pickupModal) {
           pickupBtn.addEventListener('click', function(e) {
               menuWasOpenBeforeModal = slideMenu.classList.contains('open');
