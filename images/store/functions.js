@@ -1290,20 +1290,6 @@ function renderCatalog() {
         catSpan.style.textUnderlineOffset = '2px';
         catSpan.style.pointerEvents = 'auto';
 
-        const sep = document.createTextNode(' › ');
-
-        const subSpan = document.createElement('span');
-        subSpan.className = 'subcategory-link';
-        subSpan.textContent = product.subcategory || 'Без подкатегории';
-        subSpan.style.cursor = 'pointer';
-        subSpan.style.textDecoration = 'underline dotted var(--text-hint)';
-        subSpan.style.textUnderlineOffset = '2px';
-        subSpan.style.pointerEvents = 'auto';
-
-        tag.appendChild(catSpan);
-        tag.appendChild(sep);
-        tag.appendChild(subSpan);
-
         catSpan.addEventListener('click', function(e) {
             e.stopPropagation();
             e.preventDefault();
@@ -1319,10 +1305,23 @@ function renderCatalog() {
             });
         });
 
-        subSpan.addEventListener('click', function(e) {
-            e.stopPropagation();
-            e.preventDefault();
-            if (product.subcategory) {
+        tag.appendChild(catSpan);
+
+        if (product.subcategory) {
+            const sep = document.createTextNode(' › ');
+            tag.appendChild(sep);
+
+            const subSpan = document.createElement('span');
+            subSpan.className = 'subcategory-link';
+            subSpan.textContent = product.subcategory;
+            subSpan.style.cursor = 'pointer';
+            subSpan.style.textDecoration = 'underline dotted var(--text-hint)';
+            subSpan.style.textUnderlineOffset = '2px';
+            subSpan.style.pointerEvents = 'auto';
+
+            subSpan.addEventListener('click', function(e) {
+                e.stopPropagation();
+                e.preventDefault();
                 console.log('Клик по подкатегории:', product.subcategory);
                 activeCategory = product.category;
                 activeSubcategory = product.subcategory;
@@ -1333,8 +1332,10 @@ function renderCatalog() {
                     behavior: 'smooth',
                     block: 'start'
                 });
-            }
-        });
+            });
+
+            tag.appendChild(subSpan);
+        }
 
         const addIcon = document.createElement('button');
         addIcon.className = 'add-to-cart-icon';
