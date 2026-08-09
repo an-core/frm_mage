@@ -1,4 +1,4 @@
-const JSON_CACHE_KEY = 'fire_json_info';
+const JSON_CACHE_KEY = 'firemag_json_info';
 const LOGO_FILE = 'images/store/icons/logo.png';
 const ANNOUNCEMENT_TEXT = 'ВНИМАНИЕ! НОВЫЕ ПОСТУПЛЕНИЯ НА СКЛАД: Булавы от производителя Henrys - Delphin Long, Delphin Short, Loop, Loop Grip, кольца Standard, а также мячи, бинбеги и чехлы от отечественного производителя!';
 const PARTNERS = [{
@@ -501,18 +501,12 @@ function updateCheckoutTotal() {
 }
 
 function updateModalPrice(product) {
-    const variantRadio = document.querySelector('input[name="product-variant"]:checked');
-    let basePrice = parsePrice(product.price);
-    if (variantRadio) {
-        basePrice = parseInt(variantRadio.dataset.price, 10);
-    }
-
     const checkboxes = window._modalCheckboxes || [];
+    const basePrice = parsePrice(product.price);
     let total = basePrice;
     checkboxes.forEach(cb => {
         if (cb.checked) total += parseInt(cb.dataset.price, 10);
     });
-
     const titleEl = document.getElementById('modalTitle');
     if (titleEl) {
         titleEl.innerHTML = product.name + ' • ' + total.toLocaleString('ru-RU') + ' ₽';
@@ -527,7 +521,6 @@ function updateModalPrice(product) {
             });
         }
     }
-
     window._currentTotalPrice = total;
     window._selectedVariantPrice = basePrice;
 }
@@ -812,7 +805,7 @@ function sendOrder() {
             return;
         }
         address = `г. ${city}, пункт выдачи: ${pickup}`;
-        deliveryInfo = 'Доставка СДЭК';
+        deliveryInfo = 'Доставка СДЭК (стоимость рассчитывается отдельно)';
     } else if (deliveryType === 'pickup') {
         address = 'Самовывоз (Москва, ул. Космонавтов, д. 14, корп. 2)';
         deliveryInfo = 'Самовывоз';
@@ -851,7 +844,7 @@ function sendOrder() {
         if (item.color) {
             colorText = ' (цвет: ' + item.color.name + ')';
         }
-        return (index + 1) + '. ' + item.name + variantText + colorText + optionsText + ' — ' + item.price + ' × ' + item.quantity + ' = ' + totalPrice + ' ₽';
+        return (index + 1) + '. ' + item.name + variantText + colorText + optionsText + ' - ' + item.price + ' × ' + item.quantity + ' = ' + totalPrice + ' ₽';
     }).join('\n');
 
     const fileContent = `🧾 ЗАКАЗ №${String(Date.now()).slice(-6)}\n\n📅 Дата: ${orderDate}\n👤 Имя: ${name}\n📞 Телефон: ${phone}\n📧 Email: ${email}\n🏠 Адрес: ${address}\n🚚 Способ доставки: ${deliveryInfo}\n📝 Комментарий: ${comment}\n\nТовары:\n${itemsText}\n\nИТОГО: ${total} ₽\n`;
@@ -1281,20 +1274,13 @@ function renderCatalog() {
 
         const tag = document.createElement('div');
         tag.className = 'product-category-tag';
+		
         const catSpan = document.createElement('span');
         catSpan.className = 'category-link';
         catSpan.textContent = product.category;
         catSpan.style.cursor = 'pointer';
         catSpan.style.textDecoration = 'underline dotted var(--text-hint)';
         catSpan.style.textUnderlineOffset = '2px';
-        catSpan.addEventListener('click', function(e) {
-            e.stopPropagation();
-            activeCategory = product.category;
-            activeSubcategory = 'Все';
-            renderCategories();
-            renderSubcategories();
-            renderCatalog();
-        });
 
         const sep = document.createTextNode(' › ');
 
@@ -1304,9 +1290,23 @@ function renderCatalog() {
         subSpan.style.cursor = 'pointer';
         subSpan.style.textDecoration = 'underline dotted var(--text-hint)';
         subSpan.style.textUnderlineOffset = '2px';
-        subSpan.addEventListener('click', function(e) {
+
+        tag.appendChild(catSpan);
+        tag.appendChild(sep);
+        tag.appendChild(subSpan);
+
+        tag.addEventListener('click', function(e) {
+            const target = e.target.closest('.category-link, .subcategory-link');
+            if (!target) return;
             e.stopPropagation();
-            if (product.subcategory) {
+
+            if (target.classList.contains('category-link')) {
+                activeCategory = product.category;
+                activeSubcategory = 'Все';
+                renderCategories();
+                renderSubcategories();
+                renderCatalog();
+            } else if (target.classList.contains('subcategory-link') && product.subcategory) {
                 activeCategory = product.category;
                 activeSubcategory = product.subcategory;
                 renderCategories();
@@ -1314,11 +1314,6 @@ function renderCatalog() {
                 renderCatalog();
             }
         });
-
-        tag.appendChild(catSpan);
-        tag.appendChild(sep);
-        tag.appendChild(subSpan);
-        tag.textContent = product.category + ' › ' + product.subcategory;
 
         const addIcon = document.createElement('button');
         addIcon.className = 'add-to-cart-icon';
@@ -1486,15 +1481,6 @@ function openModal(product, cardImgElement) {
 
     if (productTerms.length > 0) {
         termsContainer.style.display = 'block';
-
-        let hint = termsContainer.querySelector('.terms-hint');
-        if (!hint) {
-            hint = document.createElement('div');
-            hint.className = 'terms-hint';
-            hint.style.cssText = 'font-size:0.75rem; color:var(--text-muted); margin-bottom:0.4rem;';
-            hint.textContent = '💡 Наведите курсор или коснитесь термина для пояснения';
-            termsContainer.prepend(hint);
-        }
         termsList.innerHTML = '';
 
         productTerms.forEach(termName => {
@@ -2162,7 +2148,7 @@ document.getElementById('modalAddToCartBtn').addEventListener('click', function(
     showToast('Товар "' + product.name + '"' + colorName + ' добавлен в корзину!');
 });
 
-const GITHUB_BASE_URL = 'https://an-core.github.io/frm_mage/';
+const GITHUB_BASE_URL = 'https://an-core.github.io/fir_mage/';
 
 async function loadAllImages() {
     const catalog = document.getElementById('catalogContainer');
