@@ -1313,7 +1313,10 @@ function renderCatalog() {
             renderCategories();
             renderSubcategories();
             renderCatalog();
-			document.querySelector('.catalog').scrollIntoView({ behavior: 'smooth', block: 'start' });
+            document.querySelector('.catalog').scrollIntoView({
+                behavior: 'smooth',
+                block: 'start'
+            });
         });
 
         subSpan.addEventListener('click', function(e) {
@@ -1326,7 +1329,10 @@ function renderCatalog() {
                 renderCategories();
                 renderSubcategories();
                 renderCatalog();
-				document.querySelector('.catalog').scrollIntoView({ behavior: 'smooth', block: 'start' });
+                document.querySelector('.catalog').scrollIntoView({
+                    behavior: 'smooth',
+                    block: 'start'
+                });
             }
         });
 
@@ -1827,23 +1833,27 @@ function openModal(product, cardImgElement) {
             const wrapper = document.createElement('div');
             wrapper.style.cssText = 'display:flex; align-items:center; margin-bottom:6px; cursor:pointer;';
 
-            const cb = document.createElement('input');
-            cb.type = 'checkbox';
-			cb.name = 'modal-option';
-            cb.dataset.name = opt.name;
-            cb.dataset.price = opt.price;
-            cb.style.cssText = 'margin:0 8px 0 0; width:16px; height:16px; flex-shrink:0;';
-            cb.style.accentColor = 'var(--price-color)';
+            const input = document.createElement('input');
+            if (opt.price > 0) {
+                input.type = 'checkbox';
+            } else {
+                input.type = 'radio';
+                input.name = 'free-option';
+            }
+            input.dataset.name = opt.name;
+            input.dataset.price = opt.price;
+            input.style.cssText = 'margin:0 8px 0 0; width:16px; height:16px; flex-shrink:0;';
+            input.style.accentColor = 'var(--price-color)';
 
             const textSpan = document.createElement('span');
             textSpan.textContent = opt.name + (opt.price > 0 ? ' (+' + opt.price.toLocaleString('ru-RU') + ' ₽)' : '');
             textSpan.style.cssText = 'font-size:.95rem; color:var(--text-secondary); line-height:1;';
 
-            wrapper.appendChild(cb);
+            wrapper.appendChild(input);
             wrapper.appendChild(textSpan);
             optionsList.appendChild(wrapper);
-            window._modalCheckboxes.push(cb);
-            cb.addEventListener('change', function() {
+            window._modalCheckboxes.push(input);
+            input.addEventListener('change', function() {
                 updateModalPrice(product);
             });
         });
