@@ -1288,6 +1288,7 @@ function renderCatalog() {
         catSpan.style.cursor = 'pointer';
         catSpan.style.textDecoration = 'underline dotted var(--text-hint)';
         catSpan.style.textUnderlineOffset = '2px';
+        catSpan.style.pointerEvents = 'auto';
 
         const sep = document.createTextNode(' › ');
 
@@ -1297,23 +1298,28 @@ function renderCatalog() {
         subSpan.style.cursor = 'pointer';
         subSpan.style.textDecoration = 'underline dotted var(--text-hint)';
         subSpan.style.textUnderlineOffset = '2px';
+        subSpan.style.pointerEvents = 'auto';
 
         tag.appendChild(catSpan);
         tag.appendChild(sep);
         tag.appendChild(subSpan);
 
-        tag.addEventListener('click', function(e) {
-            const target = e.target.closest('.category-link, .subcategory-link');
-            if (!target) return;
+        catSpan.addEventListener('click', function(e) {
             e.stopPropagation();
+            e.preventDefault();
+            console.log('Клик по категории:', product.category);
+            activeCategory = product.category;
+            activeSubcategory = 'Все';
+            renderCategories();
+            renderSubcategories();
+            renderCatalog();
+        });
 
-            if (target.classList.contains('category-link')) {
-                activeCategory = product.category;
-                activeSubcategory = 'Все';
-                renderCategories();
-                renderSubcategories();
-                renderCatalog();
-            } else if (target.classList.contains('subcategory-link') && product.subcategory) {
+        subSpan.addEventListener('click', function(e) {
+            e.stopPropagation();
+            e.preventDefault();
+            if (product.subcategory) {
+                console.log('Клик по подкатегории:', product.subcategory);
                 activeCategory = product.category;
                 activeSubcategory = product.subcategory;
                 renderCategories();
