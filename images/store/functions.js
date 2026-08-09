@@ -1313,6 +1313,7 @@ function renderCatalog() {
             renderCategories();
             renderSubcategories();
             renderCatalog();
+			document.querySelector('.catalog').scrollIntoView({ behavior: 'smooth', block: 'start' });
         });
 
         subSpan.addEventListener('click', function(e) {
@@ -1325,6 +1326,7 @@ function renderCatalog() {
                 renderCategories();
                 renderSubcategories();
                 renderCatalog();
+				document.querySelector('.catalog').scrollIntoView({ behavior: 'smooth', block: 'start' });
             }
         });
 
