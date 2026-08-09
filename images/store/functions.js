@@ -844,7 +844,7 @@
               if (item.color) {
                   colorText = ' (цвет: ' + item.color.name + ')';
               }
-              return (index + 1) + '. ' + item.name + variantText + colorText + optionsText + ' — ' + item.price + ' × ' + item.quantity + ' = ' + totalPrice + ' ₽';
+              return (index + 1) + '. ' + item.name + variantText + colorText + optionsText + ' - ' + item.price + ' × ' + item.quantity + ' = ' + totalPrice + ' ₽';
           }).join('\n');
 
           const fileContent = `🧾 ЗАКАЗ №${String(Date.now()).slice(-6)}\n\n📅 Дата: ${orderDate}\n👤 Имя: ${name}\n📞 Телефон: ${phone}\n📧 Email: ${email}\n🏠 Адрес: ${address}\n🚚 Способ доставки: ${deliveryInfo}\n📝 Комментарий: ${comment}\n\nТовары:\n${itemsText}\n\nИТОГО: ${total} ₽\n`;
