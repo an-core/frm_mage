@@ -3197,16 +3197,15 @@ body,
         text-align: center;
     }
 	#modalOptionsList {
-        display: flex;
-        flex-wrap: nowrap;
-        overflow-x: auto;
-        -webkit-overflow-scrolling: touch;
-        gap: 0.8rem;
-        padding: 0.5rem 0;
-        scrollbar-width: thin;
+        display: block;
+        overflow-x: visible;
+        padding: 0;
+        gap: 0;
+        white-space: normal; 
     }
     #modalOptionsList > div {
-        flex: 0 0 auto;
-        white-space: nowrap;
+         flex: none;
+        white-space: normal;
+        margin-bottom: 6px;
     }
 }
