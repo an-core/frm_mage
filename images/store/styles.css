@@ -2158,14 +2158,17 @@ input[readonly] {
     transform: scale(1);
 }
 .term {
+    text-decoration: underline dashed var(--term-color2);
+    text-underline-offset: 2px;
+    text-decoration-thickness: 1px;
     color: var(--term-color);
-    border-bottom: 1px dashed var(--term-color2);
     cursor: pointer;
-    transition: background 0.2s;
+    transition: background 0.2s, text-decoration-thickness 0.2s;
 }
 .term:hover {
+    text-decoration-style: solid;
+    text-decoration-thickness: 0.5px;
     background: var(--term-hover-bg);
-    border-bottom-style: solid;
     border-radius: 3px;
 }
 @media (hover: none) and (pointer: coarse) {
