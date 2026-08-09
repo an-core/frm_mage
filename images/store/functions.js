@@ -501,36 +501,36 @@
       }
 
       function updateModalPrice(product) {
-    const variantRadio = document.querySelector('input[name="product-variant"]:checked');
-    let basePrice = parsePrice(product.price);
-    if (variantRadio) {
-        basePrice = parseInt(variantRadio.dataset.price, 10);
-    }
+          const variantRadio = document.querySelector('input[name="product-variant"]:checked');
+          let basePrice = parsePrice(product.price);
+          if (variantRadio) {
+              basePrice = parseInt(variantRadio.dataset.price, 10);
+          }
 
-    const checkboxes = window._modalCheckboxes || [];
-    let total = basePrice;
-    checkboxes.forEach(cb => {
-        if (cb.checked) total += parseInt(cb.dataset.price, 10);
-    });
+          const checkboxes = window._modalCheckboxes || [];
+          let total = basePrice;
+          checkboxes.forEach(cb => {
+              if (cb.checked) total += parseInt(cb.dataset.price, 10);
+          });
 
-    const titleEl = document.getElementById('modalTitle');
-    if (titleEl) {
-        titleEl.innerHTML = product.name + ' • ' + total.toLocaleString('ru-RU') + ' ₽';
-        titleEl.querySelectorAll('.modal-badge').forEach(el => el.remove());
-        if (product.badge) {
-            const badges = product.badge.split(',').map(s => s.trim()).filter(s => s);
-            badges.forEach(b => {
-                const badgeSpan = document.createElement('span');
-                badgeSpan.className = 'modal-badge ' + getBadgeClass(b);
-                badgeSpan.textContent = b;
-                titleEl.appendChild(badgeSpan);
-            });
-        }
-    }
+          const titleEl = document.getElementById('modalTitle');
+          if (titleEl) {
+              titleEl.innerHTML = product.name + ' • ' + total.toLocaleString('ru-RU') + ' ₽';
+              titleEl.querySelectorAll('.modal-badge').forEach(el => el.remove());
+              if (product.badge) {
+                  const badges = product.badge.split(',').map(s => s.trim()).filter(s => s);
+                  badges.forEach(b => {
+                      const badgeSpan = document.createElement('span');
+                      badgeSpan.className = 'modal-badge ' + getBadgeClass(b);
+                      badgeSpan.textContent = b;
+                      titleEl.appendChild(badgeSpan);
+                  });
+              }
+          }
 
-    window._currentTotalPrice = total;
-    window._selectedVariantPrice = basePrice;
-}
+          window._currentTotalPrice = total;
+          window._selectedVariantPrice = basePrice;
+      }
 
       function getBadgeClass(badge) {
           if (!badge)
@@ -1281,6 +1281,43 @@
 
               const tag = document.createElement('div');
               tag.className = 'product-category-tag';
+              const catSpan = document.createElement('span');
+              catSpan.className = 'category-link';
+              catSpan.textContent = product.category;
+              catSpan.style.cursor = 'pointer';
+              catSpan.style.textDecoration = 'underline dotted var(--text-hint)';
+              catSpan.style.textUnderlineOffset = '2px';
+              catSpan.addEventListener('click', function(e) {
+                  e.stopPropagation();
+                  activeCategory = product.category;
+                  activeSubcategory = 'Все';
+                  renderCategories();
+                  renderSubcategories();
+                  renderCatalog();
+              });
+
+              const sep = document.createTextNode(' › ');
+
+              const subSpan = document.createElement('span');
+              subSpan.className = 'subcategory-link';
+              subSpan.textContent = product.subcategory || 'Без подкатегории';
+              subSpan.style.cursor = 'pointer';
+              subSpan.style.textDecoration = 'underline dotted var(--text-hint)';
+              subSpan.style.textUnderlineOffset = '2px';
+              subSpan.addEventListener('click', function(e) {
+                  e.stopPropagation();
+                  if (product.subcategory) {
+                      activeCategory = product.category;
+                      activeSubcategory = product.subcategory;
+                      renderCategories();
+                      renderSubcategories();
+                      renderCatalog();
+                  }
+              });
+
+              tag.appendChild(catSpan);
+              tag.appendChild(sep);
+              tag.appendChild(subSpan);
               tag.textContent = product.category + ' › ' + product.subcategory;
 
               const addIcon = document.createElement('button');
@@ -1448,16 +1485,16 @@
           const isHoverSupported = window.matchMedia('(hover: hover) and (pointer: fine)').matches;
 
           if (productTerms.length > 0) {
-    termsContainer.style.display = 'block';
-    
-    let hint = termsContainer.querySelector('.terms-hint');
-    if (!hint) {
-        hint = document.createElement('div');
-        hint.className = 'terms-hint';
-        hint.style.cssText = 'font-size:0.75rem; color:var(--text-muted); margin-bottom:0.4rem;';
-        hint.textContent = '💡 Наведите курсор или коснитесь термина для пояснения';
-        termsContainer.prepend(hint);
-    }
+              termsContainer.style.display = 'block';
+
+              let hint = termsContainer.querySelector('.terms-hint');
+              if (!hint) {
+                  hint = document.createElement('div');
+                  hint.className = 'terms-hint';
+                  hint.style.cssText = 'font-size:0.75rem; color:var(--text-muted); margin-bottom:0.4rem;';
+                  hint.textContent = '💡 Наведите курсор или коснитесь термина для пояснения';
+                  termsContainer.prepend(hint);
+              }
               termsList.innerHTML = '';
 
               productTerms.forEach(termName => {
@@ -2947,9 +2984,9 @@
                   }
               }
           }
-		  
-		  window.selectPickup = selectPickup;
-		  
+
+          window.selectPickup = selectPickup;
+
           pickupInput.addEventListener('input', function() {
               const val = this.value.trim().toLowerCase();
               if (val.length < 2) {

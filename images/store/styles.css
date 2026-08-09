@@ -870,6 +870,16 @@ body {
     transition: background .25s, color .25s;
 }
 
+.product-category-tag .category-link,
+.product-category-tag .subcategory-link {
+    transition: color 0.2s, text-decoration-color 0.2s;
+}
+.product-category-tag .category-link:hover,
+.product-category-tag .subcategory-link:hover {
+    color: var(--term-color);
+    text-decoration-color: var(--term-color);
+}
+
 /* Бейджи */
 .product-badge-container {
     position: absolute;
