@@ -651,7 +651,7 @@ body {
 /* цветные обводки для категорий */
 .category-icon-wrapper[data-category="Реквизит для жонглирования"].active {
     border-color: #0086b3;
-    box-shadow: 0 0 8px 3px rgb(0 134 179), 0 2px 8px rgb(0 134 179 / 20%);
+    box-shadow: 0 0 8px 3px rgb(0 146 179), 0 2px 8px rgb(0 134 179 / 20%);
 }
 .category-icon-wrapper[data-category="Реквизит для тренировок"].active {
     border-color: #cc0000;
@@ -669,13 +669,13 @@ body {
     border-color: #00ffc6;
     box-shadow: 0 0 8px 3px rgb(11 255 154 / 60%), 0 2px 8px rgb(255 180 0 / 20%);
 }
-.category-icon-wrapper[data-category="Сертификаты"].active {
-    border-color: #e84393;
-    box-shadow: 0 0 8px 3px rgba(232,67,147,0.6), 0 2px 8px rgba(220,50,140,0.2);
-}
 .category-icon-wrapper[data-category="Специальные предложения"].active {
     border-color: #ff00e9;
     box-shadow: 0 0 8px 3px rgb(255 0 224 / 60%), 0 2px 8px rgb(0 180 255 / 20%);
+}
+.category-icon-wrapper[data-category="Сертификаты"].active {
+    border-color: #437ce8;
+    box-shadow: 0 0 8px 3px rgb(67 156 232), 0 2px 8px rgb(220 50 140 / 20%);
 }
 .category-icon-wrapper.active:not([data-category="Светодиодный реквизит"]):not([data-category="Реквизит для фаершоу"]):not([data-category="Реквизит для жонглирования"]):not([data-category="Реквизит для тренировок"]):not([data-category="Реквизит для эквилибра"]):not([data-category="Сертификаты"]):not([data-category="Специальные предложения"]) {
     box-shadow: 0 0 8px 3px var(--neon-glow-color), 0 2px 8px rgba(59,130,246,0.15);
