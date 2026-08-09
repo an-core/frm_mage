@@ -501,29 +501,36 @@
       }
 
       function updateModalPrice(product) {
-          const checkboxes = window._modalCheckboxes || [];
-          const basePrice = parsePrice(product.price);
-          let total = basePrice;
-          checkboxes.forEach(cb => {
-              if (cb.checked) total += parseInt(cb.dataset.price, 10);
-          });
-          const titleEl = document.getElementById('modalTitle');
-          if (titleEl) {
-              titleEl.innerHTML = product.name + ' • ' + total.toLocaleString('ru-RU') + ' ₽';
-              titleEl.querySelectorAll('.modal-badge').forEach(el => el.remove());
-              if (product.badge) {
-                  const badges = product.badge.split(',').map(s => s.trim()).filter(s => s);
-                  badges.forEach(b => {
-                      const badgeSpan = document.createElement('span');
-                      badgeSpan.className = 'modal-badge ' + getBadgeClass(b);
-                      badgeSpan.textContent = b;
-                      titleEl.appendChild(badgeSpan);
-                  });
-              }
-          }
-          window._currentTotalPrice = total;
-          window._selectedVariantPrice = basePrice;
-      }
+    const variantRadio = document.querySelector('input[name="product-variant"]:checked');
+    let basePrice = parsePrice(product.price);
+    if (variantRadio) {
+        basePrice = parseInt(variantRadio.dataset.price, 10);
+    }
+
+    const checkboxes = window._modalCheckboxes || [];
+    let total = basePrice;
+    checkboxes.forEach(cb => {
+        if (cb.checked) total += parseInt(cb.dataset.price, 10);
+    });
+
+    const titleEl = document.getElementById('modalTitle');
+    if (titleEl) {
+        titleEl.innerHTML = product.name + ' • ' + total.toLocaleString('ru-RU') + ' ₽';
+        titleEl.querySelectorAll('.modal-badge').forEach(el => el.remove());
+        if (product.badge) {
+            const badges = product.badge.split(',').map(s => s.trim()).filter(s => s);
+            badges.forEach(b => {
+                const badgeSpan = document.createElement('span');
+                badgeSpan.className = 'modal-badge ' + getBadgeClass(b);
+                badgeSpan.textContent = b;
+                titleEl.appendChild(badgeSpan);
+            });
+        }
+    }
+
+    window._currentTotalPrice = total;
+    window._selectedVariantPrice = basePrice;
+}
 
       function getBadgeClass(badge) {
           if (!badge)
