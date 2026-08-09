@@ -1448,7 +1448,16 @@
           const isHoverSupported = window.matchMedia('(hover: hover) and (pointer: fine)').matches;
 
           if (productTerms.length > 0) {
-              termsContainer.style.display = 'block';
+    termsContainer.style.display = 'block';
+    
+    let hint = termsContainer.querySelector('.terms-hint');
+    if (!hint) {
+        hint = document.createElement('div');
+        hint.className = 'terms-hint';
+        hint.style.cssText = 'font-size:0.75rem; color:var(--text-muted); margin-bottom:0.4rem;';
+        hint.textContent = '💡 Наведите курсор или коснитесь термина для пояснения';
+        termsContainer.prepend(hint);
+    }
               termsList.innerHTML = '';
 
               productTerms.forEach(termName => {
