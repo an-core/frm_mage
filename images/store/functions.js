@@ -1,4 +1,4 @@
-      const JSON_CACHE_KEY = 'firemag_json_info';
+      const JSON_CACHE_KEY = 'fire_json_info';
       const LOGO_FILE = 'images/store/icons/logo.png';
       const ANNOUNCEMENT_TEXT = 'ВНИМАНИЕ! НОВЫЕ ПОСТУПЛЕНИЯ НА СКЛАД: Булавы от производителя Henrys - Delphin Long, Delphin Short, Loop, Loop Grip, кольца Standard, а также мячи, бинбеги и чехлы от отечественного производителя!';
       const PARTNERS = [{
@@ -805,7 +805,7 @@
                   return;
               }
               address = `г. ${city}, пункт выдачи: ${pickup}`;
-              deliveryInfo = 'Доставка СДЭК (стоимость рассчитывается отдельно)';
+              deliveryInfo = 'Доставка СДЭК';
           } else if (deliveryType === 'pickup') {
               address = 'Самовывоз (Москва, ул. Космонавтов, д. 14, корп. 2)';
               deliveryInfo = 'Самовывоз';
@@ -844,7 +844,7 @@
               if (item.color) {
                   colorText = ' (цвет: ' + item.color.name + ')';
               }
-              return (index + 1) + '. ' + item.name + variantText + colorText + optionsText + ' - ' + item.price + ' × ' + item.quantity + ' = ' + totalPrice + ' ₽';
+              return (index + 1) + '. ' + item.name + variantText + colorText + optionsText + ' — ' + item.price + ' × ' + item.quantity + ' = ' + totalPrice + ' ₽';
           }).join('\n');
 
           const fileContent = `🧾 ЗАКАЗ №${String(Date.now()).slice(-6)}\n\n📅 Дата: ${orderDate}\n👤 Имя: ${name}\n📞 Телефон: ${phone}\n📧 Email: ${email}\n🏠 Адрес: ${address}\n🚚 Способ доставки: ${deliveryInfo}\n📝 Комментарий: ${comment}\n\nТовары:\n${itemsText}\n\nИТОГО: ${total} ₽\n`;
@@ -2109,7 +2109,7 @@
           showToast('Товар "' + product.name + '"' + colorName + ' добавлен в корзину!');
       });
 
-      const GITHUB_BASE_URL = 'https://an-core.github.io/fir_mage/';
+      const GITHUB_BASE_URL = 'https://an-core.github.io/frm_mage/';
 
       async function loadAllImages() {
           const catalog = document.getElementById('catalogContainer');
