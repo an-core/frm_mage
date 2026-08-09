@@ -805,7 +805,7 @@
                   return;
               }
               address = `г. ${city}, пункт выдачи: ${pickup}`;
-              deliveryInfo = 'Доставка СДЭК';
+              deliveryInfo = 'Доставка СДЭК (стоимость рассчитывается отдельно)';
           } else if (deliveryType === 'pickup') {
               address = 'Самовывоз (Москва, ул. Космонавтов, д. 14, корп. 2)';
               deliveryInfo = 'Самовывоз';
