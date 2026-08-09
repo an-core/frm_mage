@@ -1829,6 +1829,7 @@ function openModal(product, cardImgElement) {
 
             const cb = document.createElement('input');
             cb.type = 'checkbox';
+			cb.name = 'modal-option';
             cb.dataset.name = opt.name;
             cb.dataset.price = opt.price;
             cb.style.cssText = 'margin:0 8px 0 0; width:16px; height:16px; flex-shrink:0;';
