@@ -683,7 +683,7 @@ body {
 }
 
 [data-theme="light"] .category-icon-wrapper.active {
-    border-color: transparent !important;
+    border-color: rgba(0, 0, 0, 0.08) !important;
     box-shadow: none !important;
 }
 
