@@ -3200,38 +3200,40 @@ body,
     }
 	 #modalOptionsList {
         display: flex;
-        flex-wrap: nowrap;
-        overflow-x: auto;
-        -webkit-overflow-scrolling: touch;
+        flex-direction: column;
         gap: 0.6rem;
-        padding: 0.5rem 0.2rem;
+        padding: 0.5rem 0;
+        overflow-x: auto;
+        overflow-y: visible;
+        max-width: 100%;
         scrollbar-width: thin;
-        white-space: nowrap;
+        -webkit-overflow-scrolling: touch;
     }
 
     #modalOptionsList > div {
         flex: 0 0 auto;
         display: flex;
         align-items: center;
-        gap: 0.3rem;
+        gap: 0.4rem;
         white-space: nowrap;
-        padding: 0.3rem 0.6rem;
-        border-radius: 20px;
+        padding: 0.3rem 0.4rem;
+        border-radius: 6px;
         background: var(--bg-card);
         border: 1px solid var(--border-card);
-        font-size: 0.85rem;
     }
 
     #modalOptionsList input[type="radio"],
     #modalOptionsList input[type="checkbox"] {
         flex-shrink: 0;
         margin: 0 !important;
-        width: 16px;
-        height: 16px;
+        width: 18px;
+        height: 18px;
+        accent-color: var(--price-color);
     }
 
     #modalOptionsList > div span {
         white-space: nowrap;
-        font-size: 0.85rem;
+        font-size: 0.9rem;
+        color: var(--text-secondary);
     }
 }
