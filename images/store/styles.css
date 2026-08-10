@@ -3216,10 +3216,7 @@ body,
         align-items: center;
         gap: 0.4rem;
         white-space: nowrap;
-        padding: 0.3rem 0.4rem;
-        border-radius: 6px;
-        background: var(--bg-card);
-        border: 1px solid var(--border-card);
+        padding: 0 0.4rem;
     }
 
     #modalOptionsList input[type="radio"],
