@@ -3217,6 +3217,7 @@ body,
         gap: 0.4rem;
         white-space: nowrap;
         padding: 0 0.4rem;
+		margin-bottom: -1px !important;
     }
 
     #modalOptionsList input[type="radio"],
