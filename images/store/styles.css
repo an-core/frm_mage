@@ -179,6 +179,7 @@ body {
 }
 .top-bar > * {
     pointer-events: auto;
+	margin-top: 10px;
 }
 
 /* ГАМБУРГЕР меню */
