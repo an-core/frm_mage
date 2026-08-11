@@ -2859,6 +2859,7 @@ body,
         -webkit-overflow-scrolling: touch;
         gap: 1rem;
         padding: 0.5rem 0rem 1rem;
+		overflow:auto;
 		margin-left: 12px;
         justify-content: flex-start;
         border-bottom: 2px solid var(--border-card);
