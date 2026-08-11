@@ -2822,10 +2822,10 @@ body,
     .categories-row {
         display: flex;
         flex-wrap: nowrap;
-        overflow-x: auto;
         -webkit-overflow-scrolling: touch;
         gap: 1rem;
         padding: 0.5rem 0rem 1rem;
+		margin-left: 12px;
         justify-content: flex-start;
         border-bottom: 2px solid var(--border-card);
         scroll-snap-type: x mandatory;
