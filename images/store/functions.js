@@ -927,14 +927,17 @@ function showSuccessNotification() {
 function showToast(message) {
     const toast = document.createElement('div');
     toast.className = 'toast-success';
-    toast.style.cssText = 'position:fixed; bottom:20px; left:50%; transform:translateX(-50%); background:#1e293b; color:white; padding:12px 24px; border-radius:60px; font-size:.95rem; z-index:9999; box-shadow:0 4px 12px rgba(0,0,0,.3); opacity:0; transition:opacity .3s; max-width:90vw; text-align:center;';
     toast.textContent = message;
     document.body.appendChild(toast);
-    setTimeout(() => toast.style.opacity = '1', 50);
+
+    requestAnimationFrame(() => {
+        toast.style.opacity = '1';
+    });
+
     setTimeout(() => {
         toast.style.opacity = '0';
         setTimeout(() => toast.remove(), 400);
-    }, 3000);
+    }, 2000);
 }
 
 function getCategories() {
@@ -1694,7 +1697,7 @@ function openModal(product, cardImgElement) {
             if (thumb.dataset.colorIndex !== undefined) {
                 colorIndex = parseInt(thumb.dataset.colorIndex);
             }
-
+			
             const colorRadios = document.querySelectorAll('#modalColors input[type="radio"]');
             colorRadios.forEach(radio => {
                 const radioColorIndex = parseInt(radio.dataset.colorIndex);

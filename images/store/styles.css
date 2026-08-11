@@ -2341,6 +2341,35 @@ input[readonly] {
     margin-right: 6px;
 }
 
+.toast-success {
+    position: fixed;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    padding: 12px 24px;
+    border-radius: 60px;
+    font-size: .95rem;
+    z-index: 9999;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    max-width: 90vw;
+    text-align: center;
+    background: var(--bg-toast, #1e293b);
+    color: var(--text-toast, #ffffff);
+}
+
+[data-theme="light"] .toast-success {
+    background: #f0f4f8;
+    color: #1e293b;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+[data-theme="dark"] .toast-success {
+    background: #1e293b;
+    color: #ffffff;
+}
+
 /* АНИМАЦИИ */
 @keyframes neonBorder {
     0%   { border-color: #ff00cc; box-shadow: 0 0 6px #ff00cc, 0 0 12px #ff00cc, 0 0 20px rgba(255,0,204,0.3); }
