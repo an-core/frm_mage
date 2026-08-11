@@ -2852,18 +2852,20 @@ body,
     .menu-item .menu-toggle:hover {
     background: var(--bg-category-hover);
     }
-    .contact-phone { font-size: 1rem; }
+    .contact-phone { 
+		font-size: 1rem; 
+	}
     .categories-row {
         display: flex;
         flex-wrap: nowrap;
         -webkit-overflow-scrolling: touch;
         gap: 1rem;
-        padding: 0.5rem 0rem 1rem;
-		overflow:auto;
-		margin-left: 12px;
+        padding: 0.5rem 1rem 1rem;
+		overflow-x: auto;
         justify-content: flex-start;
         border-bottom: 2px solid var(--border-card);
         scroll-snap-type: x mandatory;
+		scroll-padding: 0 1rem;
     }
     .categories-row::-webkit-scrollbar { height: 4px; background: var(--bg-category); }
     .categories-row::-webkit-scrollbar-thumb { background: var(--border-card-hover); border-radius: 2px; }
@@ -2885,6 +2887,7 @@ body,
         line-height: 1.2;
         min-height: 2rem;
     }
+	
     #subcategoriesRow {
         display: flex !important;
         flex-wrap: nowrap !important;
