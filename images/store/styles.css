@@ -2360,8 +2360,8 @@ input[readonly] {
 }
 
 [data-theme="light"] .toast-success {
-    background: #f0f4f8;
-    color: #1e293b;
+    background: #757584;
+    color: #111111;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
 }
 
