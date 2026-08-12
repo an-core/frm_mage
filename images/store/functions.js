@@ -1697,7 +1697,7 @@ function openModal(product, cardImgElement) {
             if (thumb.dataset.colorIndex !== undefined) {
                 colorIndex = parseInt(thumb.dataset.colorIndex);
             }
-			
+
             const colorRadios = document.querySelectorAll('#modalColors input[type="radio"]');
             colorRadios.forEach(radio => {
                 const radioColorIndex = parseInt(radio.dataset.colorIndex);
@@ -2244,6 +2244,78 @@ async function loadAllImages() {
     renderCategories();
     renderSubcategories();
     renderCatalog();
+}
+
+function populateCatalogDropdown() {
+    const container = document.getElementById('catalogDropdown');
+    if (!container) return;
+    container.innerHTML = '';
+
+    const categories = getCategories();
+
+    categories.forEach(cat => {
+        const item = document.createElement('div');
+        item.className = 'category-item';
+        item.textContent = cat;
+        item.dataset.category = cat;
+
+        if (cat === activeCategory) {
+            item.classList.add('active-drop');
+        }
+
+        item.addEventListener('click', function(e) {
+            e.stopPropagation();
+            const category = this.dataset.category;
+            activeCategory = category;
+            activeSubcategory = 'Все';
+            renderCategories();
+            renderSubcategories();
+            renderCatalog();
+            document.querySelector('.dropdown-content').classList.remove('show');
+            document.querySelector('.catalog').scrollIntoView({
+                behavior: 'smooth',
+                block: 'start'
+            });
+        });
+
+        container.appendChild(item);
+    });
+}
+
+function initCatalogDropdown() {
+    const dropdownBtn = document.querySelector('.dropdown-btn');
+    const dropdownContent = document.querySelector('.dropdown-content');
+
+    if (dropdownBtn && dropdownContent) {
+        dropdownBtn.addEventListener('click', function(e) {
+            e.stopPropagation();
+            dropdownContent.classList.toggle('show');
+        });
+
+        document.addEventListener('click', function(e) {
+            const target = e.target.closest('.dropdown-catalog');
+            if (!target) {
+                dropdownContent.classList.remove('show');
+            }
+        });
+
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape') {
+                dropdownContent.classList.remove('show');
+            }
+        });
+    }
+
+    populateCatalogDropdown();
+
+    const originalRenderCategories = renderCategories;
+    renderCategories = function() {
+        originalRenderCategories();
+        const items = document.querySelectorAll('.dropdown-content .category-item');
+        items.forEach(item => {
+            item.classList.toggle('active-drop', item.dataset.category === activeCategory);
+        });
+    };
 }
 
 function createFireParticles() {
@@ -3135,4 +3207,5 @@ document.addEventListener('DOMContentLoaded', function() {
     initAnnouncement();
     showAnnouncement();
     await loadPartnerLogos();
+    initCatalogDropdown();
 })();

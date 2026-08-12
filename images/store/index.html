@@ -6,7 +6,7 @@
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Firemag</title>
-		<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🔥</text></svg>" sizes="any">
+        <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🔥</text></svg>" sizes="any">
         <link rel="stylesheet" type="text/css" href="https://an-core.github.io/frm_mage/images/store/styles.css?v=5">
         <script type="text/javascript" charset="UTF-8" src="https://an-core.github.io/frm_mage/images/store/functions.js?v=5" defer></script>
     </head>
@@ -64,8 +64,14 @@
 
         <div class="fire-particles" id="fireParticles"></div>
 
-        <div class="top-bar" id="topBar" style="top: 10px">
-            <div class="hamburger" id="hamburger"><span></span><span></span><span></span></div>
+        <div class="top-bar" id="topBar">
+            <div class="left-group">
+                <div class="hamburger" id="hamburger"><span></span><span></span><span></span></div>
+                <div class="dropdown-catalog">
+                    <button class="dropdown-btn">Каталог товаров ▾</button>
+                    <div class="dropdown-content" id="catalogDropdown"></div>
+                </div>
+            </div>
             <div class="cart-icon" id="cartIcon">
                 <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                     <circle cx="9" cy="21" r="1" />
@@ -575,4 +581,5 @@
 
         setTimeout(hideLoader, 5000);
     </script>
+
 </html>
