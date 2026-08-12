@@ -1093,7 +1093,7 @@ body {
     }
 }
 
-.dropdown-content .category-item {
+.category-item {
     padding: 0.6rem 1.2rem;
     cursor: pointer;
     color: var(--text-secondary);
@@ -1121,7 +1121,7 @@ body {
     font-weight: 600;
     padding-left: 1.6rem;
     box-shadow: inset 0 0 0 2px var(--bg-category-active);
-	border-radius: 6px;
+	border-radius: 10px;
 }
 
 @keyframes neonBorderNoShadow {
@@ -3440,6 +3440,7 @@ body,
     animation: neonPulse 2s ease-in-out infinite alternate;
     cursor: pointer;
     font-family: inherit;
+	margin-left: 4rem;
 }
 
 @keyframes neonPulse {
