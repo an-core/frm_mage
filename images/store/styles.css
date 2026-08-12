@@ -187,7 +187,6 @@ body {
     display: flex;
     align-items: center;
     gap: 0.8rem;
-    /* расстояние между гамбургером и кнопкой */
 }
 
 .top-bar.hidden {
@@ -3551,6 +3550,10 @@ body,
     #logoImage {
         margin-top: -60px !important;
     }
+	.category-block {
+	    margin-bottom: .8rem;
+		margin-left: -35px;
+	}
 
     .cart-actions .btn-primary,
     .cart-actions .btn-secondary {
