@@ -2350,7 +2350,14 @@
         }
 
         function initCatalogDropdown() {
-            const mobileBtn = document.querySelector('.mobile-dropdown-btn');
+            const desktopBtn = document.querySelector('.dropdown-btn');
+			if (desktopBtn) {
+    desktopBtn.addEventListener('click', function(e) {
+        e.stopPropagation();
+        dropdownContent.classList.toggle('show');
+    });
+}
+			const mobileBtn = document.querySelector('.mobile-dropdown-btn');
             const dropdownContent = document.querySelector('.dropdown-content');
 
             if (mobileBtn && dropdownContent) {
