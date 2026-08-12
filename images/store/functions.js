@@ -2273,45 +2273,49 @@
         }
 
         function populateCatalogDropdown() {
+            const container = document.getElementById('catalogDropdown');
+            if (!container) return;
+            container.innerHTML = '';
+
+            const categories = getCategories();
+
+            // Пункт "Все категории"
             const allItem = document.createElement('div');
-allItem.className = 'category-item';
-allItem.textContent = 'Все категории';
-allItem.dataset.category = ''; // пустая строка означает "все категории"
-allItem.style.color = 'var(--text-secondary)';
+            allItem.className = 'category-item';
+            allItem.textContent = 'Все категории';
+            allItem.dataset.category = '';
+            allItem.style.color = 'var(--text-secondary)';
+            if (activeCategory === null) {
+                allItem.classList.add('active-drop');
+            }
+            allItem.addEventListener('click', function(e) {
+                e.stopPropagation();
+                activeCategory = null;
+                activeSubcategory = 'Все';
+                renderCategories();
+                renderSubcategories();
+                renderCatalog();
 
-if (activeCategory === null) {
-    allItem.classList.add('active-drop');
-}
+                const dropdownContent = document.querySelector('.dropdown-content');
+                if (dropdownContent) {
+                    dropdownContent.classList.remove('show');
+                    dropdownContent.style.position = '';
+                    dropdownContent.style.top = '';
+                    dropdownContent.style.left = '';
+                    dropdownContent.style.width = '';
+                    dropdownContent.style.maxHeight = '';
+                    dropdownContent.style.overflowY = '';
+                }
+                const row = document.querySelector('.categories-row');
+                if (row) row.classList.remove('shifted');
+                document.querySelector('.catalog').scrollIntoView({
+                    behavior: 'smooth',
+                    block: 'start'
+                });
+            });
+            container.appendChild(allItem);
 
-allItem.addEventListener('click', function(e) {
-    e.stopPropagation();
-    // Сбрасываем фильтр
-    activeCategory = null;
-    activeSubcategory = 'Все';
-    renderCategories();
-    renderSubcategories();
-    renderCatalog();
-
-    // Закрываем список и сбрасываем инлайн-стили
-    const dropdownContent = document.querySelector('.dropdown-content');
-    if (dropdownContent) {
-        dropdownContent.classList.remove('show');
-        dropdownContent.style.position = '';
-        dropdownContent.style.top = '';
-        dropdownContent.style.left = '';
-        dropdownContent.style.width = '';
-        dropdownContent.style.maxHeight = '';
-        dropdownContent.style.overflowY = '';
-    }
-    const row = document.querySelector('.categories-row');
-    if (row) row.classList.remove('shifted');
-    document.querySelector('.catalog').scrollIntoView({
-        behavior: 'smooth',
-        block: 'start'
-    });
-});
-container.appendChild(allItem);
-
+            // Остальные категории
             categories.forEach(cat => {
                 const item = document.createElement('div');
                 item.className = 'category-item';
@@ -2333,7 +2337,17 @@ container.appendChild(allItem);
                     renderCategories();
                     renderSubcategories();
                     renderCatalog();
-                    document.querySelector('.dropdown-content').classList.remove('show');
+
+                    const dropdownContent = document.querySelector('.dropdown-content');
+                    if (dropdownContent) {
+                        dropdownContent.classList.remove('show');
+                        dropdownContent.style.position = '';
+                        dropdownContent.style.top = '';
+                        dropdownContent.style.left = '';
+                        dropdownContent.style.width = '';
+                        dropdownContent.style.maxHeight = '';
+                        dropdownContent.style.overflowY = '';
+                    }
                     const row = document.querySelector('.categories-row');
                     if (row) row.classList.remove('shifted');
                     document.querySelector('.catalog').scrollIntoView({
@@ -2348,14 +2362,15 @@ container.appendChild(allItem);
 
         function initCatalogDropdown() {
             const desktopBtn = document.querySelector('.dropdown-btn');
-			if (desktopBtn) {
-    desktopBtn.addEventListener('click', function(e) {
-        e.stopPropagation();
-        dropdownContent.classList.toggle('show');
-    });
-}
-			const mobileBtn = document.querySelector('.mobile-dropdown-btn');
+            const mobileBtn = document.querySelector('.mobile-dropdown-btn');
             const dropdownContent = document.querySelector('.dropdown-content');
+
+            if (desktopBtn && dropdownContent) {
+                desktopBtn.addEventListener('click', function(e) {
+                    e.stopPropagation();
+                    dropdownContent.classList.toggle('show');
+                });
+            }
 
             if (mobileBtn && dropdownContent) {
                 mobileBtn.addEventListener('click', function(e) {
@@ -2379,40 +2394,38 @@ container.appendChild(allItem);
                         dropdownContent.style.overflowY = '';
                     }
                 });
-
-                document.addEventListener('click', function(e) {
-                    if (e.target.closest('.dropdown-btn')) return;
-                    if (e.target.closest('.mobile-dropdown-btn')) return;
-                    if (e.target.closest('.dropdown-content')) return;
-                    if (e.target.closest('.category-icon-wrapper')) return;
-
-                    if (dropdownContent.classList.contains('show')) {
-                        dropdownContent.classList.remove('show');
-                        dropdownContent.style.position = '';
-                        dropdownContent.style.top = '';
-                        dropdownContent.style.left = '';
-                        dropdownContent.style.width = '';
-                        dropdownContent.style.maxHeight = '';
-                        dropdownContent.style.overflowY = '';
-
-                        const row = document.querySelector('.categories-row');
-                        if (row) row.classList.remove('shifted');
-
-                        if (activeCategory !== null) {
-                            activeCategory = null;
-                            activeSubcategory = 'Все';
-                            renderCategories();
-                            renderSubcategories();
-                            renderCatalog();
-                        }
-                    }
-                });
             }
 
-            // Заполняем список категорий
+            document.addEventListener('click', function(e) {
+                if (e.target.closest('.dropdown-btn')) return;
+                if (e.target.closest('.mobile-dropdown-btn')) return;
+                if (e.target.closest('.dropdown-content')) return;
+                if (e.target.closest('.category-icon-wrapper')) return;
+
+                if (dropdownContent && dropdownContent.classList.contains('show')) {
+                    dropdownContent.classList.remove('show');
+                    dropdownContent.style.position = '';
+                    dropdownContent.style.top = '';
+                    dropdownContent.style.left = '';
+                    dropdownContent.style.width = '';
+                    dropdownContent.style.maxHeight = '';
+                    dropdownContent.style.overflowY = '';
+
+                    const row = document.querySelector('.categories-row');
+                    if (row) row.classList.remove('shifted');
+
+                    if (activeCategory !== null) {
+                        activeCategory = null;
+                        activeSubcategory = 'Все';
+                        renderCategories();
+                        renderSubcategories();
+                        renderCatalog();
+                    }
+                }
+            });
+
             populateCatalogDropdown();
 
-            // Переопределение renderCategories для обновления активного пункта
             const originalRenderCategories = renderCategories;
             renderCategories = function() {
                 originalRenderCategories();
@@ -2428,36 +2441,6 @@ container.appendChild(allItem);
             };
         }
 
-        function createFireParticles() {
-            const container = document.getElementById('fireParticles');
-            const count = 30;
-            const colors = ['rgba(255,200,50,0.8)', 'rgba(255,150,50,0.9)', 'rgba(255,100,20,0.7)', 'rgba(255,220,80,0.8)', 'rgba(200,100,0,0.6)'];
-            const isDark = document.documentElement.getAttribute('data-theme') === 'dark';
-            for (let i = 0; i < count; i++) {
-                const particle = document.createElement('div');
-                particle.className = 'fire-particle';
-                const size = 6 + Math.random() * 10;
-                const startX = Math.random() * 100;
-                const driftX = (Math.random() - 0.5) * 40;
-                const duration = 6 + Math.random() * 10;
-                const delay = Math.random() * 8;
-                const color = colors[Math.floor(Math.random() * colors.length)];
-                particle.style.width = size + 'px';
-                particle.style.height = size + 'px';
-                particle.style.left = startX + '%';
-                particle.style.background = color;
-                particle.style.boxShadow = `0 0 ${size*2}px ${size/2}px ${color}`;
-                particle.style.setProperty('--duration', duration + 's');
-                particle.style.setProperty('--delay', delay + 's');
-                particle.style.setProperty('--drift', driftX + 'vw');
-                if (!isDark) {
-                    particle.style.animation = 'none';
-                    particle.style.opacity = '0';
-                }
-                container.appendChild(particle);
-            }
-        }
-        createFireParticles();
 
         function updateAnimState(enabled) {
             isAnimEnabled = enabled;
