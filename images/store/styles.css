@@ -98,7 +98,7 @@
     --hamburger: #15181c;
     --bg-category-hover: #171b20;
     --bg-category-active: #3b82f6;
-	--bg-category-dropdown: #234d9b;
+	--bg-category-dropdown: #212228;
     --text-category: #e2e8f0;
     --text-category-active: #ffffff;
     --bg-subcategory: #15181e;
@@ -1102,6 +1102,7 @@ body {
     font-weight: 600;
     padding-left: 1.6rem;
     box-shadow: inset 0 0 0 2px var(--bg-category-active);
+	border-radius: 6px;
 }
 
 @keyframes neonBorderNoShadow {
