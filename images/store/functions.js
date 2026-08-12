@@ -2273,47 +2273,44 @@
         }
 
         function populateCatalogDropdown() {
-            const container = document.getElementById('catalogDropdown');
-            if (!container) return;
-            container.innerHTML = '';
-
-            const categories = getCategories();
-
             const allItem = document.createElement('div');
-            allItem.className = 'category-item';
-            allItem.textContent = 'Все категории';
-            allItem.dataset.category = '';
-            allItem.style.color = 'var(--text-secondary)';
-            if (activeCategory === null) {
-                allItem.classList.add('active-drop');
-            }
-            item.addEventListener('click', function(e) {
-                e.stopPropagation();
-                const category = this.dataset.category;
-                activeCategory = category;
-                activeSubcategory = 'Все';
-                renderCategories();
-                renderSubcategories();
-                renderCatalog();
+allItem.className = 'category-item';
+allItem.textContent = 'Все категории';
+allItem.dataset.category = ''; // пустая строка означает "все категории"
+allItem.style.color = 'var(--text-secondary)';
 
-                const dropdownContent = document.querySelector('.dropdown-content');
-                if (dropdownContent) {
-                    dropdownContent.classList.remove('show');
-                    dropdownContent.style.position = '';
-                    dropdownContent.style.top = '';
-                    dropdownContent.style.left = '';
-                    dropdownContent.style.width = '';
-                    dropdownContent.style.maxHeight = '';
-                    dropdownContent.style.overflowY = '';
-                }
-                const row = document.querySelector('.categories-row');
-                if (row) row.classList.remove('shifted');
-                document.querySelector('.catalog').scrollIntoView({
-                    behavior: 'smooth',
-                    block: 'start'
-                });
-            });
-            container.appendChild(allItem);
+if (activeCategory === null) {
+    allItem.classList.add('active-drop');
+}
+
+allItem.addEventListener('click', function(e) {
+    e.stopPropagation();
+    // Сбрасываем фильтр
+    activeCategory = null;
+    activeSubcategory = 'Все';
+    renderCategories();
+    renderSubcategories();
+    renderCatalog();
+
+    // Закрываем список и сбрасываем инлайн-стили
+    const dropdownContent = document.querySelector('.dropdown-content');
+    if (dropdownContent) {
+        dropdownContent.classList.remove('show');
+        dropdownContent.style.position = '';
+        dropdownContent.style.top = '';
+        dropdownContent.style.left = '';
+        dropdownContent.style.width = '';
+        dropdownContent.style.maxHeight = '';
+        dropdownContent.style.overflowY = '';
+    }
+    const row = document.querySelector('.categories-row');
+    if (row) row.classList.remove('shifted');
+    document.querySelector('.catalog').scrollIntoView({
+        behavior: 'smooth',
+        block: 'start'
+    });
+});
+container.appendChild(allItem);
 
             categories.forEach(cat => {
                 const item = document.createElement('div');
