@@ -2279,7 +2279,6 @@
 
             const categories = getCategories();
 
-            // Пункт "Все категории"
             const allItem = document.createElement('div');
             allItem.className = 'category-item';
             allItem.textContent = 'Все категории';
@@ -2315,7 +2314,6 @@
             });
             container.appendChild(allItem);
 
-            // Остальные категории
             categories.forEach(cat => {
                 const item = document.createElement('div');
                 item.className = 'category-item';
@@ -2361,89 +2359,90 @@
         }
 
         function initCatalogDropdown() {
-            const desktopBtn = document.querySelector('.dropdown-btn');
-            const mobileBtn = document.querySelector('.mobile-dropdown-btn');
-            const dropdownContent = document.querySelector('.dropdown-content');
+    const desktopBtn = document.querySelector('.dropdown-btn');
+    const mobileBtn = document.querySelector('.mobile-dropdown-btn');
+    const dropdownContent = document.querySelector('.dropdown-content');
 
-            if (desktopBtn && dropdownContent) {
-                desktopBtn.addEventListener('click', function(e) {
-    e.stopPropagation();
-    const isOpen = dropdownContent.classList.toggle('show');
-    const row = document.querySelector('.categories-row');
-    if (row) row.classList.toggle('shifted', isOpen);
-});
+    if (desktopBtn && dropdownContent) {
+        desktopBtn.addEventListener('click', function(e) {
+            e.stopPropagation();
+            const isOpen = dropdownContent.classList.toggle('show');
+            const row = document.querySelector('.categories-row');
+            if (row) row.classList.toggle('shifted', isOpen);
+        });
+    }
+
+    if (mobileBtn && dropdownContent) {
+        mobileBtn.addEventListener('click', function(e) {
+            e.stopPropagation();
+            const isOpen = dropdownContent.classList.toggle('show');
+            const row = document.querySelector('.categories-row');
+            if (row) row.classList.toggle('shifted', isOpen);
+
+            if (isOpen) {
+                const rect = this.getBoundingClientRect();
+                dropdownContent.style.position = 'fixed';
+                dropdownContent.style.top = (rect.bottom + 4) + 'px';
+                dropdownContent.style.left = Math.max(10, rect.left) + 'px';
+                dropdownContent.style.width = Math.min(rect.width, window.innerWidth - 20) + 'px';
+                dropdownContent.style.maxHeight = '70vh';
+                dropdownContent.style.overflowY = 'auto';
+            } else {
+                dropdownContent.style.position = '';
+                dropdownContent.style.top = '';
+                dropdownContent.style.left = '';
+                dropdownContent.style.width = '';
+                dropdownContent.style.maxHeight = '';
+                dropdownContent.style.overflowY = '';
             }
+        });
+    }
 
-            if (mobileBtn && dropdownContent) {
-                mobileBtn.addEventListener('click', function(e) {
-                     e.stopPropagation();
-    const isOpen = dropdownContent.classList.toggle('show');
-    const row = document.querySelector('.categories-row');
-    if (row) row.classList.toggle('shifted', isOpen);
+    document.addEventListener('click', function(e) {
+        if (e.target.closest('.dropdown-btn')) return;
+        if (e.target.closest('.mobile-dropdown-btn')) return;
+        if (e.target.closest('.dropdown-content')) return;
+        if (e.target.closest('.category-icon-wrapper')) return;
 
-                    if (isOpen) {
-                        const rect = this.getBoundingClientRect();
-                        dropdownContent.style.position = 'fixed';
-                        dropdownContent.style.top = (rect.bottom + 4) + 'px';
-                        dropdownContent.style.left = Math.max(10, rect.left) + 'px';
-                        dropdownContent.style.width = Math.min(rect.width, window.innerWidth - 20) + 'px';
-                        dropdownContent.style.maxHeight = '70vh';
-                        dropdownContent.style.overflowY = 'auto';
-                    } else {
-                        dropdownContent.style.position = '';
-                        dropdownContent.style.top = '';
-                        dropdownContent.style.left = '';
-                        dropdownContent.style.width = '';
-                        dropdownContent.style.maxHeight = '';
-                        dropdownContent.style.overflowY = '';
-                    }
-                });
-            }
+        if (dropdownContent && dropdownContent.classList.contains('show')) {
+            dropdownContent.classList.remove('show');
+            dropdownContent.style.position = '';
+            dropdownContent.style.top = '';
+            dropdownContent.style.left = '';
+            dropdownContent.style.width = '';
+            dropdownContent.style.maxHeight = '';
+            dropdownContent.style.overflowY = '';
 
-            document.addEventListener('click', function(e) {
-                if (e.target.closest('.dropdown-btn')) return;
-                if (e.target.closest('.mobile-dropdown-btn')) return;
-                if (e.target.closest('.dropdown-content')) return;
-                if (e.target.closest('.category-icon-wrapper')) return;
-
-                if (dropdownContent && dropdownContent.classList.contains('show')) {
-                    dropdownContent.classList.remove('show');
-                    dropdownContent.style.position = '';
-                    dropdownContent.style.top = '';
-                    dropdownContent.style.left = '';
-                    dropdownContent.style.width = '';
-                    dropdownContent.style.maxHeight = '';
-                    dropdownContent.style.overflowY = '';
-
-                    const row = document.querySelector('.categories-row');
-                    if (row) row.classList.remove('shifted');
-
-                    if (activeCategory !== null) {
-                        activeCategory = null;
-                        activeSubcategory = 'Все';
-                        renderCategories();
-                        renderSubcategories();
-                        renderCatalog();
-                    }
-                }
-            });
-
-            populateCatalogDropdown();
-
-            const originalRenderCategories = renderCategories;
-            renderCategories = function() {
-                originalRenderCategories();
-                const items = document.querySelectorAll('.dropdown-content .category-item');
-                items.forEach(item => {
-                    const cat = item.dataset.category;
-                    if (cat === '') {
-                        item.classList.toggle('active-drop', activeCategory === null);
-                    } else {
-                        item.classList.toggle('active-drop', cat === activeCategory);
-                    }
-                });
-            };
+            const row = document.querySelector('.categories-row');
+            if (row) row.classList.remove('shifted');
         }
+
+        // Сбрасываем активную категорию, если она была выбрана
+        if (activeCategory !== null) {
+            activeCategory = null;
+            activeSubcategory = 'Все';
+            renderCategories();
+            renderSubcategories();
+            renderCatalog();
+        }
+    });
+
+    populateCatalogDropdown();
+
+    const originalRenderCategories = renderCategories;
+    renderCategories = function() {
+        originalRenderCategories();
+        const items = document.querySelectorAll('.dropdown-content .category-item');
+        items.forEach(item => {
+            const cat = item.dataset.category;
+            if (cat === '') {
+                item.classList.toggle('active-drop', activeCategory === null);
+            } else {
+                item.classList.toggle('active-drop', cat === activeCategory);
+            }
+        });
+    };
+}
 
 
         function updateAnimState(enabled) {
