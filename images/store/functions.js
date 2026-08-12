@@ -2272,7 +2272,6 @@
             renderCatalog();
         }
 
-        // ---------- ВЫПАДАЮЩИЙ СПИСОК КАТАЛОГА ----------
         function populateCatalogDropdown() {
             const container = document.getElementById('catalogDropdown');
             if (!container) return;
@@ -2288,15 +2287,25 @@
             if (activeCategory === null) {
                 allItem.classList.add('active-drop');
             }
-            allItem.addEventListener('click', function(e) {
+            item.addEventListener('click', function(e) {
                 e.stopPropagation();
-                activeCategory = null;
+                const category = this.dataset.category;
+                activeCategory = category;
                 activeSubcategory = 'Все';
                 renderCategories();
                 renderSubcategories();
                 renderCatalog();
-                document.querySelector('.dropdown-content').classList.remove('show');
-                // 👇 Убираем сдвиг иконок
+
+                const dropdownContent = document.querySelector('.dropdown-content');
+                if (dropdownContent) {
+                    dropdownContent.classList.remove('show');
+                    dropdownContent.style.position = '';
+                    dropdownContent.style.top = '';
+                    dropdownContent.style.left = '';
+                    dropdownContent.style.width = '';
+                    dropdownContent.style.maxHeight = '';
+                    dropdownContent.style.overflowY = '';
+                }
                 const row = document.querySelector('.categories-row');
                 if (row) row.classList.remove('shifted');
                 document.querySelector('.catalog').scrollIntoView({
@@ -2328,7 +2337,6 @@
                     renderSubcategories();
                     renderCatalog();
                     document.querySelector('.dropdown-content').classList.remove('show');
-                    // 👇 Убираем сдвиг иконок
                     const row = document.querySelector('.categories-row');
                     if (row) row.classList.remove('shifted');
                     document.querySelector('.catalog').scrollIntoView({
@@ -2342,55 +2350,62 @@
         }
 
         function initCatalogDropdown() {
-            const dropdownBtn = document.querySelector('.dropdown-btn');
+            const mobileBtn = document.querySelector('.mobile-dropdown-btn');
             const dropdownContent = document.querySelector('.dropdown-content');
 
-            if (dropdownBtn && dropdownContent) {
-                dropdownBtn.addEventListener('click', function(e) {
+            if (mobileBtn && dropdownContent) {
+                mobileBtn.addEventListener('click', function(e) {
                     e.stopPropagation();
                     const isOpen = dropdownContent.classList.toggle('show');
-                    const categoriesRow = document.querySelector('.categories-row');
-                    if (categoriesRow) {
-                        categoriesRow.classList.toggle('shifted', isOpen);
+
+                    if (isOpen) {
+                        const rect = this.getBoundingClientRect();
+                        dropdownContent.style.position = 'fixed';
+                        dropdownContent.style.top = (rect.bottom + 4) + 'px';
+                        dropdownContent.style.left = Math.max(10, rect.left) + 'px';
+                        dropdownContent.style.width = Math.min(rect.width, window.innerWidth - 20) + 'px';
+                        dropdownContent.style.maxHeight = '70vh';
+                        dropdownContent.style.overflowY = 'auto';
+                    } else {
+                        dropdownContent.style.position = '';
+                        dropdownContent.style.top = '';
+                        dropdownContent.style.left = '';
+                        dropdownContent.style.width = '';
+                        dropdownContent.style.maxHeight = '';
+                        dropdownContent.style.overflowY = '';
+                    }
+                });
+
+                document.addEventListener('click', function(e) {
+                    if (e.target.closest('.dropdown-btn')) return;
+                    if (e.target.closest('.mobile-dropdown-btn')) return;
+                    if (e.target.closest('.dropdown-content')) return;
+                    if (e.target.closest('.category-icon-wrapper')) return;
+
+                    if (dropdownContent.classList.contains('show')) {
+                        dropdownContent.classList.remove('show');
+                        dropdownContent.style.position = '';
+                        dropdownContent.style.top = '';
+                        dropdownContent.style.left = '';
+                        dropdownContent.style.width = '';
+                        dropdownContent.style.maxHeight = '';
+                        dropdownContent.style.overflowY = '';
+
+                        const row = document.querySelector('.categories-row');
+                        if (row) row.classList.remove('shifted');
+
+                        if (activeCategory !== null) {
+                            activeCategory = null;
+                            activeSubcategory = 'Все';
+                            renderCategories();
+                            renderSubcategories();
+                            renderCatalog();
+                        }
                     }
                 });
             }
 
-            // Закрытие при клике вне
-            document.addEventListener('click', function(e) {
-                if (e.target.closest('.dropdown-btn')) return;
-                if (e.target.closest('.dropdown-content')) return;
-                if (e.target.closest('.category-icon-wrapper')) return;
-
-                const content = document.querySelector('.dropdown-content');
-                if (content) {
-                    content.classList.remove('show');
-                    const row = document.querySelector('.categories-row');
-                    if (row) row.classList.remove('shifted');
-                }
-
-                // Сброс категории
-                if (activeCategory !== null) {
-                    activeCategory = null;
-                    activeSubcategory = 'Все';
-                    renderCategories();
-                    renderSubcategories();
-                    renderCatalog();
-                }
-            });
-
-            // Закрытие по Escape
-            document.addEventListener('keydown', function(e) {
-                if (e.key === 'Escape') {
-                    const content = document.querySelector('.dropdown-content');
-                    if (content) {
-                        content.classList.remove('show');
-                        const row = document.querySelector('.categories-row');
-                        if (row) row.classList.remove('shifted');
-                    }
-                }
-            });
-
+            // Заполняем список категорий
             populateCatalogDropdown();
 
             // Переопределение renderCategories для обновления активного пункта
@@ -2532,26 +2547,6 @@
         contactPhone.addEventListener('click', function(e) {
             e.stopPropagation();
             contactsActions.classList.toggle('visible');
-        });
-        document.addEventListener('click', function(e) {
-            if (e.target.closest('.dropdown-btn')) return;
-
-            if (e.target.closest('.dropdown-content')) return;
-
-            if (e.target.closest('.category-icon-wrapper')) return;
-
-            const dropdownContent = document.querySelector('.dropdown-content');
-            if (dropdownContent) {
-                dropdownContent.classList.remove('show');
-            }
-
-            if (activeCategory !== null) {
-                activeCategory = null;
-                activeSubcategory = 'Все';
-                renderCategories();
-                renderSubcategories();
-                renderCatalog();
-            }
         });
 
         const partnersHeader = document.getElementById('partnersHeader');
