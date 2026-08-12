@@ -2367,15 +2367,19 @@
 
             if (desktopBtn && dropdownContent) {
                 desktopBtn.addEventListener('click', function(e) {
-                    e.stopPropagation();
-                    dropdownContent.classList.toggle('show');
-                });
+    e.stopPropagation();
+    const isOpen = dropdownContent.classList.toggle('show');
+    const row = document.querySelector('.categories-row');
+    if (row) row.classList.toggle('shifted', isOpen);
+});
             }
 
             if (mobileBtn && dropdownContent) {
                 mobileBtn.addEventListener('click', function(e) {
-                    e.stopPropagation();
-                    const isOpen = dropdownContent.classList.toggle('show');
+                     e.stopPropagation();
+    const isOpen = dropdownContent.classList.toggle('show');
+    const row = document.querySelector('.categories-row');
+    if (row) row.classList.toggle('shifted', isOpen);
 
                     if (isOpen) {
                         const rect = this.getBoundingClientRect();
