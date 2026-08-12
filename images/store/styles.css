@@ -3553,6 +3553,7 @@ body,
 	.category-block {
 	    margin-bottom: .8rem;
 		margin-left: -35px;
+		margin-right: 35px;
 	}
 
     .cart-actions .btn-primary,
