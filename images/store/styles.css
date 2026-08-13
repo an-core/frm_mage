@@ -4142,7 +4142,7 @@ body.dropdown-open::before {
     }
 	
 	body.categories-hidden .categories-wrapper {
-        display: none;
+        display: none !important;
     }
 
     .categories-row::-webkit-scrollbar {
