@@ -1452,29 +1452,37 @@ function renderCatalog() {
 function addScrollHelpers() {
     const wrapper = document.querySelector('.categories-wrapper');
     if (!wrapper) return;
-
     const oldFade = wrapper.querySelector('.categories-fade');
     if (oldFade) oldFade.remove();
-    const oldBtn = wrapper.querySelector('.categories-scroll-btn');
-    if (oldBtn) oldBtn.remove();
-
     const fade = document.createElement('div');
     fade.className = 'categories-fade';
     wrapper.appendChild(fade);
+}
 
-    const btn = document.createElement('button');
-    btn.className = 'categories-scroll-btn';
-    btn.innerHTML = '›';
-    btn.setAttribute('aria-label', 'Прокрутить вправо');
-    wrapper.appendChild(btn);
-
-    btn.addEventListener('click', function(e) {
-        e.stopPropagation();
-        wrapper.scrollBy({
-            left: 300,
-            behavior: 'smooth'
-        });
+function scheduleOverflowCheck() {
+    requestAnimationFrame(() => {
+        setTimeout(checkOverflow, 50);
     });
+}
+
+function observeCategories() {
+    const row = document.getElementById('categoriesRow');
+    if (!row) return;
+    const observer = new MutationObserver(() => {
+        scheduleOverflowCheck();
+    });
+    observer.observe(row, { childList: true, subtree: true });
+    window.addEventListener('resize', scheduleOverflowCheck);
+    scheduleOverflowCheck();
+}
+
+function checkOverflow() {
+    const wrapper = document.querySelector('.categories-wrapper');
+    if (!wrapper) return;
+    const row = wrapper.querySelector('.categories-row');
+    if (!row) return;
+    const hasOverflow = row.scrollWidth > wrapper.clientWidth;
+    wrapper.classList.toggle('has-overflow', hasOverflow);
 }
 
 function checkOverflow() {
@@ -3226,17 +3234,15 @@ if (pickupModal) {
 
 function hideDeliveryPickupInMenu() {
     const isDesktop = window.innerWidth >= 768;
-    const menuItems = document.querySelectorAll('.slide-menu-body .menu-item, .slide-menu-body [class*="menu-item"]');
-    menuItems.forEach(el => {
-        const text = el.textContent.trim();
-        if (text === 'Доставка' || text === 'Самовывоз') {
-            el.style.display = isDesktop ? 'none' : '';
+    const items = document.querySelectorAll('.slide-menu-body .delivery-item, .slide-menu-body .pickup-item');
+    items.forEach(el => {
+        if (isDesktop) {
+            el.style.setProperty('display', 'none', 'important');
+        } else {
+            el.style.display = '';
         }
     });
 }
-
-document.addEventListener('DOMContentLoaded', hideDeliveryPickupInMenu);
-window.addEventListener('resize', hideDeliveryPickupInMenu);
 
 function showPickupInfo() {
     const howToBuyModal = document.getElementById('howToBuyModal');
@@ -3426,26 +3432,6 @@ document.addEventListener('DOMContentLoaded', function() {
     addDeliveryPickupButtons();
 });
 
-/*
-function addScrollButton() {
-    const wrapper = document.querySelector('.categories-wrapper');
-    if (!wrapper) return;
-
-    const oldBtn = wrapper.querySelector('.categories-scroll-btn');
-    if (oldBtn) oldBtn.remove();
-
-    const btn = document.createElement('button');
-    btn.className = 'categories-scroll-btn';
-    btn.innerHTML = '›';
-    btn.setAttribute('aria-label', 'Прокрутить вправо');
-    wrapper.appendChild(btn);
-
-    btn.addEventListener('click', function(e) {
-        e.stopPropagation();
-        wrapper.scrollBy({ left: 300, behavior: 'smooth' });
-    });
-} */
-
 function checkOverflow() {
     const wrapper = document.querySelector('.categories-wrapper');
     if (!wrapper) return;
@@ -3474,9 +3460,11 @@ document.addEventListener('DOMContentLoaded', function() {
     await loadPartnerLogos();
     initCatalogDropdown();
     updateCategoriesVisibility();
+    
     addScrollHelpers();
-    checkOverflow();
-    addDeliveryPickupButtons();
+    observeCategories();
+    hideDeliveryPickupInMenu();
+    
     window.addEventListener('resize', updateCategoriesVisibility);
-    window.addEventListener('resize', checkOverflow);
+    window.addEventListener('resize', hideDeliveryPickupInMenu);
 })();

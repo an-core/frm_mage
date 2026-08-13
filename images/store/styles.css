@@ -760,9 +760,7 @@ body {
     position: relative;
     overflow-x: auto;
     scroll-behavior: smooth;
-    overflow-x: auto;
     -webkit-overflow-scrolling: touch;
-    scroll-behavior: smooth;
     width: 100%;
     cursor: grab;
     margin-left: 2.5rem;
