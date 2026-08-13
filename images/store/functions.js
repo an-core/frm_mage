@@ -1,19 +1,3 @@
-function hideLoader() {
-    const loader = document.getElementById('appLoader');
-    if (loader) {
-        loader.style.opacity = '0';
-        loader.style.visibility = 'hidden';
-        setTimeout(() => {
-            if (loader.parentNode) loader.remove();
-        }, 700);
-    }
-}
-
-window.addEventListener('load', function() {
-    setTimeout(hideLoader, 500);
-});
-
-setTimeout(hideLoader, 5000);
 const JSON_CACHE_KEY = 'firemag_json_info';
 const LOGO_FILE = 'images/store/icons/logo.png';
 const ANNOUNCEMENT_TEXT = 'ВНИМАНИЕ! НОВЫЕ ПОСТУПЛЕНИЯ НА СКЛАД: Булавы от производителя Henrys - Delphin Long, Delphin Short, Loop, Loop Grip, кольца Standard, а также мячи, бинбеги и чехлы от отечественного производителя!';
@@ -2471,6 +2455,36 @@ function initCatalogDropdown() {
     };
 }
 
+function createFireParticles() {
+    const container = document.getElementById('fireParticles');
+    const count = 30;
+    const colors = ['rgba(255,200,50,0.8)', 'rgba(255,150,50,0.9)', 'rgba(255,100,20,0.7)', 'rgba(255,220,80,0.8)', 'rgba(200,100,0,0.6)'];
+    const isDark = document.documentElement.getAttribute('data-theme') === 'dark';
+    for (let i = 0; i < count; i++) {
+        const particle = document.createElement('div');
+        particle.className = 'fire-particle';
+        const size = 6 + Math.random() * 10;
+        const startX = Math.random() * 100;
+        const driftX = (Math.random() - 0.5) * 40;
+        const duration = 6 + Math.random() * 10;
+        const delay = Math.random() * 8;
+        const color = colors[Math.floor(Math.random() * colors.length)];
+        particle.style.width = size + 'px';
+        particle.style.height = size + 'px';
+        particle.style.left = startX + '%';
+        particle.style.background = color;
+        particle.style.boxShadow = `0 0 ${size*2}px ${size/2}px ${color}`;
+        particle.style.setProperty('--duration', duration + 's');
+        particle.style.setProperty('--delay', delay + 's');
+        particle.style.setProperty('--drift', driftX + 'vw');
+        if (!isDark) {
+            particle.style.animation = 'none';
+            particle.style.opacity = '0';
+        }
+        container.appendChild(particle);
+    }
+}
+
 function updateAnimState(enabled) {
     isAnimEnabled = enabled;
     localStorage.setItem('firemag_anim', enabled ? 'on' : 'off');
@@ -3322,6 +3336,7 @@ document.addEventListener('DOMContentLoaded', function() {
     await loadProducts();
     await loadAllImages();
     initAnnouncement();
+	createFireParticles();
     showAnnouncement();
     await loadPartnerLogos();
     initCatalogDropdown();
