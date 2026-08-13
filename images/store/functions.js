@@ -2436,6 +2436,7 @@ function initCatalogDropdown() {
         if (e.target.closest('.category-icon-wrapper')) return;
         if (e.target.closest('.category-link')) return;
         if (e.target.closest('.subcategory-link')) return;
+		if (e.target.closest('.subcategory-btn')) return;
 
         if (dropdownContent && dropdownContent.classList.contains('show')) {
             dropdownContent.classList.remove('show');
