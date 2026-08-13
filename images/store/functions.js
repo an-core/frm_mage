@@ -2402,19 +2402,9 @@ function initCatalogDropdown() {
 
     if (dropdownContent && dropdownContent.classList.contains('show')) {
         dropdownContent.classList.remove('show');
-        dropdownContent.style.position = '';
-        dropdownContent.style.top = '';
-        dropdownContent.style.left = '';
-        dropdownContent.style.transform = '';
-        dropdownContent.style.width = '';
-        dropdownContent.style.maxHeight = '';
-        dropdownContent.style.overflowY = '';
-        dropdownContent.style.zIndex = '';
-        dropdownContent.style.background = '';
-
         const row = document.querySelector('.categories-row');
         if (row) row.classList.remove('shifted');
-        document.body.classList.remove('dropdown-open');
+        document.body.classList.remove('dropdown-open'); // важно!
     }
 
     if (activeCategory !== null) {

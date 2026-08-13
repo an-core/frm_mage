@@ -3699,7 +3699,7 @@ body.dropdown-open::before {
 }
 
 @media (max-width: 600px) {
-    body {
+     body {
         overflow-x: hidden;
     }
 
@@ -3708,22 +3708,25 @@ body.dropdown-open::before {
         flex-direction: column;
         gap: 4px;
         padding: 6px 10px;
+        background: var(--bg-body);
     }
 
     .top-row {
         display: flex;
         align-items: center;
-        justify-content: flex-start;
+        justify-content: center;
         width: 100%;
-        gap: 0.5rem;
+        position: relative;
     }
 
     .mobile-logo {
         display: flex;
         align-items: center;
-        flex: 0 0 auto;
+        position: absolute;
+        left: 0;
+        top: 50%;
+        transform: translateY(-50%);
     }
-
     .mobile-logo img {
         max-height: 30px;
         width: auto;
@@ -3749,40 +3752,37 @@ body.dropdown-open::before {
         align-items: center;
         width: 100%;
     }
-
     .left-group {
         flex: 0 0 auto;
     }
-
     .cart-icon {
         flex: 0 0 auto;
     }
-
     .dropdown-btn {
         display: none;
     }
-
     .dropdown-catalog {
         position: static;
     }
-	
+
     .logo-container { display: none; }
     .header-left h1 { display: none; }
 
     .dropdown-content.show {
         display: block !important;
-        position: fixed;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%);
-        width: calc(100% - 20px);
-        max-height: 70vh;
-        overflow-y: auto;
-        z-index: 1000;
-        background: var(--bg-modal);
-        border-radius: 12px;
-        box-shadow: 0 8px 30px rgba(0,0,0,0.3);
-        margin-left: 0;
+        position: fixed !important;
+        top: 50% !important;
+        left: 50% !important;
+        transform: translate(-50%, -50%) !important;
+        width: calc(100% - 20px) !important;
+        max-height: 70vh !important;
+        overflow-y: auto !important;
+        z-index: 1000 !important;
+        background: var(--bg-modal) !important;
+        border-radius: 12px !important;
+        box-shadow: 0 8px 30px rgba(0,0,0,0.3) !important;
+        padding: 0.5rem 0 !important;
+        margin: 0 !important;
     }
 
     body.dropdown-open::before {
