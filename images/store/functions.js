@@ -1213,6 +1213,7 @@ function renderCategories() {
 
         row.appendChild(wrapper);
     });
+	checkOverflow();
 }
 
 function renderSubcategories() {
@@ -3329,6 +3330,44 @@ document.addEventListener('DOMContentLoaded', function() {
     window.loadPickupPoints = loadPickupPoints;
 
     loadCitiesDatalist();
+});
+
+function addScrollButton() {
+    const wrapper = document.querySelector('.categories-wrapper');
+    if (!wrapper) return;
+
+    const oldBtn = wrapper.querySelector('.categories-scroll-btn');
+    if (oldBtn) oldBtn.remove();
+
+    const btn = document.createElement('button');
+    btn.className = 'categories-scroll-btn';
+    btn.innerHTML = '›';
+    btn.setAttribute('aria-label', 'Прокрутить вправо');
+    wrapper.appendChild(btn);
+
+    btn.addEventListener('click', function(e) {
+        e.stopPropagation();
+        wrapper.scrollBy({ left: 300, behavior: 'smooth' });
+    });
+}
+
+function checkOverflow() {
+    const wrapper = document.querySelector('.categories-wrapper');
+    if (!wrapper) return;
+    const row = wrapper.querySelector('.categories-row');
+    if (!row) return;
+
+    const hasOverflow = row.scrollWidth > wrapper.clientWidth;
+    wrapper.classList.toggle('has-overflow', hasOverflow);
+}
+
+document.addEventListener('DOMContentLoaded', function() {
+    setTimeout(() => {
+        addScrollButton();
+        checkOverflow();
+    }, 200);
+
+    window.addEventListener('resize', checkOverflow);
 });
 
 (async function init() {
