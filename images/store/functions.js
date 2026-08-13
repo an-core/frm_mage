@@ -2324,28 +2324,31 @@ function populateCatalogDropdown() {
         allItem.classList.add('active-drop');
     }
     allItem.addEventListener('click', function(e) {
-    e.stopPropagation();
-    activeCategory = null;
-    activeSubcategory = 'Все';
-    renderCategories();
-    renderSubcategories();
-    renderCatalog();
+        e.stopPropagation();
+        activeCategory = null;
+        activeSubcategory = 'Все';
+        renderCategories();
+        renderSubcategories();
+        renderCatalog();
 
-    const dropdownContent = document.querySelector('.dropdown-content');
-    if (dropdownContent) {
-        dropdownContent.classList.remove('show');
-        dropdownContent.style.position = '';
-        dropdownContent.style.top = '';
-        dropdownContent.style.left = '';
-        dropdownContent.style.width = '';
-        dropdownContent.style.maxHeight = '';
-        dropdownContent.style.overflowY = '';
-    }
-    const row = document.querySelector('.categories-row');
-    if (row) row.classList.remove('shifted');
-    document.body.classList.remove('dropdown-open');
-    document.querySelector('.catalog').scrollIntoView({ behavior: 'smooth', block: 'start' });
-});
+        const dropdownContent = document.querySelector('.dropdown-content');
+        if (dropdownContent) {
+            dropdownContent.classList.remove('show');
+            dropdownContent.style.position = '';
+            dropdownContent.style.top = '';
+            dropdownContent.style.left = '';
+            dropdownContent.style.width = '';
+            dropdownContent.style.maxHeight = '';
+            dropdownContent.style.overflowY = '';
+        }
+        const row = document.querySelector('.categories-row');
+        if (row) row.classList.remove('shifted');
+        document.body.classList.remove('dropdown-open');
+        document.querySelector('.catalog').scrollIntoView({
+            behavior: 'smooth',
+            block: 'start'
+        });
+    });
     container.appendChild(allItem);
 
     categories.forEach(cat => {
@@ -2383,7 +2386,7 @@ function populateCatalogDropdown() {
             const row = document.querySelector('.categories-row');
             if (row) row.classList.remove('shifted');
             document.body.classList.remove('dropdown-open');
-			document.querySelector('.catalog').scrollIntoView({
+            document.querySelector('.catalog').scrollIntoView({
                 behavior: 'smooth',
                 block: 'start'
             });
@@ -2411,44 +2414,44 @@ function initCatalogDropdown() {
 
     if (mobileBtn && dropdownContent) {
         mobileBtn.addEventListener('click', function(e) {
-        e.stopPropagation();
-        requestAnimationFrame(() => {
-            const isOpen = dropdownContent.classList.toggle('show');
-            const row = document.querySelector('.categories-row');
-            if (row) row.classList.toggle('shifted', isOpen);
+            e.stopPropagation();
+            requestAnimationFrame(() => {
+                const isOpen = dropdownContent.classList.toggle('show');
+                const row = document.querySelector('.categories-row');
+                if (row) row.classList.toggle('shifted', isOpen);
 
-            if (isOpen) {
-                document.body.classList.add('dropdown-open');
-            } else {
-                document.body.classList.remove('dropdown-open');
+                if (isOpen) {
+                    document.body.classList.add('dropdown-open');
+                } else {
+                    document.body.classList.remove('dropdown-open');
                 }
             });
         });
     }
 
-   document.addEventListener('click', function(e) {
-    if (e.target.closest('.dropdown-btn')) return;
-    if (e.target.closest('.mobile-dropdown-btn')) return;
-    if (e.target.closest('.dropdown-content')) return;
-    if (e.target.closest('.category-icon-wrapper')) return;
-    if (e.target.closest('.category-link')) return;
-    if (e.target.closest('.subcategory-link')) return;
+    document.addEventListener('click', function(e) {
+        if (e.target.closest('.dropdown-btn')) return;
+        if (e.target.closest('.mobile-dropdown-btn')) return;
+        if (e.target.closest('.dropdown-content')) return;
+        if (e.target.closest('.category-icon-wrapper')) return;
+        if (e.target.closest('.category-link')) return;
+        if (e.target.closest('.subcategory-link')) return;
 
-    if (dropdownContent && dropdownContent.classList.contains('show')) {
-        dropdownContent.classList.remove('show');
-        const row = document.querySelector('.categories-row');
-        if (row) row.classList.remove('shifted');
-        document.body.classList.remove('dropdown-open');
-    }
+        if (dropdownContent && dropdownContent.classList.contains('show')) {
+            dropdownContent.classList.remove('show');
+            const row = document.querySelector('.categories-row');
+            if (row) row.classList.remove('shifted');
+            document.body.classList.remove('dropdown-open');
+        }
 
-    if (activeCategory !== null) {
-        activeCategory = null;
-        activeSubcategory = 'Все';
-        renderCategories();
-        renderSubcategories();
-        renderCatalog();
-    }
-});
+        if (activeCategory !== null) {
+            activeCategory = null;
+            activeSubcategory = 'Все';
+            renderCategories();
+            renderSubcategories();
+            renderCatalog();
+        }
+    });
 
     populateCatalogDropdown();
 
@@ -3321,6 +3324,6 @@ document.addEventListener('DOMContentLoaded', function() {
     showAnnouncement();
     await loadPartnerLogos();
     initCatalogDropdown();
-	updateCategoriesVisibility();
-	window.addEventListener('resize', updateCategoriesVisibility);
+    updateCategoriesVisibility();
+    window.addEventListener('resize', updateCategoriesVisibility);
 })();
