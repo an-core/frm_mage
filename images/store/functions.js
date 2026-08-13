@@ -2221,6 +2221,7 @@ async function loadAllImages() {
 
     const logoImg = document.getElementById('logoImage');
     const menuLogo = document.getElementById('menuLogo');
+    const mobileLogo = document.getElementById('mobileLogo');
     let logoUrl = null;
 
     if (LOGO_FILE) {
@@ -2234,11 +2235,14 @@ async function loadAllImages() {
             menuLogo.src = logoUrl;
             menuLogo.style.display = 'block';
         }
+        if (mobileLogo) {
+            mobileLogo.src = logoUrl;
+            mobileLogo.style.display = 'block';
+        }
     } else {
         logoImg.style.display = 'none';
-        if (menuLogo) {
-            menuLogo.style.display = 'none';
-        }
+        if (menuLogo) menuLogo.style.display = 'none';
+        if (mobileLogo) mobileLogo.style.display = 'none';
     }
 
     for (const product of products) {
