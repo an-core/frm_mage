@@ -2727,6 +2727,28 @@ input[readonly] {
     gap: 10px;
 }
 
+.desktop-delivery-btn,
+.desktop-pickup-btn {
+    background: var(--bg-card);
+    border: 1px solid var(--border-card);
+    border-radius: 60px;
+    padding: 0.5rem 1.2rem;
+    font-size: 0.95rem;
+    font-weight: 500;
+    color: var(--text-primary);
+    cursor: pointer;
+    transition: background 0.2s, border-color 0.2s;
+    white-space: nowrap;
+    animation: none !important;
+    box-shadow: none !important;
+}
+
+.desktop-delivery-btn:hover,
+.desktop-pickup-btn:hover {
+    background: var(--bg-category-hover);
+    border-color: var(--border-card-hover);
+}
+
 .checkout-actions .btn-secondary,
 .checkout-actions .btn-primary {
     flex: 0 1 auto !important;
@@ -3750,6 +3772,11 @@ body.dropdown-open::before {
     }
 
     .modal-fullscreen-btn {
+        display: none !important;
+    }
+	
+	.desktop-delivery-btn,
+    .desktop-pickup-btn {
         display: none !important;
     }
 }

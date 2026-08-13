@@ -2500,6 +2500,38 @@ function initCatalogDropdown() {
     };
 }
 
+function addDeliveryPickupButtons() {
+    const catalogContainer = document.querySelector('.dropdown-catalog');
+    if (!catalogContainer) return;
+
+    if (catalogContainer.querySelector('.desktop-delivery-btn')) return;
+
+    const deliveryBtn = document.createElement('button');
+    deliveryBtn.className = 'desktop-delivery-btn';
+    deliveryBtn.textContent = 'Доставка';
+    deliveryBtn.addEventListener('click', function(e) {
+        e.stopPropagation();
+        openDelivery();
+    });
+
+    const pickupBtn = document.createElement('button');
+    pickupBtn.className = 'desktop-pickup-btn';
+    pickupBtn.textContent = 'Самовывоз';
+    pickupBtn.addEventListener('click', function(e) {
+        e.stopPropagation();
+        openPickup();
+    });
+
+    const dropdownBtn = catalogContainer.querySelector('.dropdown-btn');
+    if (dropdownBtn) {
+        dropdownBtn.after(deliveryBtn);
+        deliveryBtn.after(pickupBtn);
+    } else {
+        catalogContainer.appendChild(deliveryBtn);
+        catalogContainer.appendChild(pickupBtn);
+    }
+}
+
 function createFireParticles() {
     const container = document.getElementById('fireParticles');
     const count = 30;
@@ -3374,6 +3406,7 @@ document.addEventListener('DOMContentLoaded', function() {
     window.loadPickupPoints = loadPickupPoints;
 
     loadCitiesDatalist();
+	addDeliveryPickupButtons();
 });
 
 function addScrollButton() {
