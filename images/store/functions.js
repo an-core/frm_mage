@@ -3221,6 +3221,20 @@ if (pickupModal) {
     });
 }
 
+function hideDeliveryPickupInMenu() {
+    const isDesktop = window.innerWidth >= 768;
+    const menuItems = document.querySelectorAll('.slide-menu-body .menu-item, .slide-menu-body [class*="menu-item"]');
+    menuItems.forEach(el => {
+        const text = el.textContent.trim();
+        if (text === 'Доставка' || text === 'Самовывоз') {
+            el.style.display = isDesktop ? 'none' : '';
+        }
+    });
+}
+
+document.addEventListener('DOMContentLoaded', hideDeliveryPickupInMenu);
+window.addEventListener('resize', hideDeliveryPickupInMenu);
+
 function showPickupInfo() {
     const howToBuyModal = document.getElementById('howToBuyModal');
     if (howToBuyModal) {
@@ -3459,4 +3473,6 @@ document.addEventListener('DOMContentLoaded', function() {
     initCatalogDropdown();
     updateCategoriesVisibility();
     window.addEventListener('resize', updateCategoriesVisibility);
+	hideDeliveryPickupInMenu();
+    window.addEventListener('resize', hideDeliveryPickupInMenu);
 })();

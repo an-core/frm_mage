@@ -823,7 +823,7 @@ body {
     font-size: 1.8rem;
     line-height: 1;
     cursor: pointer;
-    display: none;
+    display: none !important;
     align-items: center;
     justify-content: center;
     box-shadow: 0 4px 12px rgba(0,0,0,0.15);
