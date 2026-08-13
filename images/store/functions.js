@@ -2388,6 +2388,7 @@ function initCatalogDropdown() {
 
                 if (isOpen) {
                     document.body.classList.add('dropdown-open');
+                    dropdownContent.style.zIndex = '1000';
                     const rect = this.getBoundingClientRect();
                     dropdownContent.style.top = (rect.bottom + 4) + 'px';
                     dropdownContent.style.position = 'fixed';
@@ -2398,6 +2399,7 @@ function initCatalogDropdown() {
                     dropdownContent.style.overflowY = 'auto';
                 } else {
                     document.body.classList.remove('dropdown-open');
+                    dropdownContent.style.zIndex = '';
                     dropdownContent.style.position = '';
                     dropdownContent.style.top = '';
                     dropdownContent.style.left = '';
