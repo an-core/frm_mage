@@ -2292,30 +2292,28 @@ function populateCatalogDropdown() {
         allItem.classList.add('active-drop');
     }
     allItem.addEventListener('click', function(e) {
-        e.stopPropagation();
-        activeCategory = null;
-        activeSubcategory = 'Все';
-        renderCategories();
-        renderSubcategories();
-        renderCatalog();
+    e.stopPropagation();
+    activeCategory = null;
+    activeSubcategory = 'Все';
+    renderCategories();
+    renderSubcategories();
+    renderCatalog();
 
-        const dropdownContent = document.querySelector('.dropdown-content');
-        if (dropdownContent) {
-            dropdownContent.classList.remove('show');
-            dropdownContent.style.position = '';
-            dropdownContent.style.top = '';
-            dropdownContent.style.left = '';
-            dropdownContent.style.width = '';
-            dropdownContent.style.maxHeight = '';
-            dropdownContent.style.overflowY = '';
-        }
-        const row = document.querySelector('.categories-row');
-        if (row) row.classList.remove('shifted');
-        document.querySelector('.catalog').scrollIntoView({
-            behavior: 'smooth',
-            block: 'start'
-        });
-    });
+    const dropdownContent = document.querySelector('.dropdown-content');
+    if (dropdownContent) {
+        dropdownContent.classList.remove('show');
+        dropdownContent.style.position = '';
+        dropdownContent.style.top = '';
+        dropdownContent.style.left = '';
+        dropdownContent.style.width = '';
+        dropdownContent.style.maxHeight = '';
+        dropdownContent.style.overflowY = '';
+    }
+    const row = document.querySelector('.categories-row');
+    if (row) row.classList.remove('shifted');
+    document.body.classList.remove('dropdown-open');
+    document.querySelector('.catalog').scrollIntoView({ behavior: 'smooth', block: 'start' });
+});
     container.appendChild(allItem);
 
     categories.forEach(cat => {
@@ -2352,7 +2350,8 @@ function populateCatalogDropdown() {
             }
             const row = document.querySelector('.categories-row');
             if (row) row.classList.remove('shifted');
-            document.querySelector('.catalog').scrollIntoView({
+            document.body.classList.remove('dropdown-open');
+			document.querySelector('.catalog').scrollIntoView({
                 behavior: 'smooth',
                 block: 'start'
             });
@@ -2403,6 +2402,16 @@ function initCatalogDropdown() {
 
     if (dropdownContent && dropdownContent.classList.contains('show')) {
         dropdownContent.classList.remove('show');
+        dropdownContent.style.position = '';
+        dropdownContent.style.top = '';
+        dropdownContent.style.left = '';
+        dropdownContent.style.transform = '';
+        dropdownContent.style.width = '';
+        dropdownContent.style.maxHeight = '';
+        dropdownContent.style.overflowY = '';
+        dropdownContent.style.zIndex = '';
+        dropdownContent.style.background = '';
+
         const row = document.querySelector('.categories-row');
         if (row) row.classList.remove('shifted');
         document.body.classList.remove('dropdown-open');
