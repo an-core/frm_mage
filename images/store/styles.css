@@ -3649,7 +3649,15 @@ body,
     }
 
     .mobile-logo {
-        display: none;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex: 1;
+    }
+
+    .mobile-logo img {
+        max-height: 30px;
+        width: auto;
     }
 
     .logo-container {
@@ -3679,17 +3687,18 @@ body,
 
     .category-block {
         margin-bottom: .8rem;
-        margin-left: -35px;
-        margin-right: 35px;
+        margin-left: -50px;
+        margin-right: 32px;
     }
 
     .dropdown-content {
         position: fixed;
-        left: 0;
-        width: 100%;
+        left: 50% !important;
+        transform: translateX(-50%) !important;
+        width: calc(100% - 20px) !important;
         max-height: 70vh;
         overflow-y: auto;
-        margin-left: 0;
+        margin-left: 0 !important;
     }
 
     .dropdown-content.show {
