@@ -202,6 +202,7 @@ body {
 .top-bar>* {
     pointer-events: auto;
     margin-top: 10px;
+	margin-bottom: 10px;
 }
 
 .hamburger {
@@ -761,7 +762,7 @@ body {
     scroll-behavior: smooth;
     width: 100%;
     cursor: grab;
-    margin-left: 2rem;
+    margin-left: 2.5rem;
 }
 
 .categories-wrapper:active {
