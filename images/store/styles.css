@@ -3678,12 +3678,28 @@ body.dropdown-open::before {
     }
 }
 
+/* === ВЕРХНЯЯ ПАНЕЛЬ === */
 .top-bar {
     display: flex;
-    align-items: center;
-    justify-content: space-between;
+    flex-direction: column;
     padding: 8px 20px;
     background: var(--bg-body);
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 100;
+    transition: transform .3s, opacity .3s;
+    pointer-events: none;
+    min-height: 56px;
+}
+.top-bar.hidden {
+    transform: translateY(-120%);
+    opacity: 0;
+    pointer-events: none;
+}
+.top-bar > * {
+    pointer-events: auto;
 }
 
 .top-row {
@@ -3693,160 +3709,157 @@ body.dropdown-open::before {
     width: 100%;
 }
 
-.left-group {
+.hamburger {
+    flex: 0 0 auto;
+}
+
+.catalog-center {
+    flex: 1;
     display: flex;
-    align-items: center;
-    gap: 0.8rem;
-}
-
-.mobile-logo {
-    display: none; /* на десктопе логотип не нужен в топ-баре, он есть в шапке */
-}
-
-.middle-row {
-    display: none; /* мобильная кнопка скрыта на десктопе */
+    justify-content: center;
 }
 
 .cart-icon {
-    display: flex;
-    align-items: center;
-    gap: 0.5rem;
+    flex: 0 0 auto;
 }
 
-/* Десктопная кнопка каталога видна */
+/* Десктопная кнопка каталога */
 .dropdown-btn {
     display: flex;
+    background: var(--bg-card);
+    color: var(--text-primary);
+    border: 1px solid var(--border-card);
+    border-radius: 60px;
+    padding: 0.5rem 1.2rem;
+    margin-left: 10px;
+    font-size: 0.95rem;
+    font-weight: 500;
+    cursor: pointer;
+    align-items: center;
+    gap: 0.3rem;
+    transition: background 0.2s, border-color 0.2s;
+    white-space: nowrap;
+    box-shadow: none;
+}
+.dropdown-btn:hover {
+    background: var(--bg-category-hover);
+    border-color: var(--border-card-hover);
+}
+[data-theme="dark"] .dropdown-btn {
+    border: 2px solid #ff00cc;
+    animation: neonBorderNoShadow 4s linear infinite;
+    box-shadow: none !important;
+}
+[data-theme="dark"] .dropdown-btn:hover {
+    box-shadow: none !important;
+}
+[data-theme="light"] .dropdown-btn {
+    border: 1px solid var(--border-card);
+    box-shadow: none;
+}
+[data-theme="light"] .dropdown-btn:hover {
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
 }
 
-/* Мобильная кнопка скрыта */
+/* Мобильная кнопка (скрыта на десктопе) */
 .mobile-dropdown-btn {
     display: none;
+    background: var(--bg-card);
+    color: var(--text-primary);
+    border: 1px solid var(--border-card);
+    border-radius: 60px;
+    padding: 0.4rem 0.8rem;
+    font-size: 0.85rem;
+    font-weight: 500;
+    cursor: pointer;
+    white-space: nowrap;
+    transition: background 0.2s, border-color 0.2s;
+}
+.middle-row {
+    display: none; /* скрыта на десктопе */
 }
 
-.bottom-row {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    width: 100%;
-}
-
+/* Мобильная версия */
 @media (max-width: 600px) {
-     body {
-        overflow-x: hidden;
-    }
-
     .top-bar {
         flex-direction: column;
         gap: 4px;
         padding: 6px 10px;
     }
-
     .top-row {
-        display: flex;
-        align-items: center;
         justify-content: space-between;
-        width: 100%;
-        position: relative; /* для центрирования логотипа */
     }
-
-    .left-group {
-        flex: 0 0 auto;
-        display: flex;
-        align-items: center;
-        gap: 0.5rem;
-    }
-
-    .mobile-logo {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        position: absolute;
-        left: 50%;
-        transform: translateX(-50%);
-    }
-    .mobile-logo img {
-        max-height: 30px;
-        width: auto;
-        display: block;
-    }
-
-    .cart-icon {
-        flex: 0 0 auto;
-        display: flex;
-        align-items: center;
-        gap: 0.4rem;
-    }
-
     .dropdown-btn {
         display: none; /* скрываем десктопную кнопку */
     }
-
     .middle-row {
         display: flex;
         justify-content: center;
         width: 100%;
         margin-top: 2px;
     }
-
     .mobile-dropdown-btn {
         display: block;
+        margin: 0 auto;
         font-size: 0.85rem;
         padding: 0.4rem 1rem;
-        background: var(--bg-card);
-        border: 1px solid var(--border-card);
-        border-radius: 60px;
-        color: var(--text-primary);
-        cursor: pointer;
-        white-space: nowrap;
-        margin: 0 auto;
     }
-	
-    .bottom-row {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        width: 100%;
-		margin-top: 25px;
-    }
-    .left-group {
-        flex: 0 0 auto;
-        display: flex;
-        align-items: center;
-        gap: 0.5rem;
-    }
-    .cart-icon {
-        flex: 0 0 auto;
-    }
-    .dropdown-btn {
-        display: none;
-    }
-    .dropdown-catalog {
-        position: static;
-    }
-
+    /* скрываем старый логотип и заголовок на мобильных */
     .logo-container { display: none; }
     .header-left h1 { display: none; }
+}
 
+/* Выпадающий список (общие стили) */
+.dropdown-content {
+    display: none;
+    position: absolute;
+    top: calc(100% + 6px);
+    left: 0;
+    min-width: 240px;
+    background: var(--bg-modal);
+    border: 1px solid var(--border-card);
+    border-radius: 12px;
+    box-shadow: var(--shadow-card-hover);
+    padding: 0.4rem 0;
+    z-index: 999;
+    max-height: 70vh;
+    overflow-y: auto;
+    backdrop-filter: blur(4px);
+}
+.dropdown-content.show {
+    display: block;
+    animation: fadeDown 0.2s ease;
+    margin-left: -55px; /* только для десктопа */
+}
+@keyframes fadeDown {
+    from { opacity: 0; transform: translateY(-6px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* На мобильных переопределяем позиционирование списка */
+@media (max-width: 600px) {
     .dropdown-content.show {
         display: block !important;
-    position: fixed !important;
-    top: 50% !important;
-    left: 50% !important;
-    transform: translate(-50%, -50%) !important;
-    width: calc(100% - 20px) !important;
-    max-height: 70vh !important;
-    overflow-y: auto !important;
-    z-index: 1000 !important;
-    background: var(--bg-modal) !important;
-    border-radius: 12px !important;
-    box-shadow: 0 8px 30px rgba(0,0,0,0.3) !important;
-    padding: 0.5rem 0 !important;
-    margin: 0 !important;
-    backdrop-filter: none !important;
-    -webkit-backdrop-filter: none !important;
+        position: fixed !important;
+        top: 50% !important;
+        left: 50% !important;
+        transform: translate(-50%, -50%) !important;
+        width: calc(100% - 20px) !important;
+        max-height: 70vh !important;
+        overflow-y: auto !important;
+        z-index: 1000 !important;
+        background: var(--bg-modal) !important;
+        border-radius: 12px !important;
+        box-shadow: 0 8px 30px rgba(0,0,0,0.3) !important;
+        padding: 0.5rem 0 !important;
+        margin: 0 !important;
+        backdrop-filter: none !important;
+        -webkit-backdrop-filter: none !important;
     }
+}
 
-    body.dropdown-open::before {
+/* Затемнение при открытом списке (для всех устройств) */
+body.dropdown-open::before {
     content: '';
     position: fixed;
     top: 0;
@@ -3854,13 +3867,23 @@ body.dropdown-open::before {
     width: 100%;
     height: 100%;
     background: rgba(0, 0, 0, 0.6);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
     z-index: 998;
     pointer-events: none;
-    }
+}
+body.dropdown-open {
+    overflow: hidden;
+}
 
-    body.dropdown-open {
-        overflow: hidden;
-    }
+/* Анимация рамки для кнопок */
+@keyframes neonBorderNoShadow {
+    0%   { border-color: #ff00cc; }
+    25%  { border-color: #00ccff; }
+    50%  { border-color: #00ff66; }
+    75%  { border-color: #ffaa00; }
+    100% { border-color: #ff00cc; }
+}
 
     #logoImage {
         margin-top: -60px !important;
