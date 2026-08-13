@@ -3467,13 +3467,14 @@ document.addEventListener('DOMContentLoaded', function() {
     await loadProducts();
     await loadAllImages();
     initAnnouncement();
-	createFireParticles();
+    createFireParticles();
     showAnnouncement();
     await loadPartnerLogos();
     initCatalogDropdown();
     updateCategoriesVisibility();
-	checkOverflow();
+    addScrollHelpers();
+    checkOverflow();
+    addDeliveryPickupButtons();
     window.addEventListener('resize', updateCategoriesVisibility);
-	hideDeliveryPickupInMenu();
-    window.addEventListener('resize', hideDeliveryPickupInMenu);
+    window.addEventListener('resize', checkOverflow);
 })();
