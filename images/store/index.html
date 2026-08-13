@@ -580,23 +580,5 @@
         </div>
 
     </body>
-    <script>
-        function hideLoader() {
-            const loader = document.getElementById('appLoader');
-            if (loader) {
-                loader.style.opacity = '0';
-                loader.style.visibility = 'hidden';
-                setTimeout(() => {
-                    if (loader.parentNode) loader.remove();
-                }, 700);
-            }
-        }
-
-        window.addEventListener('load', function() {
-            setTimeout(hideLoader, 500);
-        });
-
-        setTimeout(hideLoader, 5000);
-    </script>
 
 </html>
