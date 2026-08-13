@@ -2426,17 +2426,19 @@ function initCatalogDropdown() {
         });
     }
 
-    document.addEventListener('click', function(e) {
+   document.addEventListener('click', function(e) {
     if (e.target.closest('.dropdown-btn')) return;
     if (e.target.closest('.mobile-dropdown-btn')) return;
     if (e.target.closest('.dropdown-content')) return;
     if (e.target.closest('.category-icon-wrapper')) return;
+    if (e.target.closest('.category-link')) return;
+    if (e.target.closest('.subcategory-link')) return;
 
     if (dropdownContent && dropdownContent.classList.contains('show')) {
         dropdownContent.classList.remove('show');
         const row = document.querySelector('.categories-row');
         if (row) row.classList.remove('shifted');
-        document.body.classList.remove('dropdown-open'); // важно!
+        document.body.classList.remove('dropdown-open');
     }
 
     if (activeCategory !== null) {
