@@ -1449,6 +1449,50 @@ function renderCatalog() {
     });
 }
 
+function addScrollHelpers() {
+    const wrapper = document.querySelector('.categories-wrapper');
+    if (!wrapper) return;
+
+    const oldFade = wrapper.querySelector('.categories-fade');
+    if (oldFade) oldFade.remove();
+    const oldBtn = wrapper.querySelector('.categories-scroll-btn');
+    if (oldBtn) oldBtn.remove();
+
+    const fade = document.createElement('div');
+    fade.className = 'categories-fade';
+    wrapper.appendChild(fade);
+
+    const btn = document.createElement('button');
+    btn.className = 'categories-scroll-btn';
+    btn.innerHTML = '›';
+    btn.setAttribute('aria-label', 'Прокрутить вправо');
+    wrapper.appendChild(btn);
+
+    btn.addEventListener('click', function(e) {
+        e.stopPropagation();
+        wrapper.scrollBy({ left: 300, behavior: 'smooth' });
+    });
+}
+
+function checkOverflow() {
+    const wrapper = document.querySelector('.categories-wrapper');
+    if (!wrapper) return;
+    const row = wrapper.querySelector('.categories-row');
+    if (!row) return;
+
+    const hasOverflow = row.scrollWidth > wrapper.clientWidth;
+    wrapper.classList.toggle('has-overflow', hasOverflow);
+}
+
+document.addEventListener('DOMContentLoaded', function() {
+    setTimeout(() => {
+        addScrollHelpers();
+        checkOverflow();
+    }, 300);
+
+    window.addEventListener('resize', checkOverflow);
+});
+
 function setupDragScroll() {
     const containers = document.querySelectorAll('.color-swatches');
     containers.forEach(container => {
