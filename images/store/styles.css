@@ -1102,8 +1102,39 @@ body {
 }
 
 .dropdown-catalog {
-    position: relative;
-    display: inline-block;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.desktop-delivery-btn,
+.desktop-pickup-btn {
+    background: var(--bg-card);
+    border: 2px solid #3b82f6;
+    border-radius: 60px;
+    padding: 0.5rem 1.2rem;
+    font-size: 0.95rem;
+    font-weight: 500;
+    color: var(--text-primary);
+    cursor: pointer;
+    transition: background 0.2s, border-color 0.2s;
+    white-space: nowrap;
+    animation: none !important;
+    box-shadow: none !important;
+}
+
+.desktop-delivery-btn {
+    border-color: #22c55e; /* зелёный для доставки */
+}
+
+.desktop-pickup-btn {
+    border-color: #f59e0b; /* жёлтый/оранжевый для самовывоза */
+}
+
+.desktop-delivery-btn:hover,
+.desktop-pickup-btn:hover {
+    background: var(--bg-category-hover);
+    border-color: var(--border-card-hover);
 }
 
 .dropdown-btn {
