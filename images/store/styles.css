@@ -3872,7 +3872,43 @@ body.dropdown-open::before {
 
 @media (max-width: 600px) {
     body {
-        overflow-x: hidden;
+        overflow-x: hidden !important;
+        max-width: 100vw !important;
+    }
+	
+	* {
+    max-width: 100vw !important;
+    box-sizing: border-box !important;
+}
+	
+	.container,
+.header-wrapper,
+.nav-section,
+.catalog,
+.categories-wrapper,
+.top-bar,
+.left-group,
+.dropdown-catalog {
+    max-width: 100% !important;
+    overflow-x: hidden !important;
+}
+
+    .categories-row {
+    max-width: 100% !important;
+    flex-wrap: nowrap !important;
+    overflow-x: auto !important;
+}
+
+    .category-icon-wrapper {
+        flex: 0 0 auto !important;
+        width: 100px !important;
+    }
+
+    .top-bar,
+    .left-group,
+    .dropdown-catalog {
+        max-width: 100% !important;
+        overflow: hidden !important;
     }
 
     .top-bar {
