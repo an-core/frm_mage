@@ -3728,7 +3728,7 @@ body.dropdown-open::before {
         transform: translateY(-50%);
     }
     .mobile-logo img {
-        max-height: 30px;
+        max-height: 35px;
         width: auto;
         display: block;
     }
@@ -3780,7 +3780,7 @@ body.dropdown-open::before {
         z-index: 1000 !important;
         background: var(--bg-modal) !important;
         border-radius: 12px !important;
-        box-shadow: 0 8px 30px rgba(0,0,0,0.3) !important;
+        box-shadow: 0 8px 30px rgba(0, 0, 0, 0.3) !important;
         padding: 0.5rem 0 !important;
         margin: 0 !important;
     }
