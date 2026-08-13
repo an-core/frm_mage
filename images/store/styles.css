@@ -716,12 +716,12 @@ body {
     margin-bottom: 5px;
 }
 
-#logoImage {
+/*#logoImage {
     max-width: 180px;
     height: auto;
     display: block;
     margin-top: 10px;
-}
+} */
 
 .nav-section {
     margin: .5rem 0 2rem;
