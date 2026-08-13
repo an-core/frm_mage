@@ -3743,7 +3743,6 @@ body.dropdown-open::before {
         color: var(--text-primary);
         cursor: pointer;
         white-space: nowrap;
-        margin: 0 auto;
     }
 
     .bottom-row {
@@ -3751,6 +3750,7 @@ body.dropdown-open::before {
         justify-content: space-between;
         align-items: center;
         width: 100%;
+		margin-bottom: 25px;
     }
     .left-group {
         flex: 0 0 auto;
