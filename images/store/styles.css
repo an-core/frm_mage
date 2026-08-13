@@ -3668,13 +3668,6 @@ body.dropdown-open::before {
     }
 }
 
-@media (min-width: 768px) {
-    .btn-primary {
-        font-size: 1rem;
-        min-width: 100px;
-    }
-}
-
 @media (max-width: 900px) {
     .modal-fullscreen .modal-image {
         max-height: 60vh !important;
@@ -3693,7 +3686,11 @@ body.dropdown-open::before {
 }
 
 @media (max-width: 768px) {
-    .modal-fullscreen .modal-body {
+    .btn-primary {
+        font-size: 1rem;
+        min-width: 100px;
+    }
+	.modal-fullscreen .modal-body {
         display: flex !important;
         flex-direction: column !important;
         gap: 0.8rem !important;
@@ -3834,11 +3831,11 @@ body.dropdown-open::before {
 }
 
 .mobile-logo {
-    display: none; /* на десктопе логотип не нужен в топ-баре, он есть в шапке */
+    display: none;
 }
 
 .middle-row {
-    display: none; /* мобильная кнопка скрыта на десктопе */
+    display: none;
 }
 
 .cart-icon {
@@ -3847,12 +3844,10 @@ body.dropdown-open::before {
     gap: 0.5rem;
 }
 
-/* Десктопная кнопка каталога видна */
 .dropdown-btn {
     display: flex;
 }
 
-/* Мобильная кнопка скрыта */
 .mobile-dropdown-btn {
     display: none;
 }

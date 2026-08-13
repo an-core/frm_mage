@@ -3409,6 +3409,7 @@ document.addEventListener('DOMContentLoaded', function() {
 	addDeliveryPickupButtons();
 });
 
+/*
 function addScrollButton() {
     const wrapper = document.querySelector('.categories-wrapper');
     if (!wrapper) return;
@@ -3426,7 +3427,7 @@ function addScrollButton() {
         e.stopPropagation();
         wrapper.scrollBy({ left: 300, behavior: 'smooth' });
     });
-}
+} */
 
 function checkOverflow() {
     const wrapper = document.querySelector('.categories-wrapper');
