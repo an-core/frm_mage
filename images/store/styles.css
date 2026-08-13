@@ -3506,6 +3506,17 @@ body.dropdown-open::before {
     transition: color 0.2s, text-shadow 0.2s;
 }
 
+.dropdown-content.mobile-open {
+    position: fixed !important;
+    left: 50% !important;
+    transform: translateX(-50%) !important;
+    width: calc(100% - 20px) !important;
+    max-height: 70vh;
+    overflow-y: auto;
+    top: auto;
+    z-index: 1000 !important;
+}
+
 .dropdown-content.mobile-show {
     position: fixed !important;
     left: 50% !important;
@@ -3674,12 +3685,14 @@ body.dropdown-open::before {
 .top-row {
     display: none;
 }
+
 .bottom-row {
     display: flex;
     justify-content: space-between;
     align-items: center;
     width: 100%;
 }
+
 .left-group {
     display: flex;
     align-items: center;
@@ -3697,43 +3710,52 @@ body.dropdown-open::before {
         gap: 4px;
         padding: 6px 10px;
     }
+
     .top-row {
         display: flex;
         align-items: center;
-        justify-content: space-between;
+        justify-content: flex-start;
+        gap: 0.8rem;
         width: 100%;
     }
+
     .mobile-logo {
         display: flex;
         align-items: center;
         flex: 0 0 auto;
     }
+
     .mobile-logo img {
         max-height: 30px;
         width: auto;
     }
+
     .mobile-dropdown-btn {
         display: block;
         font-size: 0.8rem;
         padding: 0.3rem 0.8rem;
-        margin-left: auto;
     }
+
     .bottom-row {
         display: flex;
         justify-content: space-between;
         align-items: center;
         width: 100%;
     }
+
     .left-group {
         gap: 0.5rem;
     }
+
     .dropdown-btn {
         display: none;
     }
+
     .dropdown-catalog {
         display: block;
         position: static;
     }
+	
     .dropdown-content {
         position: fixed;
         left: 50% !important;
@@ -3744,6 +3766,18 @@ body.dropdown-open::before {
         margin-left: 0 !important;
         z-index: 1000 !important;
     }
+
+    .dropdown-content.mobile-open {
+        position: fixed !important;
+        left: 50% !important;
+        transform: translateX(-50%) !important;
+        width: calc(100% - 20px) !important;
+        max-height: 70vh;
+        overflow-y: auto;
+        z-index: 1000 !important;
+        background: var(--bg-modal) !important;
+    }
+
     .dropdown-content.show {
         margin-left: 0 !important;
     }
@@ -3751,12 +3785,15 @@ body.dropdown-open::before {
     .logo-container {
         display: none;
     }
+
     .header-left h1 {
         display: none;
     }
+
     #logoImage {
         margin-top: -60px !important;
     }
+
     .category-block {
         margin-bottom: .8rem;
         margin-left: -50px;

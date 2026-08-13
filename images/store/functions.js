@@ -2388,25 +2388,13 @@ function initCatalogDropdown() {
 
                 if (isOpen) {
                     document.body.classList.add('dropdown-open');
-                    dropdownContent.style.zIndex = '1000';
+                    dropdownContent.classList.add('mobile-open');
                     const rect = this.getBoundingClientRect();
                     dropdownContent.style.top = (rect.bottom + 4) + 'px';
-                    dropdownContent.style.position = 'fixed';
-                    dropdownContent.style.left = '50%';
-                    dropdownContent.style.transform = 'translateX(-50%)';
-                    dropdownContent.style.width = 'calc(100% - 20px)';
-                    dropdownContent.style.maxHeight = '70vh';
-                    dropdownContent.style.overflowY = 'auto';
                 } else {
                     document.body.classList.remove('dropdown-open');
-                    dropdownContent.style.zIndex = '';
-                    dropdownContent.style.position = '';
+                    dropdownContent.classList.remove('mobile-open');
                     dropdownContent.style.top = '';
-                    dropdownContent.style.left = '';
-                    dropdownContent.style.transform = '';
-                    dropdownContent.style.width = '';
-                    dropdownContent.style.maxHeight = '';
-                    dropdownContent.style.overflowY = '';
                 }
             });
         });
@@ -2420,16 +2408,17 @@ function initCatalogDropdown() {
 
         if (dropdownContent && dropdownContent.classList.contains('show')) {
             dropdownContent.classList.remove('show');
+            dropdownContent.classList.remove('mobile-open');
             dropdownContent.style.position = '';
             dropdownContent.style.top = '';
             dropdownContent.style.left = '';
+            dropdownContent.style.transform = '';
             dropdownContent.style.width = '';
             dropdownContent.style.maxHeight = '';
             dropdownContent.style.overflowY = '';
 
             const row = document.querySelector('.categories-row');
             if (row) row.classList.remove('shifted');
-
             document.body.classList.remove('dropdown-open');
         }
 
