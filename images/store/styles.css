@@ -27,7 +27,7 @@
     --overlay-bg: rgba(15, 23, 42, 0.6);
     --bg-category: #eef2f6;
     --bg-category-dropdown: #eef2f6;
-	--drop-active: #79796a;
+    --drop-active: #79796a;
     --hamburger: #f1f1f1;
     --border-hamburger-cart: rgb(165 176 191);
     --bg-category-hover: #dce2ec;
@@ -97,7 +97,7 @@
     --overlay-bg: rgba(0, 0, 0, 0.75);
     --bg-category: #15181c;
     --hamburger: #15181c;
-	--drop-active: #79796a;
+    --drop-active: #79796a;
     --bg-category-hover: #171b20;
     --bg-category-active: #3b82f6;
     --bg-category-dropdown: #212228;
@@ -3457,6 +3457,35 @@ body,
     cursor: pointer;
     font-family: inherit;
     margin-left: 2.6rem;
+    border: 2px solid transparent;
+    border-radius: 8px;
+    padding: 0.5rem 1rem;
+    transition: border-color 0.3s;
+}
+
+[data-theme="dark"] .mobile-dropdown-btn {
+    animation: neonBorderNoShadow 4s linear infinite;
+    border-color: #ff00cc;
+}
+
+[data-theme="light"] .mobile-dropdown-btn {
+    border-color: var(--border-card);
+}
+
+.mobile-dropdown-btn.active {
+    color: #ffaa00;
+    text-shadow: 0 0 15px #ffaa00, 0 0 30px #ffaa00, 0 0 60px #ffaa00;
+    transition: color 0.2s, text-shadow 0.2s;
+}
+
+.dropdown-content.mobile-show {
+    position: fixed !important;
+    left: 50% !important;
+    transform: translateX(-50%) !important;
+    width: calc(100% - 20px) !important;
+    max-height: 70vh;
+    overflow-y: auto;
+    top: auto;
 }
 
 @keyframes neonPulse {
@@ -3610,9 +3639,25 @@ body,
     }
 }
 
+.mobile-logo {
+    display: none;
+}
+
 @media (max-width: 600px) {
     body {
         overflow-x: hidden;
+    }
+
+    .mobile-logo {
+        display: none;
+    }
+
+    .logo-container {
+        display: none;
+    }
+
+    .header-left h1 {
+        display: none;
     }
 
     #logoImage {
@@ -3627,7 +3672,7 @@ body,
         display: block;
     }
 
-.dropdown-catalog {
+    .dropdown-catalog {
         display: block;
         position: static;
     }
