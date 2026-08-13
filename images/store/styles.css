@@ -769,6 +769,10 @@ body {
     cursor: grabbing;
 }
 
+.category-block:not(.hidden) .categories-wrapper {
+    display: flex;
+}
+
 .categories-wrapper::-webkit-scrollbar {
     height: 6px;
 }
@@ -4131,6 +4135,14 @@ body.dropdown-open::before {
         border-bottom: 2px solid var(--border-card);
         scroll-snap-type: x mandatory;
         scroll-padding: 0 1rem;
+    }
+	
+	.category-block.hidden .categories-wrapper {
+        display: none;
+    }
+	
+	body.categories-hidden .categories-wrapper {
+        display: none;
     }
 
     .categories-row::-webkit-scrollbar {

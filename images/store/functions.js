@@ -196,6 +196,38 @@ const suggestions = document.getElementById('countrySuggestions');
 const cityInput = document.getElementById('cdekCity');
 const citySuggestions = document.getElementById('citySuggestions');
 
+const toggleBtn = document.getElementById('toggleCategoriesBtn');
+const categoriesIcon = document.getElementById('categoriesIcon');
+const categoriesText = document.getElementById('categoriesText');
+
+let showCategories = localStorage.getItem('firemag_show_categories') === 'true';
+
+function updateCategoriesVisibility() {
+    const isMobile = window.innerWidth <= 600;
+    if (isMobile) {
+        if (showCategories) {
+            document.body.classList.remove('categories-hidden');
+            categoriesIcon.textContent = '👁️';
+            categoriesText.textContent = 'Скрыть иконки категорий';
+        } else {
+            document.body.classList.add('categories-hidden');
+            categoriesIcon.textContent = '🚫';
+            categoriesText.textContent = 'Показать иконки категорий';
+        }
+    } else {
+        document.body.classList.remove('categories-hidden');
+    }
+}
+
+if (toggleBtn) {
+    toggleBtn.addEventListener('click', function(e) {
+        e.stopPropagation();
+        showCategories = !showCategories;
+        localStorage.setItem('firemag_show_categories', showCategories);
+        updateCategoriesVisibility();
+    });
+}
+
 function selectCity(city) {
     cityInput.value = city;
     citySuggestions.style.display = 'none';
@@ -3287,4 +3319,6 @@ document.addEventListener('DOMContentLoaded', function() {
     showAnnouncement();
     await loadPartnerLogos();
     initCatalogDropdown();
+	updateCategoriesVisibility();
+	window.addEventListener('resize', updateCategoriesVisibility);
 })();

@@ -65,32 +65,32 @@
         <div class="fire-particles" id="fireParticles"></div>
 
         <div class="top-bar" id="topBar">
-    <div class="top-row">
-        <div class="left-group">
-            <div class="hamburger" id="hamburger"><span></span><span></span><span></span></div>
-            <div class="dropdown-catalog">
-                <button class="dropdown-btn">Каталог товаров ▾</button>
-                <div class="dropdown-content" id="catalogDropdown"></div>
+            <div class="top-row">
+                <div class="left-group">
+                    <div class="hamburger" id="hamburger"><span></span><span></span><span></span></div>
+                    <div class="dropdown-catalog">
+                        <button class="dropdown-btn">Каталог товаров ▾</button>
+                        <div class="dropdown-content" id="catalogDropdown"></div>
+                    </div>
+                </div>
+                <div class="mobile-logo">
+                    <img src="" alt="Firemag" id="mobileLogo">
+                </div>
+                <div class="cart-icon" id="cartIcon">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <circle cx="9" cy="21" r="1" />
+                        <circle cx="20" cy="21" r="1" />
+                        <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6" />
+                    </svg>
+                    <span class="count" id="cartCount">0</span>
+                    <span class="cart-empty-hint">пока пусто 😟</span>
+                </div>
+            </div>
+
+            <div class="middle-row">
+                <button class="mobile-dropdown-btn">КАТАЛОГ ТОВАРОВ</button>
             </div>
         </div>
-        <div class="mobile-logo">
-            <img src="" alt="Firemag" id="mobileLogo">
-        </div>
-        <div class="cart-icon" id="cartIcon">
-            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                <circle cx="9" cy="21" r="1" />
-                <circle cx="20" cy="21" r="1" />
-                <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6" />
-            </svg>
-            <span class="count" id="cartCount">0</span>
-            <span class="cart-empty-hint">пока пусто 😟</span>
-        </div>
-    </div>
-
-    <div class="middle-row">
-        <button class="mobile-dropdown-btn">КАТАЛОГ ТОВАРОВ</button>
-    </div>
-</div>
 
         <div class="slide-menu" id="slideMenu">
             <div class="slide-menu-header">
@@ -163,6 +163,12 @@
                 <div class="menu-item settings-item">
                     <span class="menu-label settings-toggle">⚙️ Настройки сайта</span>
                     <div class="settings-block" id="settingsBlock" style="display:none;">
+                        <div class="menu-item">
+                            <button class="menu-toggle" id="toggleCategoriesBtn">
+                                <span class="icon" id="categoriesIcon">👁️</span>
+                                <span id="categoriesText">Показать иконки категорий</span>
+                            </button>
+                        </div>
                         <div class="menu-item">
                             <button class="menu-toggle" id="themeToggle">
                                 <span class="icon" id="themeIcon">☀️</span>
