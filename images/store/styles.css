@@ -757,8 +757,8 @@ body {
 }
 
 .categories-wrapper {
-    position: relative;
-    overflow-x: auto;
+    position: relative !important;
+    overflow-x: auto !important;
     scroll-behavior: smooth;
     -webkit-overflow-scrolling: touch;
     width: 100%;
@@ -767,20 +767,25 @@ body {
 }
 
 .categories-fade {
-    position: absolute;
-    right: 0;
-    top: 0;
-    bottom: 0;
-    width: 60px;
-    pointer-events: none;
-    background: linear-gradient(to right, transparent, var(--bg-body) 90%);
-    opacity: 0;
-    transition: opacity 0.3s;
-    z-index: 2;
+    position: absolute !important;
+    right: 0 !important;
+    top: 0 !important;
+    bottom: 0 !important;
+    width: 80px !important;
+    pointer-events: none !important;
+    background: linear-gradient(to right, transparent, var(--bg-body) 95%) !important;
+    opacity: 0 !important;
+    transition: opacity 0.3s !important;
+    z-index: 5 !important;
+}
+
+.categories-row.shifted ~ .categories-fade,
+.categories-wrapper:has(.categories-row.shifted) .categories-fade {
+    opacity: 1 !important;
 }
 
 .categories-wrapper.has-overflow .categories-fade {
-    opacity: 1;
+    opacity: 1 !important;
 }
 
 .categories-wrapper:active {
@@ -3808,6 +3813,11 @@ body.dropdown-open::before {
     .desktop-pickup-btn {
         display: none !important;
     }
+	
+	 .slide-menu-body .delivery-item,
+    .slide-menu-body .pickup-item {
+        display: none !important;
+    }
 }
 
 .top-bar {
@@ -3877,7 +3887,6 @@ body.dropdown-open::before {
         justify-content: space-between;
         width: 100%;
         position: relative;
-        /* для центрирования логотипа */
     }
 
     .left-group {

@@ -1471,7 +1471,10 @@ function observeCategories() {
     const observer = new MutationObserver(() => {
         scheduleOverflowCheck();
     });
-    observer.observe(row, { childList: true, subtree: true });
+    observer.observe(row, {
+        childList: true,
+        subtree: true
+    });
     window.addEventListener('resize', scheduleOverflowCheck);
     scheduleOverflowCheck();
 }
@@ -3232,18 +3235,6 @@ if (pickupModal) {
     });
 }
 
-function hideDeliveryPickupInMenu() {
-    const isDesktop = window.innerWidth >= 768;
-    const items = document.querySelectorAll('.slide-menu-body .delivery-item, .slide-menu-body .pickup-item');
-    items.forEach(el => {
-        if (isDesktop) {
-            el.style.setProperty('display', 'none', 'important');
-        } else {
-            el.style.display = '';
-        }
-    });
-}
-
 function showPickupInfo() {
     const howToBuyModal = document.getElementById('howToBuyModal');
     if (howToBuyModal) {
@@ -3450,6 +3441,33 @@ document.addEventListener('DOMContentLoaded', function() {
     window.addEventListener('resize', checkOverflow);
 });
 
+(function ensureFade() {
+    const wrapper = document.querySelector('.categories-wrapper');
+    if (!wrapper) return;
+    if (!wrapper.querySelector('.categories-fade')) {
+        const fade = document.createElement('div');
+        fade.className = 'categories-fade';
+        wrapper.appendChild(fade);
+    }
+})();
+
+(function forceHideMenuItems() {
+    function updateMenuItems() {
+        const isDesktop = window.innerWidth >= 768;
+        document.querySelectorAll('.slide-menu-body .delivery-item, .slide-menu-body .pickup-item')
+            .forEach(el => {
+                el.style.setProperty('display', isDesktop ? 'none' : '', 'important');
+            });
+    }
+
+    updateMenuItems();
+    window.addEventListener('resize', updateMenuItems);
+})();
+
+if (typeof addScrollButton === 'undefined') {
+    window.addScrollButton = function() {};
+}
+
 (async function init() {
     loadCart();
     await loadProducts();
@@ -3460,11 +3478,11 @@ document.addEventListener('DOMContentLoaded', function() {
     await loadPartnerLogos();
     initCatalogDropdown();
     updateCategoriesVisibility();
-    
+
     addScrollHelpers();
     observeCategories();
-    hideDeliveryPickupInMenu();
-    
+    forceHideMenuItems();
+
     window.addEventListener('resize', updateCategoriesVisibility);
-    window.addEventListener('resize', hideDeliveryPickupInMenu);
+    window.addEventListener('resize', forceHideMenuItems);
 })();
