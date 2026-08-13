@@ -3764,6 +3764,23 @@ body.dropdown-open::before {
      body {
         overflow-x: hidden;
     }
+	
+	.top-row .mobile-logo {
+    display: none !important;
+}
+
+.mobile-logo-row {
+    display: block !important;
+    text-align: center;
+    padding: 10px 0 6px;
+    background: var(--bg-body);
+    margin-top: 56px;
+}
+.mobile-logo-row img {
+    max-height: 50px;
+    width: auto;
+    display: inline-block;
+}
 
     .top-bar {
         flex-direction: column;
