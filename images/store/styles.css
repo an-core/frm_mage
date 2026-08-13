@@ -3996,7 +3996,7 @@ body.dropdown-open::before {
     }
 
     [data-theme="light"] .dropdown-content.show {
-        background: rgba(255, 255, 255, 0.9) !important;
+        background: rgba(0, 0, 0, 0.92) !important;
     }
 
     [data-theme="dark"] .dropdown-content.show {
