@@ -1213,7 +1213,7 @@ function renderCategories() {
 
         row.appendChild(wrapper);
     });
-	checkOverflow();
+    checkOverflow();
 }
 
 function renderSubcategories() {
@@ -1470,7 +1470,10 @@ function addScrollHelpers() {
 
     btn.addEventListener('click', function(e) {
         e.stopPropagation();
-        wrapper.scrollBy({ left: 300, behavior: 'smooth' });
+        wrapper.scrollBy({
+            left: 300,
+            behavior: 'smooth'
+        });
     });
 }
 
@@ -2465,7 +2468,7 @@ function initCatalogDropdown() {
         if (e.target.closest('.category-icon-wrapper')) return;
         if (e.target.closest('.category-link')) return;
         if (e.target.closest('.subcategory-link')) return;
-		if (e.target.closest('.subcategory-btn')) return;
+        if (e.target.closest('.subcategory-btn')) return;
 
         if (dropdownContent && dropdownContent.classList.contains('show')) {
             dropdownContent.classList.remove('show');
@@ -3420,7 +3423,7 @@ document.addEventListener('DOMContentLoaded', function() {
     window.loadPickupPoints = loadPickupPoints;
 
     loadCitiesDatalist();
-	addDeliveryPickupButtons();
+    addDeliveryPickupButtons();
 });
 
 /*
@@ -3455,7 +3458,6 @@ function checkOverflow() {
 
 document.addEventListener('DOMContentLoaded', function() {
     setTimeout(() => {
-        addScrollButton();
         checkOverflow();
     }, 200);
 
