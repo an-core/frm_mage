@@ -2380,18 +2380,16 @@ function initCatalogDropdown() {
 
     if (mobileBtn && dropdownContent) {
         mobileBtn.addEventListener('click', function(e) {
-            e.stopPropagation();
-            requestAnimationFrame(() => {
-                const isOpen = dropdownContent.classList.toggle('show');
-                const row = document.querySelector('.categories-row');
-                if (row) row.classList.toggle('shifted', isOpen);
+        e.stopPropagation();
+        requestAnimationFrame(() => {
+            const isOpen = dropdownContent.classList.toggle('show');
+            const row = document.querySelector('.categories-row');
+            if (row) row.classList.toggle('shifted', isOpen);
 
-                if (isOpen) {
-                    document.body.classList.add('dropdown-open');
-                    dropdownContent.classList.add('mobile-open');
-                } else {
-                    document.body.classList.remove('dropdown-open');
-                    dropdownContent.classList.remove('mobile-open');
+            if (isOpen) {
+                document.body.classList.add('dropdown-open');
+            } else {
+                document.body.classList.remove('dropdown-open');
                 }
             });
         });
@@ -2405,17 +2403,6 @@ function initCatalogDropdown() {
 
     if (dropdownContent && dropdownContent.classList.contains('show')) {
         dropdownContent.classList.remove('show');
-        dropdownContent.classList.remove('mobile-open');
-        dropdownContent.style.position = '';
-        dropdownContent.style.top = '';
-        dropdownContent.style.left = '';
-        dropdownContent.style.transform = '';
-        dropdownContent.style.width = '';
-        dropdownContent.style.maxHeight = '';
-        dropdownContent.style.overflowY = '';
-        dropdownContent.style.zIndex = '';
-        dropdownContent.style.background = '';
-
         const row = document.querySelector('.categories-row');
         if (row) row.classList.remove('shifted');
         document.body.classList.remove('dropdown-open');
