@@ -3472,6 +3472,7 @@ document.addEventListener('DOMContentLoaded', function() {
     await loadPartnerLogos();
     initCatalogDropdown();
     updateCategoriesVisibility();
+	checkOverflow();
     window.addEventListener('resize', updateCategoriesVisibility);
 	hideDeliveryPickupInMenu();
     window.addEventListener('resize', hideDeliveryPickupInMenu);

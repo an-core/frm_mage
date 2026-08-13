@@ -870,7 +870,7 @@ body {
 
 .categories-row.shifted {
     transform: translateX(14rem);
-    margin-top: 2.5rem;
+	margin-top: 0;
 }
 
 .category-icon-wrapper {
@@ -1199,7 +1199,7 @@ body {
 .dropdown-content.show {
     display: block;
     animation: fadeDown 0.2s ease;
-    margin-left: -55px;
+    margin-left: 15px;
 }
 
 @keyframes fadeDown {
