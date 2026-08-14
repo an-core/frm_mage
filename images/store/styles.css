@@ -671,6 +671,7 @@ body {
     display: block;
     opacity: 1;
     transform: translateY(0);
+	margin-left; 1rem;
 }
 
 .desktop-delivery-btn,
