@@ -4032,7 +4032,7 @@ body.dropdown-open::before {
     color: #111111 !important;
 }
 [data-theme="dark"] .dropdown-content.show {
-    background: rgba(0, 0, 0, 0.9) !important;
+    background: rgba(0, 0, 0, 0.95) !important;
     color: #f0f0f0 !important;
 }
 
@@ -4052,6 +4052,11 @@ body.dropdown-open::before {
     body.dropdown-open {
         overflow: hidden;
     }
+	
+	.dropdown-content.show .category-item {
+    color: inherit !important;
+    font-weight: 600;
+}
 	
     #logoImage {
         margin-top: -60px !important;
