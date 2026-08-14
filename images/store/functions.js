@@ -1562,6 +1562,13 @@ document.addEventListener('keydown', function(e) {
 });
 
 function openModal(product, cardImgElement) {
+    if (window.innerWidth <= 768) {
+        const topBar = document.getElementById('topBar');
+        const headerWrapper = document.querySelector('.header-wrapper');
+        if (topBar) topBar.classList.add('hidden');
+        if (headerWrapper) headerWrapper.classList.add('hidden');
+    }
+
     hideAnnouncementForModal();
     modalOverlay.classList.add('active');
     document.body.style.overflow = 'hidden';
@@ -2155,6 +2162,13 @@ function restoreModalHandlers(product) {
 }
 
 function closeModal() {
+    if (window.innerWidth <= 768) {
+        const topBar = document.getElementById('topBar');
+        const headerWrapper = document.querySelector('.header-wrapper');
+        if (topBar) topBar.classList.remove('hidden');
+        if (headerWrapper) headerWrapper.classList.remove('hidden');
+    }
+	
     if (currentCardImg && currentModalProduct) {
         const defaultImage = currentModalProduct.image || '';
         if (defaultImage) {
