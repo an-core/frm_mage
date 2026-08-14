@@ -3570,13 +3570,15 @@ if (typeof addScrollButton === 'undefined') {
     }
 
     deliveryBtn.addEventListener('click', function(e) {
-        e.stopPropagation();
+        e.stopImmediatePropagation(); // ← предотвращает вызов других обработчиков на этой кнопке
+        e.preventDefault();            // ← на всякий случай
         pickupDropdown.classList.remove('show');
         deliveryDropdown.classList.toggle('show');
     });
 
     pickupBtn.addEventListener('click', function(e) {
-        e.stopPropagation();
+        e.stopImmediatePropagation();
+        e.preventDefault();
         deliveryDropdown.classList.remove('show');
         pickupDropdown.classList.toggle('show');
     });
