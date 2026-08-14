@@ -4666,12 +4666,8 @@ body.dropdown-open::before {
         flex: 0 0 auto !important;
         display: inline-flex !important;
         align-items: center !important;
-        gap: 0.3rem !important;
         white-space: nowrap !important;
-        padding: 0.3rem 0.6rem !important;
-        background: var(--bg-card);
-        border: 1px solid var(--border-card);
-        border-radius: 60px;
+        padding: 0.3rem !important;
         cursor: pointer;
         transition: background 0.2s, border-color 0.2s;
         margin-right: 0 !important;

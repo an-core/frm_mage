@@ -1562,13 +1562,7 @@ document.addEventListener('keydown', function(e) {
 });
 
 function openModal(product, cardImgElement) {
-    if (window.innerWidth <= 768) {
-        const topBar = document.getElementById('topBar');
-        const headerWrapper = document.querySelector('.header-wrapper');
-        if (topBar) topBar.classList.add('hidden');
-        if (headerWrapper) headerWrapper.classList.add('hidden');
-    }
-
+   
     hideAnnouncementForModal();
     modalOverlay.classList.add('active');
     document.body.style.overflow = 'hidden';
@@ -2162,12 +2156,6 @@ function restoreModalHandlers(product) {
 }
 
 function closeModal() {
-    if (window.innerWidth <= 768) {
-        const topBar = document.getElementById('topBar');
-        const headerWrapper = document.querySelector('.header-wrapper');
-        if (topBar) topBar.classList.remove('hidden');
-        if (headerWrapper) headerWrapper.classList.remove('hidden');
-    }
 	
     if (currentCardImg && currentModalProduct) {
         const defaultImage = currentModalProduct.image || '';
@@ -2896,7 +2884,21 @@ let lastScrollY = window.scrollY;
 let ticking = false;
 
 function handleScroll() {
-    const currentScrollY = window.scrollY;
+     const modalSelectors = [
+        '#modalOverlay', '#cartModal', '#checkoutModal',
+        '#howToBuyModal', '#deliveryModal', '#pickupModal',
+        '#jugglingNewsModal', '#fireNewsModal', '#festivalsModal',
+        '#glossaryModal'
+    ];
+    const anyModalOpen = modalSelectors.some(sel => {
+        const el = document.querySelector(sel);
+        return el && el.classList.contains('active');
+    });
+
+    if (anyModalOpen) {
+        return;
+    }
+	const currentScrollY = window.scrollY;
     const announcementBar = document.getElementById('announcementBar');
     const topBar = document.getElementById('topBar');
     const headerWrapper = document.querySelector('.header-wrapper');
@@ -2986,8 +2988,67 @@ const fireNewsFooterClose = document.getElementById('fireNewsFooterClose');
 const festivalsCloseBtn = document.getElementById('festivalsCloseBtn');
 const festivalsFooterClose = document.getElementById('festivalsFooterClose');
 
+function initModalObserver() {
+    const modalSelectors = [
+        '#modalOverlay',
+        '#cartModal',
+        '#checkoutModal',
+        '#howToBuyModal',
+        '#deliveryModal',
+        '#pickupModal',
+        '#jugglingNewsModal',
+        '#fireNewsModal',
+        '#festivalsModal',
+        '#glossaryModal'
+    ];
+
+    const modals = modalSelectors.map(sel => document.querySelector(sel)).filter(el => el);
+
+    modals.forEach(modal => {
+        const observer = new MutationObserver(() => {
+            const isActive = modal.classList.contains('active');
+            if (isActive) {
+                hideTopBarOnMobile();
+            } else {
+                const anyActive = modals.some(m => m.classList.contains('active'));
+                if (!anyActive) {
+                    showTopBarOnMobile();
+                }
+            }
+        });
+
+        observer.observe(modal, { attributes: true, attributeFilter: ['class'] });
+    });
+}
+
+document.addEventListener('DOMContentLoaded', initModalObserver);
+
+function hideTopBarOnMobile() {
+    if (window.innerWidth <= 768) {
+        const topBar = document.getElementById('topBar');
+        const headerWrapper = document.querySelector('.header-wrapper');
+        if (topBar) topBar.classList.add('hidden');
+        if (headerWrapper) headerWrapper.classList.add('hidden');
+    }
+}
+
+function showTopBarOnMobile() {
+    if (window.innerWidth <= 768) {
+        const topBar = document.getElementById('topBar');
+        const headerWrapper = document.querySelector('.header-wrapper');
+        if (topBar) topBar.classList.remove('hidden');
+        if (headerWrapper) headerWrapper.classList.remove('hidden');
+    }
+}
+
 function openHowToBuy() {
-    menuWasOpenBeforeModal = slideMenu.classList.contains('open');
+    if (window.innerWidth <= 768) {
+        const topBar = document.getElementById('topBar');
+        const headerWrapper = document.querySelector('.header-wrapper');
+        if (topBar) topBar.classList.add('hidden');
+        if (headerWrapper) headerWrapper.classList.add('hidden');
+    }
+	menuWasOpenBeforeModal = slideMenu.classList.contains('open');
     if (menuWasOpenBeforeModal) closeMenu();
     hideAnnouncementForModal();
     howToBuyModal.classList.add('active');
@@ -2995,7 +3056,13 @@ function openHowToBuy() {
 }
 
 function closeHowToBuy() {
-    howToBuyModal.classList.remove('active');
+    if (window.innerWidth <= 768) {
+        const topBar = document.getElementById('topBar');
+        const headerWrapper = document.querySelector('.header-wrapper');
+        if (topBar) topBar.classList.remove('hidden');
+        if (headerWrapper) headerWrapper.classList.remove('hidden');
+    }
+	howToBuyModal.classList.remove('active');
     document.body.style.overflow = '';
     showAnnouncementAfterModal();
     if (menuWasOpenBeforeModal) {
