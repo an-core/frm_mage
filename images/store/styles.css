@@ -3999,6 +3999,7 @@ body.dropdown-open::before {
         display: none;
     }
 
+    /* ===== КОНТЕЙНЕР И СЕТКА ===== */
     .container {
         width: 100% !important;
         max-width: 100vw !important;
@@ -4049,6 +4050,7 @@ body.dropdown-open::before {
         margin: 0 !important;
     }
 
+    /* ===== ДРОПДАУН ===== */
     .dropdown-content.show {
         display: block !important;
         position: fixed !important;
@@ -4086,6 +4088,7 @@ body.dropdown-open::before {
         opacity: 1 !important;
     }
 
+    /* ===== ПРИ ОТКРЫТОМ ДРОПДАУНЕ ===== */
     body.dropdown-open::before {
         display: none !important;
     }
@@ -4123,14 +4126,15 @@ body.dropdown-open::before {
         pointer-events: none;
     }
 
+    /* ===== ОСТАЛЬНЫЕ СТИЛИ ===== */
     #logoImage {
         margin-top: -60px !important;
     }
 
     .category-block {
         margin-bottom: .8rem;
-        margin-left: 0 !important;
-        margin-right: 0 !important;
+        margin-left: -50px;
+        margin-right: 32px;
     }
 
     .cart-actions .btn-primary,
