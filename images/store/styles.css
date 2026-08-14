@@ -3627,6 +3627,11 @@ body.dropdown-open::before {
     .mobile-logo {
         display: none !important;
     }
+	
+	.categories-row.shifted {
+        transform: none !important;
+        margin-top: 0 !important;
+    }
 }
 
 @media (max-width: 900px) {
