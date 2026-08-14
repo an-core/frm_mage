@@ -3591,14 +3591,12 @@ if (typeof addScrollButton === 'undefined') {
     window.addScrollButton = function() {};
 }
 
-// ===== ДОПОЛНИТЕЛЬНЫЕ ВЫПАДАЮЩИЕ СПИСКИ ДЛЯ ДОСТАВКИ И САМОВЫВОЗА (только десктоп) =====
-document.addEventListener('DOMContentLoaded', function() {
+(function() {
     const deliveryBtn = document.getElementById('desktopDeliveryBtn');
     const pickupBtn = document.getElementById('desktopPickupBtn');
     const deliveryDropdown = document.getElementById('dropdownDelivery');
     const pickupDropdown = document.getElementById('dropdownPickup');
 
-    // Если элементы не найдены (например, на мобильной версии), выходим
     if (!deliveryBtn || !pickupBtn || !deliveryDropdown || !pickupDropdown) return;
 
     function closeAllDropdowns() {
@@ -3629,7 +3627,7 @@ document.addEventListener('DOMContentLoaded', function() {
     document.addEventListener('keydown', function(e) {
         if (e.key === 'Escape') closeAllDropdowns();
     });
-});
+})();
 
 (async function init() {
     loadCart();
