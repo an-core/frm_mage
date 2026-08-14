@@ -3278,17 +3278,6 @@ document.addEventListener('keydown', function(e) {
     }
 });
 
-if (pickupBtn && pickupModal) {
-    pickupBtn.addEventListener('click', function(e) {
-        menuWasOpenBeforeModal = slideMenu.classList.contains('open');
-        hideAnnouncementForModal();
-        e.stopPropagation();
-        closeMenu();
-        pickupModal.classList.add('active');
-        document.body.style.overflow = 'hidden';
-    });
-}
-
 if (pickupCloseBtn) {
     pickupCloseBtn.addEventListener('click', function() {
         pickupModal.classList.remove('active');
