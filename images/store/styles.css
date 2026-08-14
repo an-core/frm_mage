@@ -4199,10 +4199,6 @@ body.dropdown-open::before {
         margin-top: -60px !important;
     }
 
-    /* КОРЗИНА, МОДАЛКИ, КНОПКИ – уже адаптированы в общих стилях и медиа-запросах выше,
-       но если остались конфликты – они решаются здесь, но с дублями мы разобрались. */
-
-    /* Исправляем размеры кнопок в корзине */
     .cart-actions .btn-primary,
     .cart-actions .btn-secondary {
         padding: 0.25rem 0.8rem !important;
@@ -4213,13 +4209,11 @@ body.dropdown-open::before {
         line-height: 1.3 !important;
         flex: 0 1 auto !important;
     }
-
     .cart-actions .btn-secondary {
         background: var(--bg-category-hover) !important;
         color: var(--text-secondary) !important;
         border: 1px solid var(--border-card) !important;
     }
-
     .cart-actions .btn-success {
         background: #1de335b8 !important;
         color: white !important;
@@ -4246,12 +4240,10 @@ body.dropdown-open::before {
         height: 32px !important;
         font-size: 1.2rem !important;
     }
-
     .cart-item-remove {
         font-size: 1.2rem !important;
         padding: 4px 10px !important;
     }
-
     .cart-modal-content h2 {
         font-size: 1.2rem !important;
     }
@@ -4264,13 +4256,11 @@ body.dropdown-open::before {
         padding: 20px 16px !important;
         overflow: hidden !important;
     }
-
-    .cart-modal-content>*:not(.cart-actions) {
+    .cart-modal-content > *:not(.cart-actions) {
         overflow-y: auto !important;
         flex: 1 1 auto !important;
         padding-bottom: 10px !important;
     }
-
     .cart-actions {
         margin-top: auto !important;
         flex-shrink: 0 !important;
@@ -4285,7 +4275,6 @@ body.dropdown-open::before {
         flex-wrap: nowrap !important;
         gap: 0.5rem !important;
     }
-
     .form-row .form-group {
         flex: 1 !important;
         min-width: 80px !important;
@@ -4297,7 +4286,6 @@ body.dropdown-open::before {
         background: var(--bg-modal) !important;
         backdrop-filter: none !important;
     }
-
     .modal-overlay--small .modal {
         width: 100vw !important;
         height: 100dvh !important;
@@ -4313,19 +4301,16 @@ body.dropdown-open::before {
         display: flex;
         flex-direction: column;
     }
-
     .modal-overlay--small .modal-body {
         flex: 1 1 auto !important;
         overflow-y: auto !important;
         max-height: none !important;
         padding: 0.8rem !important;
     }
-
     .modal-overlay--small .modal-header {
         padding: 0.6rem 1rem !important;
         flex-shrink: 0 !important;
     }
-
     .modal-overlay--small .modal-footer {
         padding: 0.5rem 1rem !important;
         flex-shrink: 0 !important;
@@ -4340,7 +4325,6 @@ body.dropdown-open::before {
         background: var(--overlay-bg) !important;
         backdrop-filter: blur(8px);
     }
-
     #glossaryModal.modal-overlay--small .modal {
         width: auto !important;
         height: auto !important;
@@ -4354,17 +4338,14 @@ body.dropdown-open::before {
         transition: transform 0.25s cubic-bezier(.2, .9, .3, 1.1) !important;
         overflow: hidden !important;
     }
-
     #glossaryModal.modal-overlay--small.active .modal {
         transform: scale(1) !important;
     }
-
     #glossaryModal.modal-overlay--small .modal-body {
         overflow-y: auto !important;
         max-height: 70vh !important;
         padding: 1.2rem !important;
     }
-
     #glossaryModal.modal-overlay--small .modal-header,
     #glossaryModal.modal-overlay--small .modal-footer {
         padding: 0.8rem 1.2rem !important;
@@ -4385,7 +4366,6 @@ body.dropdown-open::before {
         box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
         border-radius: 0;
     }
-
     .announcement-bar .marquee-wrapper {
         flex: 1;
         overflow: hidden;
@@ -4393,7 +4373,6 @@ body.dropdown-open::before {
         display: flex;
         align-items: center;
     }
-
     .announcement-bar .marquee-text {
         display: inline-block;
         white-space: nowrap;
@@ -4402,15 +4381,12 @@ body.dropdown-open::before {
         font-size: 0.8rem;
         font-weight: 500;
     }
-
     .announcement-bar:hover .marquee-text {
         animation-play-state: paused;
     }
-
     .marquee-text {
         animation-duration: 20s;
     }
-
     .announcement-close {
         flex-shrink: 0;
         font-size: 0.9rem;
@@ -4421,7 +4397,6 @@ body.dropdown-open::before {
         color: #1e293b;
         cursor: pointer;
     }
-
     [data-theme="dark"] .announcement-bar {
         background: #171723f7;
         color: #f9f9f9;
@@ -4436,12 +4411,10 @@ body.dropdown-open::before {
     .header-wrapper {
         margin-top: 70px;
     }
-
     .header-left h1 {
         font-size: 1.8rem;
         margin-top: -10px;
     }
-
     .header-left .subhead {
         font-size: .95rem;
     }
@@ -4449,12 +4422,10 @@ body.dropdown-open::before {
     .cart-empty-hint {
         display: none !important;
     }
-
     .cart-icon {
         padding: 6px 12px;
         gap: 6px;
     }
-
     .cart-icon svg {
         width: 20px;
         height: 20px;
@@ -4467,22 +4438,18 @@ body.dropdown-open::before {
         left: -100%;
         max-width: 320px;
     }
-
     .slide-menu.open {
         left: 0;
     }
-
     .menu-toggle {
         font-size: .9rem;
         padding: 4px 10px;
     }
-
     .slide-menu-body .menu-toggle:hover,
     .menu-item .menu-toggle:hover {
         background: var(--bg-category-hover);
         transition: background 0.2s;
     }
-
     .contact-phone {
         font-size: 1rem;
     }
@@ -4503,20 +4470,16 @@ body.dropdown-open::before {
         scroll-snap-type: x mandatory;
         scroll-padding: 0 1rem;
     }
-
     .category-block.hidden .categories-wrapper {
         display: none;
     }
-
     body.categories-hidden .categories-wrapper {
         display: none !important;
     }
-
     .categories-row::-webkit-scrollbar {
         height: 4px;
         background: var(--bg-category);
     }
-
     .categories-row::-webkit-scrollbar-thumb {
         background: var(--border-card-hover);
         border-radius: 2px;
@@ -4529,14 +4492,12 @@ body.dropdown-open::before {
         padding: 0.3rem;
         scroll-snap-align: start;
     }
-
     .category-icon-img {
         width: 100px;
         height: 100px;
         border-radius: 20px;
         padding: 8px;
     }
-
     .category-icon-label {
         font-size: 0.7rem;
         line-height: 1.2;
@@ -4551,17 +4512,14 @@ body.dropdown-open::before {
         gap: 0.5rem;
         scroll-snap-type: x mandatory;
     }
-
     #subcategoriesRow::-webkit-scrollbar {
         height: 4px;
         background: var(--bg-category);
     }
-
     #subcategoriesRow::-webkit-scrollbar-thumb {
         background: var(--border-card-hover);
         border-radius: 2px;
     }
-
     #subcategoriesRow .subcategory-btn {
         flex: 0 0 auto;
         white-space: nowrap;
@@ -4573,7 +4531,6 @@ body.dropdown-open::before {
     .sort-section {
         justify-content: flex-start;
     }
-
     .sort-select {
         min-width: 160px;
         font-size: .85rem;
@@ -4586,7 +4543,6 @@ body.dropdown-open::before {
         align-items: stretch !important;
         background: var(--bg-modal) !important;
     }
-
     .modal {
         max-height: 100dvh !important;
         max-width: 100% !important;
@@ -4597,7 +4553,6 @@ body.dropdown-open::before {
         border: none !important;
         background: var(--bg-modal) !important;
     }
-
     .modal-close {
         margin-top: 0;
         margin-right: 5px;
@@ -4610,14 +4565,12 @@ body.dropdown-open::before {
         padding: 0.6rem 1rem;
         min-height: 48px;
     }
-
     #checkoutModal .modal-header h2 {
         font-size: 1rem;
         line-height: 1.2;
         margin: 0;
         padding: 0;
     }
-
     #checkoutModal .modal-close {
         font-size: 1rem;
         line-height: 1;
@@ -4641,45 +4594,37 @@ body.dropdown-open::before {
         border: none !important;
         box-shadow: none !important;
     }
-
-    .cart-modal-content>div:first-child {
+    .cart-modal-content > div:first-child {
         flex-shrink: 0 !important;
         margin-bottom: 10px !important;
     }
-
     #cartModal .modal-close {
         transform: translateY(-8px);
     }
-
     .cart-actions {
         flex-shrink: 0 !important;
         margin-top: auto !important;
         padding-bottom: 10px !important;
     }
-
-    .cart-modal-content>*:not(:first-child):not(.cart-actions) {
+    .cart-modal-content > *:not(:first-child):not(.cart-actions) {
         flex: 1 1 auto !important;
         overflow-y: auto !important;
         -webkit-overflow-scrolling: touch;
         padding-right: 4px;
     }
-
     #cartModal .cart-modal-content {
         padding-top: 8px !important;
         margin-top: 0 !important;
     }
-
     #checkoutForm {
         flex: 1 1 auto !important;
         overflow-y: auto !important;
         -webkit-overflow-scrolling: touch;
     }
-
     #cartItems,
     #cartTotal {
         flex: 0 0 auto;
     }
-
     #cartItems {
         flex: 1 1 auto !important;
         overflow-y: auto !important;
@@ -4690,12 +4635,10 @@ body.dropdown-open::before {
         padding: 0.6rem 1rem !important;
         flex-shrink: 0 !important;
     }
-
     .modal-header h2 {
         font-size: 1rem !important;
         line-height: 1.2 !important;
     }
-
     .modal-body {
         padding: 0.8rem !important;
         gap: 0.6rem !important;
@@ -4705,14 +4648,12 @@ body.dropdown-open::before {
         max-height: none !important;
         -webkit-overflow-scrolling: touch !important;
     }
-
     .modal-image {
         max-height: 45vh !important;
         width: 100% !important;
         object-fit: contain !important;
         flex-shrink: 0 !important;
     }
-
     .modal-gallery {
         padding-left: 16px !important;
         padding-right: 16px !important;
@@ -4720,18 +4661,15 @@ body.dropdown-open::before {
         margin-top: 18px !important;
         scrollbar-width: thin !important;
     }
-
     .modal-gallery-thumb {
         width: 50px !important;
         height: 40px !important;
     }
-
     .modal-description {
         font-size: 0.9rem !important;
         line-height: 1.5 !important;
         flex-shrink: 0 !important;
     }
-
     .modal-colors {
         flex-shrink: 0 !important;
         display: flex !important;
@@ -4743,7 +4681,6 @@ body.dropdown-open::before {
         -webkit-overflow-scrolling: touch;
         scrollbar-width: thin;
     }
-
     .modal-color-option {
         flex: 0 0 auto !important;
         display: inline-flex !important;
@@ -4755,14 +4692,12 @@ body.dropdown-open::before {
         margin-right: 0 !important;
         font-size: 0.8rem !important;
     }
-
     .modal-color-option input[type="radio"] {
         width: 16px !important;
         height: 16px !important;
         margin: 0 !important;
         flex-shrink: 0;
     }
-
     .modal-color-option span {
         font-size: 0.8rem !important;
         color: var(--text-secondary);
@@ -4774,17 +4709,14 @@ body.dropdown-open::before {
         background: var(--bg-photo);
         border-radius: 4px;
     }
-
     .modal-gallery::-webkit-scrollbar-track {
         background: var(--bg-photo) !important;
         border-radius: 4px !important;
     }
-
     .modal-gallery::-webkit-scrollbar-thumb {
         background: var(--border-card-hover) !important;
         border-radius: 4px !important;
     }
-
     .modal-gallery::after {
         content: '';
         display: block;
@@ -4797,12 +4729,10 @@ body.dropdown-open::before {
         flex-shrink: 0 !important;
         overflow: visible !important;
     }
-
     .modal-specs h4 {
         font-size: 0.8rem !important;
         margin-bottom: 0.4rem !important;
     }
-
     .modal-specs ul {
         display: flex !important;
         flex-direction: column !important;
@@ -4816,21 +4746,17 @@ body.dropdown-open::before {
         max-height: none !important;
         white-space: nowrap !important;
     }
-
     .modal-specs ul::-webkit-scrollbar {
         height: 4px !important;
     }
-
     .modal-specs ul::-webkit-scrollbar-track {
         background: var(--bg-photo) !important;
         border-radius: 4px !important;
     }
-
     .modal-specs ul::-webkit-scrollbar-thumb {
         background: var(--border-card-hover) !important;
         border-radius: 4px !important;
     }
-
     .modal-specs li {
         display: flex !important;
         flex-direction: row !important;
@@ -4842,18 +4768,15 @@ body.dropdown-open::before {
         min-width: max-content !important;
         font-size: 1rem !important;
     }
-
     .modal-specs li:last-child {
         border-bottom: none !important;
     }
-
     .modal-specs .spec-label {
         font-weight: 700 !important;
         flex-shrink: 0 !important;
         white-space: nowrap !important;
         font-size: 0.8rem !important;
     }
-
     .modal-specs .spec-value {
         font-size: 0.8rem !important;
         white-space: nowrap !important;
@@ -4861,14 +4784,12 @@ body.dropdown-open::before {
         max-width: none !important;
         overflow: visible !important;
     }
-
     .modal-specs li.spec-multiline {
         flex-direction: column !important;
         align-items: flex-start !important;
         white-space: normal !important;
         min-width: auto !important;
     }
-
     .modal-specs li.spec-multiline .spec-label,
     .modal-specs li.spec-multiline .spec-value {
         white-space: normal !important;
@@ -4885,7 +4806,6 @@ body.dropdown-open::before {
         background: var(--bg-modal-header) !important;
         border-top: 1px solid var(--border-modal) !important;
     }
-
     .modal-footer .btn-close-modal {
         order: 1 !important;
         flex: 0 1 auto !important;
@@ -4895,7 +4815,6 @@ body.dropdown-open::before {
         border-radius: 40px !important;
         margin: 0 !important;
     }
-
     .modal-footer .btn-primary,
     #modalAddToCartBtn {
         order: 0 !important;
@@ -4906,7 +4825,6 @@ body.dropdown-open::before {
         border-radius: 40px !important;
         margin: 0 !important;
     }
-
     #modalAddToCartBtn svg {
         width: 12px !important;
         height: 12px !important;
@@ -4919,14 +4837,12 @@ body.dropdown-open::before {
         min-height: 90px !important;
         border-radius: 40px !important;
     }
-
     .add-to-cart-icon {
         min-width: 28px !important;
         min-height: 28px !important;
         padding: 4px 8px !important;
         margin-top: 19px !important;
     }
-
     .add-to-cart-icon svg {
         width: 18px !important;
         height: 18px !important;
@@ -4937,7 +4853,6 @@ body.dropdown-open::before {
         white-space: nowrap !important;
         -webkit-overflow-scrolling: touch !important;
     }
-
     .modal-specs li {
         white-space: nowrap !important;
         min-width: max-content !important;
@@ -4948,7 +4863,6 @@ body.dropdown-open::before {
         align-items: stretch !important;
         background: var(--bg-modal) !important;
     }
-
     .cart-modal-content {
         max-height: 100dvh !important;
         height: 100dvh !important;
@@ -4961,15 +4875,12 @@ body.dropdown-open::before {
         background: var(--bg-modal) !important;
         padding-bottom: env(safe-area-inset-bottom, 20px) !important;
     }
-
     .cart-modal-content::-webkit-scrollbar {
         width: 4px;
     }
-
     .cart-item-info {
         min-width: 140px;
     }
-
     .cart-item-thumb {
         width: 40px;
         height: 40px;
@@ -4978,7 +4889,6 @@ body.dropdown-open::before {
     .order-success-box {
         padding: 30px 20px;
     }
-
     .order-success-box .check-icon {
         width: 60px;
         height: 60px;
@@ -4998,7 +4908,6 @@ body.dropdown-open::before {
         padding: 0 !important;
         margin: 0 !important;
     }
-
     .delivery-options label {
         margin: 0 !important;
         padding: 0 !important;
@@ -5006,7 +4915,6 @@ body.dropdown-open::before {
         line-height: 1.6 !important;
         font-size: 0.9rem !important;
     }
-
     .delivery-options input[type="radio"] {
         margin: 0 !important;
         padding: 0 !important;
@@ -5017,7 +4925,6 @@ body.dropdown-open::before {
         justify-content: space-between;
         gap: 10px;
     }
-
     .checkout-actions .btn-secondary,
     .checkout-actions .btn-primary {
         flex: 0 1 auto;
@@ -5043,8 +4950,7 @@ body.dropdown-open::before {
         scrollbar-width: thin;
         -webkit-overflow-scrolling: touch;
     }
-
-    #modalOptionsList>div {
+    #modalOptionsList > div {
         flex: 0 0 auto;
         display: flex;
         align-items: center;
@@ -5053,7 +4959,6 @@ body.dropdown-open::before {
         padding: 0 0.4rem;
         margin-bottom: -1px !important;
     }
-
     #modalOptionsList input[type="radio"],
     #modalOptionsList input[type="checkbox"] {
         flex-shrink: 0;
@@ -5062,8 +4967,7 @@ body.dropdown-open::before {
         height: 18px;
         accent-color: var(--price-color);
     }
-
-    #modalOptionsList>div span {
+    #modalOptionsList > div span {
         white-space: nowrap;
         font-size: 0.9rem;
         color: var(--text-secondary);
