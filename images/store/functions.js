@@ -2934,6 +2934,14 @@ function handleScroll() {
 
     lastScrollY = currentScrollY;
     ticking = false;
+	
+	if (currentScrollY <= 80) {
+        if (topBar) topBar.classList.remove('hidden');
+        if (headerWrapper) headerWrapper.classList.remove('hidden');
+        if (announcementBar && !announcementHiddenByModal) {
+            announcementBar.classList.remove('hidden');
+        }
+    }
 }
 
 function hideAnnouncementForModal() {
