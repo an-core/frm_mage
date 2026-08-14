@@ -770,7 +770,6 @@ body {
 }
 
 .categories-row.shifted {
-    transform: translateX(14rem);
     margin-top: 2.5rem;
 }
 
