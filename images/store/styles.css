@@ -929,34 +929,30 @@ body {
 }
 
 .categories-wrapper {
-    position: relative;
-    overflow-x: auto;
-    -webkit-overflow-scrolling: touch;
-    scroll-behavior: smooth;
-    width: 100%;
-    cursor: grab;
-    margin-left: 2.5rem;
+    position: relative !important;
+    overflow-x: auto !important;
 }
 
 .categories-wrapper .categories-fade {
-    position: sticky;
-    right: 0;
-    top: 0;
-    width: 40px;
-    height: 100%;
-    pointer-events: none;
-    background: linear-gradient(to right, transparent, var(--bg-body));
-    flex-shrink: 0;
-    z-index: 2;
-    display: none;
+    position: absolute !important;
+    right: 0 !important;
+    top: 0 !important;
+    width: 50px !important;
+    min-width: 50px !important;
+    height: 100% !important;
+    min-height: 100% !important;
+    pointer-events: none !important;
+    z-index: 10 !important;
+    display: none !important;
+    background: linear-gradient(to right, transparent, var(--bg-body)) !important;
 }
 
 .categories-wrapper.has-overflow .categories-fade {
-    display: block;
+    display: block !important;
 }
 
 [data-theme="dark"] .categories-wrapper .categories-fade {
-    background: linear-gradient(to right, transparent, var(--bg-body));
+    background: linear-gradient(to right, transparent, var(--bg-body)) !important;
 }
 
 .categories-wrapper:active {
