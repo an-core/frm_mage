@@ -159,6 +159,8 @@ let currentCardImg = null;
 let thumbnailElements = [];
 let categoryIconCache = {};
 
+const deliveryBtn = document.getElementById('deliveryBtn');
+const pickupBtn = document.getElementById('pickupBtn');
 const modalOverlay = document.getElementById('modalOverlay');
 const modalTitle = document.getElementById('modalTitle');
 const modalImage = document.getElementById('modalImage');
@@ -3092,6 +3094,13 @@ function openDelivery() {
     deliveryModal.classList.add('active');
     document.body.style.overflow = 'hidden';
 }
+function openPickup() {
+    menuWasOpenBeforeModal = slideMenu.classList.contains('open');
+    if (menuWasOpenBeforeModal) closeMenu();
+    hideAnnouncementForModal();
+    pickupModal.classList.add('active');
+    document.body.style.overflow = 'hidden';
+}
 
 function closeDelivery() {
     deliveryModal.classList.remove('active');
@@ -3104,14 +3113,6 @@ function closeDelivery() {
         document.body.style.overflow = 'hidden';
         menuWasOpenBeforeModal = false;
     }
-}
-
-function openPickup() {
-    menuWasOpenBeforeModal = slideMenu.classList.contains('open');
-    if (menuWasOpenBeforeModal) closeMenu();
-    hideAnnouncementForModal();
-    pickupModal.classList.add('active');
-    document.body.style.overflow = 'hidden';
 }
 
 function closePickup() {
@@ -3200,14 +3201,30 @@ if (howToBuyBtn) {
 if (deliveryBtn) {
     deliveryBtn.addEventListener('click', function(e) {
         e.stopPropagation();
-        openDelivery();
+        e.preventDefault();
+        console.log('Клик по Доставке в бургер-меню');
+        // Закрываем бургер-меню
+        if (slideMenu.classList.contains('open')) {
+            closeMenu();
+        }
+        // Открываем модалку
+        deliveryModal.classList.add('active');
+        document.body.style.overflow = 'hidden';
+        hideAnnouncementForModal();
     });
 }
 
 if (pickupBtn) {
     pickupBtn.addEventListener('click', function(e) {
         e.stopPropagation();
-        openPickup();
+        e.preventDefault();
+        console.log('Клик по Самовывозу в бургер-меню');
+        if (slideMenu.classList.contains('open')) {
+            closeMenu();
+        }
+        pickupModal.classList.add('active');
+        document.body.style.overflow = 'hidden';
+        hideAnnouncementForModal();
     });
 }
 
