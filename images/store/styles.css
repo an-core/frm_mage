@@ -100,7 +100,7 @@
     --drop-active: #79796a;
     --bg-category-hover: #171b20;
     --bg-category-active: #3b82f6;
-    --bg-category-dropdown: #212228;
+    --bg-category-dropdown: #13141a;
     --text-category: #e2e8f0;
     --text-category-active: #ffffff;
     --bg-subcategory: #15181e;
@@ -4035,7 +4035,7 @@ body.dropdown-open::before {
     }
 
     [data-theme="dark"] .dropdown-content.show {
-        background: #1e1e1e !important;
+        background: #0c0c0d !important;
         color: #ffffff !important;
     }
 
