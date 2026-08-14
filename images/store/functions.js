@@ -3591,6 +3591,46 @@ if (typeof addScrollButton === 'undefined') {
     window.addScrollButton = function() {};
 }
 
+// ===== ДОПОЛНИТЕЛЬНЫЕ ВЫПАДАЮЩИЕ СПИСКИ ДЛЯ ДОСТАВКИ И САМОВЫВОЗА (только десктоп) =====
+document.addEventListener('DOMContentLoaded', function() {
+    const deliveryBtn = document.getElementById('desktopDeliveryBtn');
+    const pickupBtn = document.getElementById('desktopPickupBtn');
+    const deliveryDropdown = document.getElementById('dropdownDelivery');
+    const pickupDropdown = document.getElementById('dropdownPickup');
+
+    // Если элементы не найдены (например, на мобильной версии), выходим
+    if (!deliveryBtn || !pickupBtn || !deliveryDropdown || !pickupDropdown) return;
+
+    function closeAllDropdowns() {
+        deliveryDropdown.classList.remove('show');
+        pickupDropdown.classList.remove('show');
+    }
+
+    deliveryBtn.addEventListener('click', function(e) {
+        e.stopPropagation();
+        pickupDropdown.classList.remove('show');
+        deliveryDropdown.classList.toggle('show');
+    });
+
+    pickupBtn.addEventListener('click', function(e) {
+        e.stopPropagation();
+        deliveryDropdown.classList.remove('show');
+        pickupDropdown.classList.toggle('show');
+    });
+
+    document.addEventListener('click', function(e) {
+        const target = e.target;
+        if (!target.closest('.desktop-delivery-btn') && !target.closest('#dropdownDelivery') &&
+            !target.closest('.desktop-pickup-btn') && !target.closest('#dropdownPickup')) {
+            closeAllDropdowns();
+        }
+    });
+
+    document.addEventListener('keydown', function(e) {
+        if (e.key === 'Escape') closeAllDropdowns();
+    });
+});
+
 (async function init() {
     loadCart();
     await loadProducts();
