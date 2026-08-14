@@ -3990,6 +3990,7 @@ body.dropdown-open::before {
         display: none;
     }
 
+    /* ===== КОНТЕЙНЕР И СЕТКА (только один раз!) ===== */
     .container {
         width: 100% !important;
         max-width: 100vw !important;
@@ -3997,13 +3998,16 @@ body.dropdown-open::before {
         box-sizing: border-box !important;
     }
 
-    .catalog {
-        display: grid !important;
-        grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)) !important;
-        gap: 1rem !important;
+    .categories-wrapper {
         width: 100% !important;
-        margin: 0 !important;
         padding: 0 !important;
+        margin: 0 !important;
+    }
+
+    .categories-row {
+        width: 100% !important;
+        padding: 0.5rem 0 1rem 0 !important;
+        margin: 0 !important;
     }
 
     .subcategory-block {
@@ -4022,16 +4026,13 @@ body.dropdown-open::before {
         gap: 0.5rem !important;
     }
 
-    .categories-row {
+    .catalog {
+        display: grid !important;
+        grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)) !important;
+        gap: 1rem !important;
         width: 100% !important;
-        padding: 0.5rem 0 1rem 0 !important;
         margin: 0 !important;
-    }
-
-    .categories-wrapper {
-        width: 100% !important;
         padding: 0 !important;
-        margin: 0 !important;
     }
 
     .product-card {
@@ -4040,6 +4041,13 @@ body.dropdown-open::before {
         margin: 0 !important;
     }
 
+    .category-block {
+        margin-bottom: .8rem;
+        margin-left: 0 !important;
+        margin-right: 0 !important;
+    }
+
+    /* ===== ДРОПДАУН ===== */
     .dropdown-content.show {
         display: block !important;
         position: fixed !important;
@@ -4077,6 +4085,7 @@ body.dropdown-open::before {
         opacity: 1 !important;
     }
 
+    /* ===== ПРИ ОТКРЫТОМ ДРОПДАУНЕ ===== */
     body.dropdown-open::before {
         display: none !important;
     }
@@ -4114,46 +4123,10 @@ body.dropdown-open::before {
         pointer-events: none;
     }
 
+    /* ===== ОСТАЛЬНЫЕ СТИЛИ ===== */
     #logoImage {
         margin-top: -60px !important;
     }
-
-    .category-block {
-        margin-bottom: .8rem;
-        margin-left: 0 !important;
-        margin-right: 0 !important;
-    }
-	
-	/* Принудительно возвращаем ширину */
-.categories-wrapper {
-    width: 100% !important;
-    padding: 0 !important;
-    margin: 0 !important;
-}
-
-.categories-row {
-    width: 100% !important;
-    padding: 0.5rem 0 1rem 0 !important;
-    margin: 0 !important;
-}
-
-.subcategory-block {
-    width: 100% !important;
-    padding: 0 !important;
-    margin: 0 0 1rem 0 !important;
-}
-
-.subcategories-row {
-    width: 100% !important;
-    padding: 0 !important;
-    margin: 0 !important;
-}
-
-.catalog {
-    width: 100% !important;
-    margin: 0 !important;
-    padding: 0 !important;
-}
 
     .cart-actions .btn-primary,
     .cart-actions .btn-secondary {
