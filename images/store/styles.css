@@ -3601,7 +3601,6 @@ body.dropdown-open::before {
 
     .category-icon-wrapper {
         flex: 0 0 auto !important;
-        width: 150px !important;
     }
 
     .top-row {
