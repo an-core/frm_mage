@@ -3565,18 +3565,6 @@ body.dropdown-open::before {
 }
 
 @media (min-width: 768px) {
-    .btn-primary {
-        font-size: 1rem;
-        min-width: 100px;
-    }
-
-    /* Скрываем пункты "Доставка" и "Самовывоз" в бургер-меню */
-    .slide-menu-body .delivery-item,
-    .slide-menu-body .pickup-item {
-        display: none !important;
-    }
-
-    /* Основная строка: левая группа + корзина (корзина прижата к правому краю) */
     .top-row {
         display: flex;
         align-items: center;
@@ -3584,24 +3572,51 @@ body.dropdown-open::before {
         width: 100%;
     }
 
-    /* Левая группа: все элементы в одну строку */
     .left-group {
         display: flex;
         align-items: center;
-        flex-wrap: nowrap;   /* запрещаем перенос на следующую строку */
-        gap: 0.8rem;         /* отступы между элементами */
+        flex-wrap: nowrap;        /* запрещаем перенос */
+        gap: 0.8rem;              /* отступы между элементами */
     }
 
-    /* Скрываем мобильное лого (на десктопе оно не нужно) */
+    /* Каждый элемент внутри .left-group не должен занимать всю ширину */
+    .left-group > * {
+        flex-shrink: 0;           /* не сжиматься */
+        white-space: nowrap;      /* текст не переносится */
+    }
+
+    .dropdown-catalog {
+        display: inline-block;    /* или flex, чтобы не растягивался */
+        flex-shrink: 0;
+    }
+
+    .desktop-delivery-btn,
+    .desktop-pickup-btn {
+        display: inline-flex;
+        align-items: center;
+        background: var(--bg-card);
+        border: 2px solid #22c55e;
+        border-radius: 60px;
+        padding: 0.5rem 1.2rem;
+        font-size: 0.95rem;
+        font-weight: 500;
+        color: var(--text-primary);
+        cursor: pointer;
+        transition: background 0.2s, border-color 0.2s;
+        white-space: nowrap;
+        margin-left: 0;
+    }
+    .desktop-pickup-btn {
+        border-color: #f59e0b;
+    }
+
     .mobile-logo {
         display: none !important;
     }
 
-    /* Кнопки доставки и самовывоза – небольшие отступы слева, чтобы не слипались */
-    .desktop-delivery-btn,
-    .desktop-pickup-btn {
-        margin-left: 0.5rem;
-        white-space: nowrap; /* текст внутри не переносится */
+    .slide-menu-body .delivery-item,
+    .slide-menu-body .pickup-item {
+        display: none !important;
     }
 }
 
