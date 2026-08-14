@@ -2515,14 +2515,14 @@ function initCatalogDropdown() {
 }
 
 function addDeliveryPickupButtons() {
-    const catalogContainer = document.querySelector('.dropdown-catalog');
-    if (!catalogContainer) return;
+    const leftGroup = document.querySelector('.left-group');
+    if (!leftGroup) return;
 
-    if (catalogContainer.querySelector('.desktop-delivery-btn')) return;
+    if (leftGroup.querySelector('.desktop-delivery-btn')) return;
 
     const deliveryBtn = document.createElement('button');
     deliveryBtn.className = 'desktop-delivery-btn';
-    deliveryBtn.textContent = 'Доставка';
+    deliveryBtn.textContent = '🚚 Доставка';
     deliveryBtn.addEventListener('click', function(e) {
         e.stopPropagation();
         openDelivery();
@@ -2530,19 +2530,19 @@ function addDeliveryPickupButtons() {
 
     const pickupBtn = document.createElement('button');
     pickupBtn.className = 'desktop-pickup-btn';
-    pickupBtn.textContent = 'Самовывоз';
+    pickupBtn.textContent = '🏪 Самовывоз';
     pickupBtn.addEventListener('click', function(e) {
         e.stopPropagation();
         openPickup();
     });
 
-    const dropdownBtn = catalogContainer.querySelector('.dropdown-btn');
-    if (dropdownBtn) {
-        dropdownBtn.after(deliveryBtn);
+    const catalog = leftGroup.querySelector('.dropdown-catalog');
+    if (catalog) {
+        catalog.after(deliveryBtn);
         deliveryBtn.after(pickupBtn);
     } else {
-        catalogContainer.appendChild(deliveryBtn);
-        catalogContainer.appendChild(pickupBtn);
+        leftGroup.appendChild(deliveryBtn);
+        leftGroup.appendChild(pickupBtn);
     }
 }
 
