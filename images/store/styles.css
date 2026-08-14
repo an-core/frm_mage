@@ -4008,23 +4008,34 @@ body.dropdown-open::before {
     .header-left h1 {
         display: none;
     }
+	
+	 body.dropdown-open .container {
+        transform: translateY(40vh);
+        transition: transform 0.3s ease;
+        pointer-events: none;
+    }
+
+    body.dropdown-open .top-bar {
+        transform: translateY(40vh);
+        transition: transform 0.3s ease;
+    }
 
 .dropdown-content.show {
-    display: block !important;
     position: fixed !important;
-    top: 50% !important;
-    left: 50% !important;
-    transform: translate(-50%, -50%) !important;
-    width: calc(100% - 20px) !important;
-    max-height: 70vh !important;
-    overflow-y: auto !important;
-    z-index: 1000 !important;
-    border-radius: 12px !important;
-    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.3) !important;
-    padding: 0.5rem 0 !important;
-    margin: 0 !important;
-    backdrop-filter: none !important;
-    -webkit-backdrop-filter: none !important;
+        top: 5vh !important;
+        left: 50% !important;
+        transform: translateX(-50%) !important;
+        width: calc(100% - 20px) !important;
+        max-height: 35vh !important;
+        overflow-y: auto !important;
+        z-index: 1000 !important;
+        border-radius: 12px !important;
+        box-shadow: 0 8px 30px rgba(0, 0, 0, 0.3) !important;
+        padding: 0.5rem 0 !important;
+        margin: 0 !important;
+        backdrop-filter: none !important;
+        -webkit-backdrop-filter: none !important;
+        background: var(--bg-modal) !important;
 }
 
 [data-theme="light"] .dropdown-content.show {
@@ -4046,21 +4057,11 @@ body.dropdown-open::before {
         opacity: 1 !important;
     }
 
-body.dropdown-open::before {
-    content: '';
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: rgba(0, 0, 0, 0.5); 
-    z-index: 999;    
-    backdrop-filter: none !important; 
-    -webkit-backdrop-filter: none !important;
-}
-
     body.dropdown-open {
-        overflow: hidden;
+        overflow: hidden !important;
+        position: fixed !important;
+        width: 100%;
+        height: 100%;
     }
 	
     #logoImage {
