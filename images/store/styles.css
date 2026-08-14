@@ -4223,6 +4223,19 @@ body.dropdown-open::before {
     #glossaryModal.modal-overlay--small .modal-footer {
         padding: 0.8rem 1.2rem !important;
     }
+	
+	.container {
+        width: 100% !important;
+        max-width: 100vw !important;
+        padding: 0 10px !important;
+        box-sizing: border-box !important;
+    }
+
+    .catalog {
+        grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)) !important;
+        gap: 1rem !important;
+        width: 100% !important;
+    }
 
     .top-bar {
         padding: 8px 12px;
