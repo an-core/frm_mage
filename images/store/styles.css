@@ -3569,47 +3569,37 @@ body.dropdown-open::before {
         font-size: 1rem;
         min-width: 100px;
     }
-	
-	.slide-menu-body .delivery-item,
+
+    /* Скрываем пункты "Доставка" и "Самовывоз" в бургер-меню */
+    .slide-menu-body .delivery-item,
     .slide-menu-body .pickup-item {
         display: none !important;
     }
 
+    /* Убираем все order, используем естественный порядок */
     .top-row {
         display: flex;
         align-items: center;
-        justify-content: flex-start; /* элементы идут слева направо */
+        justify-content: space-between; /* корзина уходит вправо */
+        width: 100%;
     }
 
-    /* Корзина — первый элемент */
-    .cart-icon {
-        order: -1;
-        margin-right: 1rem;
-    }
-
-    /* Группа слева (каталог, доставка, самовывоз, бургер) */
     .left-group {
         display: flex;
         align-items: center;
-        order: 0; /* идёт после корзины */
-    }
-
-    /* Бургер — последний в .left-group */
-    .hamburger {
-        order: 1;
-        margin-left: 0.5rem;
-    }
-
-    /* Каталог, доставка, самовывоз — перед бургером */
-    .dropdown-catalog,
-    .desktop-delivery-btn,
-    .desktop-pickup-btn {
-        order: 0;
+        gap: 0.8rem; /* отступы между элементами */
+        /* order не нужен */
     }
 
     /* Скрываем мобильное лого (оно не нужно на десктопе) */
     .mobile-logo {
         display: none !important;
+    }
+
+    /* Дополнительные отступы для кнопок доставки и самовывоза */
+    .desktop-delivery-btn,
+    .desktop-pickup-btn {
+        margin-left: 0.5rem;
     }
 }
 
