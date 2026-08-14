@@ -4033,7 +4033,7 @@ body.dropdown-open::before {
 }
 
 [data-theme="dark"] .dropdown-content.show {
-    background: #1e1e1e !important;    
+    background: #090909 !important;    
     color: #ffffff !important;  
 }
 
