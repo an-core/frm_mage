@@ -714,6 +714,20 @@ body {
     text-decoration: underline;
 }
 
+[data-theme="dark"] #pickupModal .contact-phone,
+[data-theme="dark"] #pickupModal a[href^="tel:"],
+[data-theme="dark"] #deliveryModal .contact-phone,
+[data-theme="dark"] #deliveryModal a[href^="tel:"] {
+    color: #ff9933 !important;
+}
+
+[data-theme="dark"] #pickupModal .contact-phone:hover,
+[data-theme="dark"] #pickupModal a[href^="tel:"]:hover,
+[data-theme="dark"] #deliveryModal .contact-phone:hover,
+[data-theme="dark"] #deliveryModal a[href^="tel:"]:hover {
+    color: #ffbb66 !important;
+}
+
 @media (min-width: 768px) {
     .desktop-delivery-btn,
     .desktop-pickup-btn {
