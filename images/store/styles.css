@@ -4010,19 +4010,20 @@ body.dropdown-open::before {
     }
 	
 	 body.dropdown-open .container {
-        transform: translateY(40vh);
+        transform: translateY(35vh);
         transition: transform 0.3s ease;
         pointer-events: none;
     }
 
     body.dropdown-open .top-bar {
-        transform: translateY(40vh);
-        transition: transform 0.3s ease;
+        transform: none !important;
+        position: relative;
+        z-index: 1001;
     }
 
 .dropdown-content.show {
     position: fixed !important;
-        top: 5vh !important;
+        top: 10vh !important;        
         left: 50% !important;
         transform: translateX(-50%) !important;
         width: calc(100% - 20px) !important;
