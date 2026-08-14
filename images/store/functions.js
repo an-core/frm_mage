@@ -3197,20 +3197,6 @@ if (howToBuyBtn) {
     });
 }
 
-if (deliveryBtn) {
-    deliveryBtn.addEventListener('click', function(e) {
-        e.stopPropagation();
-        openDelivery();
-    });
-}
-
-if (pickupBtn) {
-    pickupBtn.addEventListener('click', function(e) {
-        e.stopPropagation();
-        openPickup();
-    });
-}
-
 if (jugglingNewsBtn) {
     jugglingNewsBtn.addEventListener('click', function(e) {
         e.stopPropagation();
