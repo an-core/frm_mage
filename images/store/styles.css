@@ -671,7 +671,7 @@ body {
     display: block;
     opacity: 1;
     transform: translateY(0);
-	margin-left; 1rem;
+	margin-left: 1rem;
 }
 
 .desktop-delivery-btn,
@@ -700,6 +700,18 @@ body {
 
 .dropdown-delivery-content li {
     margin-bottom: 0.3rem;
+}
+
+#pickupModal .contact-phone,
+#pickupModal a[href^="tel:"] {
+    color: #ff6b00 !important;
+    text-decoration: none;
+}
+
+#pickupModal .contact-phone:hover,
+#pickupModal a[href^="tel:"]:hover {
+    color: #cc5500 !important;
+    text-decoration: underline;
 }
 
 @media (min-width: 768px) {
