@@ -3007,7 +3007,6 @@ window.addEventListener('scroll', function() {
 });
 
 const howToBuyBtn = document.getElementById('howToBuyBtn');
-const deliveryBtn = document.getElementById('deliveryBtn');
 const pickupBtn = document.getElementById('pickupBtn');
 const jugglingNewsBtn = document.getElementById('jugglingNewsBtn');
 const fireNewsBtn = document.getElementById('fireNewsBtn');
