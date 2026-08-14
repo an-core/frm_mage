@@ -159,6 +159,8 @@ let currentCardImg = null;
 let thumbnailElements = [];
 let categoryIconCache = {};
 
+const deliveryBtn = document.getElementById('deliveryBtn');
+const pickupBtn = document.getElementById('pickupBtn');
 const modalOverlay = document.getElementById('modalOverlay');
 const modalTitle = document.getElementById('modalTitle');
 const modalImage = document.getElementById('modalImage');
@@ -3559,6 +3561,36 @@ window.addEventListener('resize', forceHideMenuItems);
 if (typeof addScrollButton === 'undefined') {
     window.addScrollButton = function() {};
 }
+
+(function fixMobileButtons() {
+    if (deliveryBtn) {
+        const newBtn = deliveryBtn.cloneNode(true);
+        deliveryBtn.parentNode.replaceChild(newBtn, deliveryBtn);
+        
+        document.getElementById('deliveryBtn').addEventListener('click', function(e) {
+            e.stopPropagation();
+            e.preventDefault();
+            console.log('Доставка открыта (бургер)');
+            if (slideMenu.classList.contains('open')) closeMenu();
+            document.getElementById('deliveryModal').classList.add('active');
+            document.body.style.overflow = 'hidden';
+        });
+    }
+    
+    if (pickupBtn) {
+        const newBtn = pickupBtn.cloneNode(true);
+        pickupBtn.parentNode.replaceChild(newBtn, pickupBtn);
+        
+        document.getElementById('pickupBtn').addEventListener('click', function(e) {
+            e.stopPropagation();
+            e.preventDefault();
+            console.log('Самовывоз открыт (бургер)');
+            if (slideMenu.classList.contains('open')) closeMenu();
+            document.getElementById('pickupModal').classList.add('active');
+            document.body.style.overflow = 'hidden';
+        });
+    }
+})();
 
 (function() {
     function initDropdowns() {
