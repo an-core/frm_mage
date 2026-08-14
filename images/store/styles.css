@@ -655,17 +655,29 @@ body {
     top: calc(100% + 6px);
     left: 0;
     min-width: 260px;
-    background: var(--bg-madal-info);
-    border: 1px solid var(--border-card);
-    border-radius: 12px;
+    background: var(--bg-modal);
+    border: 2px solid #22c55e !important;
+    border-radius: 12px !important;
     box-shadow: var(--shadow-card-hover);
     padding: 0.8rem 1.2rem;
-    z-index: 999;
+    z-index: 9999 !important;
     display: none;
-    backdrop-filter: blur(4px);
     opacity: 0;
     transform: translateY(-6px);
     transition: opacity 0.2s ease, transform 0.2s ease;
+    backdrop-filter: blur(4px);
+}
+
+.dropdown-pickup {
+    border-color: #f59e0b !important;
+}
+
+[data-theme="dark"] .dropdown-delivery {
+    border-color: #22c55e !important;
+}
+
+[data-theme="dark"] .dropdown-pickup {
+    border-color: #f59e0b !important;
 }
 
 .dropdown-delivery.show,
