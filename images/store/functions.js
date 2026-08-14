@@ -2522,7 +2522,7 @@ function addDeliveryPickupButtons() {
 
     const deliveryBtn = document.createElement('button');
     deliveryBtn.className = 'desktop-delivery-btn';
-    deliveryBtn.textContent = '🚚 Доставка';
+    deliveryBtn.textContent = 'Доставка';
     deliveryBtn.addEventListener('click', function(e) {
         e.stopPropagation();
         openDelivery();
@@ -2530,7 +2530,7 @@ function addDeliveryPickupButtons() {
 
     const pickupBtn = document.createElement('button');
     pickupBtn.className = 'desktop-pickup-btn';
-    pickupBtn.textContent = '🏪 Самовывоз';
+    pickupBtn.textContent = 'Самовывоз';
     pickupBtn.addEventListener('click', function(e) {
         e.stopPropagation();
         openPickup();
@@ -3451,18 +3451,15 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 })();
 
-(function forceHideMenuItems() {
-    function updateMenuItems() {
-        const isDesktop = window.innerWidth >= 768;
-        document.querySelectorAll('.slide-menu-body .delivery-item, .slide-menu-body .pickup-item')
-            .forEach(el => {
-                el.style.setProperty('display', isDesktop ? 'none' : '', 'important');
-            });
-    }
-
-    updateMenuItems();
-    window.addEventListener('resize', updateMenuItems);
-})();
+function forceHideMenuItems() {
+    const isDesktop = window.innerWidth >= 768;
+    document.querySelectorAll('.slide-menu-body .delivery-item, .slide-menu-body .pickup-item')
+        .forEach(el => {
+            el.style.setProperty('display', isDesktop ? 'none' : '', 'important');
+        });
+}
+forceHideMenuItems();
+window.addEventListener('resize', forceHideMenuItems);
 
 if (typeof addScrollButton === 'undefined') {
     window.addScrollButton = function() {};
@@ -3478,11 +3475,7 @@ if (typeof addScrollButton === 'undefined') {
     await loadPartnerLogos();
     initCatalogDropdown();
     updateCategoriesVisibility();
-
     addScrollHelpers();
     observeCategories();
-    forceHideMenuItems();
-
     window.addEventListener('resize', updateCategoriesVisibility);
-    window.addEventListener('resize', forceHideMenuItems);
 })();
