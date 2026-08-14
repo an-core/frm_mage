@@ -15,6 +15,7 @@
     --bg-photo: #f8fafc;
     --bg-photo-hover: #f1f5f9;
     --bg-modal: #ffffff;
+	--bg-madal-info: #ffffff;
     --bg-modal-header: #fafcff;
     --bg-modal-specs: #f8fafc;
     --border-modal: #eef2f6;
@@ -86,6 +87,7 @@
     --bg-photo: #0f131a;
     --bg-photo-hover: #1a2538;
     --bg-modal: #0a0c0c;
+    --bg-madal-info: #202222;
     --bg-modal-header: #0e1114;
     --bg-modal-specs: #101114;
     --border-modal: #334155;
@@ -653,7 +655,7 @@ body {
     top: calc(100% + 6px);
     left: 0;
     min-width: 260px;
-    background: var(--bg-modal);
+    background: var(--bg-modal-info);
     border: 1px solid var(--border-card);
     border-radius: 12px;
     box-shadow: var(--shadow-card-hover);
