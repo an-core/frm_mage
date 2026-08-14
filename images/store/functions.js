@@ -184,6 +184,7 @@ const toggleBtn = document.getElementById('toggleCategoriesBtn');
 const categoriesIcon = document.getElementById('categoriesIcon');
 const categoriesText = document.getElementById('categoriesText');
 
+
 const deliveryBtn = document.getElementById('desktopDeliveryBtn');
 const pickupBtn = document.getElementById('desktopPickupBtn');
 const deliveryDropdown = document.getElementById('dropdownDelivery');
