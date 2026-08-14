@@ -3572,6 +3572,10 @@ body.dropdown-open::before {
     .slide-menu-body .pickup-item {
         display: none !important;
     }
+	
+	#settingsBlock .menu-item:first-child {
+        display: none !important;
+    }
 
     .top-row {
         display: flex;
