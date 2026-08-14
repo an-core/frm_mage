@@ -3546,7 +3546,6 @@ document.addEventListener('DOMContentLoaded', function() {
     window.loadPickupPoints = loadPickupPoints;
 
     loadCitiesDatalist();
-    addDeliveryPickupButtons();
 });
 
 function checkOverflow() {
