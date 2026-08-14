@@ -3532,43 +3532,66 @@ if (typeof addScrollButton === 'undefined') {
 }
 
 (function() {
-    const deliveryBtn = document.getElementById('desktopDeliveryBtn');
-    const pickupBtn = document.getElementById('desktopPickupBtn');
-    const deliveryDropdown = document.getElementById('dropdownDelivery');
-    const pickupDropdown = document.getElementById('dropdownPickup');
+    function initDropdowns() {
+        const deliveryBtn = document.getElementById('desktopDeliveryBtn');
+        const pickupBtn = document.getElementById('desktopPickupBtn');
+        const deliveryDropdown = document.getElementById('dropdownDelivery');
+        const pickupDropdown = document.getElementById('dropdownPickup');
 
-    if (!deliveryBtn || !pickupBtn || !deliveryDropdown || !pickupDropdown) return;
+        if (!deliveryBtn || !pickupBtn || !deliveryDropdown || !pickupDropdown) {
+            console.warn('Элементы для выпадающих списков не найдены');
+            return;
+        }
 
-    function closeAllDropdowns() {
-        deliveryDropdown.classList.remove('show');
-        pickupDropdown.classList.remove('show');
+        console.log('Выпадающие списки инициализированы');
+
+        const newDeliveryBtn = deliveryBtn.cloneNode(true);
+        deliveryBtn.parentNode.replaceChild(newDeliveryBtn, deliveryBtn);
+        
+        const newPickupBtn = pickupBtn.cloneNode(true);
+        pickupBtn.parentNode.replaceChild(newPickupBtn, pickupBtn);
+
+        const freshDeliveryBtn = document.getElementById('desktopDeliveryBtn');
+        const freshPickupBtn = document.getElementById('desktopPickupBtn');
+
+        freshDeliveryBtn.addEventListener('click', function(e) {
+            e.preventDefault();
+            e.stopPropagation();
+            pickupDropdown.classList.remove('show');
+            deliveryDropdown.classList.toggle('show');
+            console.log('📦 Доставка клик, show:', deliveryDropdown.classList.contains('show'));
+        });
+
+        freshPickupBtn.addEventListener('click', function(e) {
+            e.preventDefault();
+            e.stopPropagation();
+            deliveryDropdown.classList.remove('show');
+            pickupDropdown.classList.toggle('show');
+            console.log('🏪 Самовывоз клик, show:', pickupDropdown.classList.contains('show'));
+        });
+
+        document.addEventListener('click', function(e) {
+            const target = e.target;
+            if (!target.closest('.desktop-delivery-btn') && !target.closest('#dropdownDelivery') &&
+                !target.closest('.desktop-pickup-btn') && !target.closest('#dropdownPickup')) {
+                deliveryDropdown.classList.remove('show');
+                pickupDropdown.classList.remove('show');
+            }
+        });
+
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape') {
+                deliveryDropdown.classList.remove('show');
+                pickupDropdown.classList.remove('show');
+            }
+        });
     }
 
-    deliveryBtn.addEventListener('click', function(e) {
-        e.stopImmediatePropagation(); // ← предотвращает вызов других обработчиков на этой кнопке
-        e.preventDefault();            // ← на всякий случай
-        pickupDropdown.classList.remove('show');
-        deliveryDropdown.classList.toggle('show');
-    });
-
-    pickupBtn.addEventListener('click', function(e) {
-        e.stopImmediatePropagation();
-        e.preventDefault();
-        deliveryDropdown.classList.remove('show');
-        pickupDropdown.classList.toggle('show');
-    });
-
-    document.addEventListener('click', function(e) {
-        const target = e.target;
-        if (!target.closest('.desktop-delivery-btn') && !target.closest('#dropdownDelivery') &&
-            !target.closest('.desktop-pickup-btn') && !target.closest('#dropdownPickup')) {
-            closeAllDropdowns();
-        }
-    });
-
-    document.addEventListener('keydown', function(e) {
-        if (e.key === 'Escape') closeAllDropdowns();
-    });
+    if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', initDropdowns);
+    } else {
+        initDropdowns();
+    }
 })();
 
 (async function init() {
