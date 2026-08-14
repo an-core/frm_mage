@@ -647,6 +647,67 @@ body {
     border-color: var(--border-card-hover);
 }
 
+.dropdown-delivery,
+.dropdown-pickup {
+    position: absolute;
+    top: calc(100% + 6px);
+    left: 0;
+    min-width: 260px;
+    background: var(--bg-modal);
+    border: 1px solid var(--border-card);
+    border-radius: 12px;
+    box-shadow: var(--shadow-card-hover);
+    padding: 0.8rem 1.2rem;
+    z-index: 999;
+    display: none;
+    backdrop-filter: blur(4px);
+    opacity: 0;
+    transform: translateY(-6px);
+    transition: opacity 0.2s ease, transform 0.2s ease;
+}
+
+.dropdown-delivery.show,
+.dropdown-pickup.show {
+    display: block;
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.desktop-delivery-btn,
+.desktop-pickup-btn {
+    position: relative;
+}
+
+.dropdown-delivery-content,
+.dropdown-pickup-content {
+    color: var(--text-secondary);
+    font-size: 0.9rem;
+    line-height: 1.5;
+}
+
+.dropdown-delivery-content h4,
+.dropdown-pickup-content h4 {
+    margin-bottom: 0.5rem;
+    color: var(--text-primary);
+    font-weight: 600;
+}
+
+.dropdown-delivery-content ul {
+    padding-left: 1.2rem;
+    margin: 0.3rem 0;
+}
+
+.dropdown-delivery-content li {
+    margin-bottom: 0.3rem;
+}
+
+@media (min-width: 768px) {
+    .desktop-delivery-btn,
+    .desktop-pickup-btn {
+        position: relative;
+    }
+}
+
 .settings-item {
     margin-top: auto;
     border-bottom: none !important;

@@ -184,6 +184,42 @@ const toggleBtn = document.getElementById('toggleCategoriesBtn');
 const categoriesIcon = document.getElementById('categoriesIcon');
 const categoriesText = document.getElementById('categoriesText');
 
+const deliveryBtn = document.getElementById('desktopDeliveryBtn');
+const pickupBtn = document.getElementById('desktopPickupBtn');
+const deliveryDropdown = document.getElementById('dropdownDelivery');
+const pickupDropdown = document.getElementById('dropdownPickup');
+
+function closeAllDropdowns() {
+    deliveryDropdown.classList.remove('show');
+    pickupDropdown.classList.remove('show');
+}
+
+deliveryBtn.addEventListener('click', function(e) {
+    e.stopPropagation();
+    pickupDropdown.classList.remove('show');
+    deliveryDropdown.classList.toggle('show');
+});
+
+pickupBtn.addEventListener('click', function(e) {
+    e.stopPropagation();
+    deliveryDropdown.classList.remove('show');
+    pickupDropdown.classList.toggle('show');
+});
+
+document.addEventListener('click', function(e) {
+    const target = e.target;
+    if (!target.closest('.desktop-delivery-btn') && !target.closest('#dropdownDelivery') &&
+        !target.closest('.desktop-pickup-btn') && !target.closest('#dropdownPickup')) {
+        closeAllDropdowns();
+    }
+});
+
+document.addEventListener('keydown', function(e) {
+    if (e.key === 'Escape') {
+        closeAllDropdowns();
+    }
+});
+
 let showCategories = localStorage.getItem('firemag_show_categories') === 'true';
 
 function updateCategoriesVisibility() {
