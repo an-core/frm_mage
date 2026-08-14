@@ -159,8 +159,15 @@ let currentCardImg = null;
 let thumbnailElements = [];
 let categoryIconCache = {};
 
+// Кнопки в бургер-меню
 const deliveryBtn = document.getElementById('deliveryBtn');
 const pickupBtn = document.getElementById('pickupBtn');
+
+// Десктопные кнопки
+const desktopDeliveryBtn = document.getElementById('desktopDeliveryBtn');
+const desktopPickupBtn = document.getElementById('desktopPickupBtn');
+
+// Модалки
 const modalOverlay = document.getElementById('modalOverlay');
 const modalTitle = document.getElementById('modalTitle');
 const modalImage = document.getElementById('modalImage');
@@ -185,12 +192,6 @@ const citySuggestions = document.getElementById('citySuggestions');
 const toggleBtn = document.getElementById('toggleCategoriesBtn');
 const categoriesIcon = document.getElementById('categoriesIcon');
 const categoriesText = document.getElementById('categoriesText');
-
-
-const deliveryBtn = document.getElementById('desktopDeliveryBtn');
-const pickupBtn = document.getElementById('desktopPickupBtn');
-const deliveryDropdown = document.getElementById('dropdownDelivery');
-const pickupDropdown = document.getElementById('dropdownPickup');
 
 function closeAllDropdowns() {
     deliveryDropdown.classList.remove('show');
