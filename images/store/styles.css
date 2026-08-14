@@ -3546,10 +3546,10 @@ body.dropdown-open::before {
 @media (min-width: 768px) {
 
     .container {
-        padding: 0 2rem !important;
+        padding: 10px !important;
         max-width: 1700px !important;
-        margin: 0 auto !important;
         box-sizing: border-box !important;
+		margin-left: 5px !important;
     }
 
     .catalog {
@@ -3667,6 +3667,7 @@ body.dropdown-open::before {
     .categories-row.shifted {
         transform: translateX(14rem) !important;
         margin-top: 0 !important;
+		margin-left: 3rem !important;
     }
 }
 
