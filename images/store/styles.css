@@ -3629,7 +3629,7 @@ body.dropdown-open::before {
     }
 	
 	.categories-row.shifted {
-        transform: none !important;
+	    transform: translateX(14rem) !important;
         margin-top: 0 !important;
     }
 }
