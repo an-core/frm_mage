@@ -3938,7 +3938,7 @@ body.dropdown-open::before {
     }
 
     .mobile-logo img {
-        max-height: 30px;
+        max-height: 50px;
         width: auto;
         display: block;
     }
@@ -4028,14 +4028,23 @@ body.dropdown-open::before {
 }
 
 [data-theme="light"] .dropdown-content.show {
-    background: #ffffff !important; 
-    color: #000000 !important;   
+    background: #ffffff !important;
+    color: #000000 !important;
 }
 
 [data-theme="dark"] .dropdown-content.show {
-    background: #090909 !important;    
-    color: #ffffff !important;  
+    background: #1e1e1e !important;
+    color: #ffffff !important;
 }
+
+body.dropdown-open::before {
+    display: none !important;
+}
+
+.dropdown-content .category-item {
+        text-shadow: 0 0 10px currentColor, 0 0 20px currentColor;
+        opacity: 1 !important;
+    }
 
 body.dropdown-open::before {
     content: '';
