@@ -159,8 +159,6 @@ let currentCardImg = null;
 let thumbnailElements = [];
 let categoryIconCache = {};
 
-const deliveryBtn = document.getElementById('deliveryBtn');
-const pickupBtn = document.getElementById('pickupBtn');
 const modalOverlay = document.getElementById('modalOverlay');
 const modalTitle = document.getElementById('modalTitle');
 const modalImage = document.getElementById('modalImage');
