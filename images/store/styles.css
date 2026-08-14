@@ -128,10 +128,8 @@
 body {
     background: var(--bg-body);
     min-height: 100vh;
-    display: flex;
     justify-content: center;
     align-items: flex-start;
-    padding: 2rem 1rem;
     transition: background .25s, color .25s;
     color: var(--text-primary);
     position: relative;
@@ -715,13 +713,6 @@ body {
     justify-content: center;
     margin-bottom: 5px;
 }
-
-/*#logoImage {
-    max-width: 180px;
-    height: auto;
-    display: block;
-    margin-top: 10px;
-} */
 
 .nav-section {
     margin: .5rem 0 2rem;
@@ -4132,6 +4123,37 @@ body.dropdown-open::before {
         margin-left: 0 !important;
         margin-right: 0 !important;
     }
+	
+	/* Принудительно возвращаем ширину */
+.categories-wrapper {
+    width: 100% !important;
+    padding: 0 !important;
+    margin: 0 !important;
+}
+
+.categories-row {
+    width: 100% !important;
+    padding: 0.5rem 0 1rem 0 !important;
+    margin: 0 !important;
+}
+
+.subcategory-block {
+    width: 100% !important;
+    padding: 0 !important;
+    margin: 0 0 1rem 0 !important;
+}
+
+.subcategories-row {
+    width: 100% !important;
+    padding: 0 !important;
+    margin: 0 !important;
+}
+
+.catalog {
+    width: 100% !important;
+    margin: 0 !important;
+    padding: 0 !important;
+}
 
     .cart-actions .btn-primary,
     .cart-actions .btn-secondary {
