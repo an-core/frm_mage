@@ -3810,6 +3810,16 @@ body.dropdown-open::before {
         width: 100%;
         overflow: hidden;
     }
+	
+	.dropdown-content.show {
+        backdrop-filter: none !important;
+        -webkit-backdrop-filter: none !important;
+        background: rgba(0, 0, 0, 0.9) !important;
+    }
+
+    [data-theme="light"] .dropdown-content.show {
+        background: rgba(255, 255, 255, 0.95) !important;
+    }
 }
 
 .desktop-delivery-btn,
