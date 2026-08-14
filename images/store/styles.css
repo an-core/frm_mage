@@ -4037,7 +4037,6 @@ body.dropdown-open::before {
     color: #ffffff !important;  
 }
 
-
 body.dropdown-open::before {
     content: '';
     position: fixed;
@@ -4054,11 +4053,6 @@ body.dropdown-open::before {
     body.dropdown-open {
         overflow: hidden;
     }
-	
-	.dropdown-content.show .category-item {
-    color: inherit !important;
-    font-weight: 600;
-}
 	
     #logoImage {
         margin-top: -60px !important;
