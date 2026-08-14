@@ -3576,30 +3576,32 @@ body.dropdown-open::before {
         display: none !important;
     }
 
-    /* Убираем все order, используем естественный порядок */
+    /* Основная строка: левая группа + корзина (корзина прижата к правому краю) */
     .top-row {
         display: flex;
         align-items: center;
-        justify-content: space-between; /* корзина уходит вправо */
+        justify-content: space-between;
         width: 100%;
     }
 
+    /* Левая группа: все элементы в одну строку */
     .left-group {
         display: flex;
         align-items: center;
-        gap: 0.8rem; /* отступы между элементами */
-        /* order не нужен */
+        flex-wrap: nowrap;   /* запрещаем перенос на следующую строку */
+        gap: 0.8rem;         /* отступы между элементами */
     }
 
-    /* Скрываем мобильное лого (оно не нужно на десктопе) */
+    /* Скрываем мобильное лого (на десктопе оно не нужно) */
     .mobile-logo {
         display: none !important;
     }
 
-    /* Дополнительные отступы для кнопок доставки и самовывоза */
+    /* Кнопки доставки и самовывоза – небольшие отступы слева, чтобы не слипались */
     .desktop-delivery-btn,
     .desktop-pickup-btn {
         margin-left: 0.5rem;
+        white-space: nowrap; /* текст внутри не переносится */
     }
 }
 
