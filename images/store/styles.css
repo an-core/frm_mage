@@ -4537,7 +4537,7 @@ body.dropdown-open::before {
     }
 
     .header-wrapper {
-        margin-top: 70px;
+        margin-top: -0px;
     }
 
     .header-left h1 {
