@@ -2478,13 +2478,21 @@ function initCatalogDropdown() {
 
     if (desktopBtn && dropdownContent) {
         desktopBtn.addEventListener('click', function(e) {
-            e.stopPropagation();
-            requestAnimationFrame(() => {
-                const isOpen = dropdownContent.classList.toggle('show');
-                const row = document.querySelector('.categories-row');
-                if (row) row.classList.toggle('shifted', isOpen);
-            });
-        });
+    e.stopPropagation();
+    // Закрываем все другие дропдауны
+    closeAllDropdowns();
+    // Переключаем только каталог
+    requestAnimationFrame(() => {
+        const isOpen = dropdownContent.classList.toggle('show');
+        const row = document.querySelector('.categories-row');
+        if (row) row.classList.toggle('shifted', isOpen);
+        if (isOpen) {
+            document.body.classList.add('dropdown-open');
+        } else {
+            document.body.classList.remove('dropdown-open');
+        }
+    });
+});
     }
 
     if (mobileBtn && dropdownContent) {
@@ -3191,18 +3199,20 @@ if (howToBuyBtn) {
 
 if (deliveryBtn) {
     deliveryBtn.addEventListener('click', function(e) {
-        e.stopPropagation();
-        e.preventDefault();
-        console.log('Клик по Доставке в бургер-меню');
-        // Закрываем бургер-меню
-        if (slideMenu.classList.contains('open')) {
-            closeMenu();
-        }
-        // Открываем модалку
-        deliveryModal.classList.add('active');
-        document.body.style.overflow = 'hidden';
-        hideAnnouncementForModal();
-    });
+    e.stopImmediatePropagation();
+    e.preventDefault();
+    // Закрываем все другие дропдауны
+    closeAllDropdowns();
+    // Переключаем только Доставку
+    deliveryDropdown.classList.toggle('show');
+});
+
+pickupBtn.addEventListener('click', function(e) {
+    e.stopImmediatePropagation();
+    e.preventDefault();
+    closeAllDropdowns();
+    pickupDropdown.classList.toggle('show');
+});
 }
 
 if (pickupBtn) {
@@ -3578,6 +3588,23 @@ document.addEventListener('DOMContentLoaded', function() {
     window.addEventListener('resize', checkOverflow);
 });
 
+// ===== ЗАКРЫТИЕ ВСЕХ ВЫПАДАЮЩИХ СПИСКОВ =====
+function closeAllDropdowns() {
+    // Закрываем каталог
+    const catalogDropdown = document.querySelector('.dropdown-content');
+    if (catalogDropdown && catalogDropdown.classList.contains('show')) {
+        catalogDropdown.classList.remove('show');
+        document.querySelector('.categories-row')?.classList.remove('shifted');
+        document.body.classList.remove('dropdown-open');
+    }
+    // Закрываем Доставку
+    const deliveryDropdown = document.getElementById('dropdownDelivery');
+    if (deliveryDropdown) deliveryDropdown.classList.remove('show');
+    // Закрываем Самовывоз
+    const pickupDropdown = document.getElementById('dropdownPickup');
+    if (pickupDropdown) pickupDropdown.classList.remove('show');
+}
+
 (function ensureFade() {
     const wrapper = document.querySelector('.categories-wrapper');
     if (!wrapper) return;
@@ -3672,13 +3699,17 @@ if (typeof addScrollButton === 'undefined') {
         });
 
         document.addEventListener('click', function(e) {
-            const target = e.target;
-            if (!target.closest('.desktop-delivery-btn') && !target.closest('#dropdownDelivery') &&
-                !target.closest('.desktop-pickup-btn') && !target.closest('#dropdownPickup')) {
-                deliveryDropdown.classList.remove('show');
-                pickupDropdown.classList.remove('show');
-            }
-        });
+    const target = e.target;
+    // Если клик не по кнопкам и не по дропдаунам — закрываем всё
+    if (!target.closest('.dropdown-btn') && 
+        !target.closest('.dropdown-content') &&
+        !target.closest('.desktop-delivery-btn') && 
+        !target.closest('#dropdownDelivery') &&
+        !target.closest('.desktop-pickup-btn') && 
+        !target.closest('#dropdownPickup')) {
+        closeAllDropdowns();
+    }
+});
 
         document.addEventListener('keydown', function(e) {
             if (e.key === 'Escape') {
