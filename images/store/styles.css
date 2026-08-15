@@ -2884,7 +2884,7 @@ body,
     .category-icon-wrapper {
         flex: 0 0 auto !important;
         width: 165px !important;
-		margin: 10px 10px 10px 30px;
+		margin-left: 1rem;
     }
 
     .category-block {
