@@ -3629,18 +3629,6 @@ body,
         display: block;
     }
 
-    .categories-row {
-        display: flex;
-        flex-wrap: nowrap;
-        -webkit-overflow-scrolling: touch;
-        gap: 1rem;
-        padding: 0.5rem 1rem 1rem;
-        overflow-x: auto;
-        justify-content: flex-start;
-        border-bottom: 2px solid var(--border-card);
-        scroll-snap-type: x mandatory;
-        scroll-padding: 0 1rem;
-    }
     .category-block.hidden .categories-wrapper {
         display: none;
     }
