@@ -2952,6 +2952,11 @@ body,
         margin-top: 0 !important;
         margin-left: 0 !important;
     }
+	
+	.modal-overlay.modal-fullscreen .modal-colors-wrapper,
+    .modal-overlay.modal-fullscreen .modal-left-column .modal-colors-wrapper {
+        display: none !important;
+    }
 }
 
 /* ========================================
