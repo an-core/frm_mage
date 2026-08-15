@@ -2565,6 +2565,7 @@ input[readonly] {
     color: #ff6b00 !important;
     text-decoration: none;
 }
+
 #pickupModal .contact-phone:hover,
 #pickupModal a[href^="tel:"]:hover {
     color: #cc5500 !important;
@@ -2576,6 +2577,7 @@ input[readonly] {
 [data-theme="dark"] #deliveryModal a[href^="tel:"] {
     color: #ff9933 !important;
 }
+
 [data-theme="dark"] #pickupModal .contact-phone:hover,
 [data-theme="dark"] #pickupModal a[href^="tel:"]:hover,
 [data-theme="dark"] #deliveryModal .contact-phone:hover,
