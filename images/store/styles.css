@@ -2885,6 +2885,7 @@ body,
         flex: 0 0 auto !important;
         width: 165px !important;
 		margin-left: 1rem;
+		margin-top: 0.3rem;
     }
 
     .category-block {
