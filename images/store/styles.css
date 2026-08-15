@@ -4217,7 +4217,7 @@ body.dropdown-open::before {
     .dropdown-content.show {
         display: block !important;
         position: fixed !important;
-        top: 140px !important;
+        top: 110px !important;
         left: 50% !important;
         transform: translateX(-50%) !important;
         width: calc(100% - 20px) !important;
