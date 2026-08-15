@@ -3787,7 +3787,6 @@ body.dropdown-open::before {
 }
 
 @media (max-width: 768px) {
-
     html,
     body {
         max-width: 100vw;
@@ -3958,6 +3957,27 @@ body.dropdown-open::before {
 
     [data-theme="light"] .dropdown-content.show {
         background: rgba(255, 255, 255, 0.95) !important;
+    }
+	.categories-row {
+        padding-top: 0 !important;
+        margin-top: 0 !important;
+    }
+    
+    .category-block {
+        margin-top: 0 !important;
+        padding-top: 0 !important;
+    }
+    
+    .categories-wrapper {
+        margin-top: 0 !important;
+        padding-top: 0 !important;
+    }
+    
+    .middle-row {
+        margin-top: 0 !important;
+        padding-top: 0 !important;
+        margin-bottom: 0 !important;
+        padding-bottom: 0 !important;
     }
 }
 

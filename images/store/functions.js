@@ -3593,7 +3593,7 @@ if (typeof addScrollButton === 'undefined') {
             return;
         }
 
-        console.log('✅ Выпадающие списки инициализированы');
+        console.log('Выпадающие списки инициализированы');
 
         const newDeliveryBtn = deliveryBtn.cloneNode(true);
         deliveryBtn.parentNode.replaceChild(newDeliveryBtn, deliveryBtn);
