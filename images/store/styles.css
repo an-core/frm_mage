@@ -3246,13 +3246,13 @@ body,
         flex-wrap: nowrap !important;
         overflow-x: auto !important;
         gap: 1rem !important;
-        padding: 0 1rem 1rem 0 !important;
         margin: 0 !important;
         justify-content: flex-start !important;
         border-bottom: 2px solid var(--border-card) !important;
         scroll-snap-type: x mandatory !important;
         scroll-padding: 0 1rem !important;
         width: 100% !important;
+		margin-top: 1rem !important;
     }
 
     .middle-row {
@@ -3641,15 +3641,13 @@ body,
         width: 115px;
         min-height: auto;
         scroll-snap-align: start;
-		margin-top: 1rem;
     }
     .category-icon-img {
         width: 100px !important;
-    height: 100px !important;
-    min-height: 100px !important;
-    object-fit: contain !important;
-    border-radius: 16px !important;
-    padding: 4px !important;
+        height: 100px !important;
+        min-height: 100px !important;
+        object-fit: contain !important;
+        border-radius: 16px !important;
     }
     .category-icon-label {
         font-size: 0.7rem;
