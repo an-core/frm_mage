@@ -209,13 +209,6 @@ document.addEventListener('click', function(e) {
     const target = e.target;
     if (!target.closest('.desktop-delivery-btn') && !target.closest('#dropdownDelivery') &&
         !target.closest('.desktop-pickup-btn') && !target.closest('#dropdownPickup')) {
-        closeAllDropdowns();
-    }
-});
-
-document.addEventListener('keydown', function(e) {
-    if (e.key === 'Escape') {
-        closeAllDropdowns();
     }
 });
 
