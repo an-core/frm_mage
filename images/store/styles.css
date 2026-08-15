@@ -3639,6 +3639,8 @@ body,
         width: 115px;
         min-height: auto;
         scroll-snap-align: start;
+		margin-top: 10px;
+        margin-left: 10px;
     }
     .category-icon-img {
         width: 100px !important;
