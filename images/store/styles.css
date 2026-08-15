@@ -3350,9 +3350,6 @@ body,
         height: 100% !important;
     }
 
-    body.dropdown-open .container {
-        transform: none !important;
-    }
     body.dropdown-open .categories-row,
     body.dropdown-open .subcategory-block,
     body.dropdown-open .catalog {
