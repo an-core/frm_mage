@@ -3686,6 +3686,7 @@ body.categories-visible .categories-wrapper {
         padding: 0.25rem 1rem;
         font-size: 0.8rem;
         scroll-snap-align: start;
+		margin-bottom: 15px;
     }
 
     .sort-section {
