@@ -3028,6 +3028,15 @@ body,
         padding: 4px !important;
         transition: border-color 0.2s, transform 0.2s !important;
     }
+	
+	.modal-overlay.modal-fullscreen .modal-body {
+    grid-template-columns: 1.2fr 1fr !important; /* правая колонка шире */
+    gap: 0.8rem !important;                     /* уменьшаем расстояние между колонками */
+}
+
+.modal-overlay.modal-fullscreen .modal-right-column {
+    padding-right: 0 !important;                /* убираем лишний отступ справа */
+}
 }
 
 /* ========================================
