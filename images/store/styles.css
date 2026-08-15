@@ -2851,6 +2851,52 @@ body,
     transition: background 0.25s ease, color 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease;
 }
 
+/* ===== ПРИНУДИТЕЛЬНОЕ РАСПОЛОЖЕНИЕ: ГАЛЕРЕЯ СЛЕВА, ТЕКСТ СПРАВА ===== */
+.modal-overlay.modal-fullscreen .modal-body {
+    display: grid !important;
+    grid-template-columns: 1.6fr 1fr !important;
+    grid-template-rows: auto !important;
+    gap: 1.2rem !important;
+    align-items: start !important;
+}
+
+.modal-overlay.modal-fullscreen .modal-left-column {
+    grid-column: 1 / 2 !important;
+    grid-row: 1 / 2 !important;
+    display: flex !important;
+    flex-direction: column !important;
+    height: 100% !important;
+    overflow: hidden !important;
+}
+
+.modal-overlay.modal-fullscreen .modal-right-column {
+    grid-column: 2 / 3 !important;
+    grid-row: 1 / 2 !important;
+    display: flex !important;
+    flex-direction: column !important;
+    overflow-y: auto !important;
+    padding-right: 4px !important;
+    height: 100% !important;
+}
+
+/* Убираем лишние стили, которые могут ломать grid */
+.modal-overlay.modal-fullscreen .modal-left-column,
+.modal-overlay.modal-fullscreen .modal-right-column {
+    width: auto !important;
+    max-width: none !important;
+    flex: none !important;
+}
+
+/* На случай, если внутри есть flex-элементы, которые мешают */
+.modal-overlay.modal-fullscreen .modal-image-wrapper {
+    flex: 1 1 auto !important;
+    min-height: 0 !important;
+}
+
+.modal-overlay.modal-fullscreen .modal-gallery-wrapper {
+    flex-shrink: 0 !important;
+}
+
 /* ========================================
    ДЕСКТОП (≥768px)
    ======================================== */
