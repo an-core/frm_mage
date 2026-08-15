@@ -3683,20 +3683,38 @@ if (typeof addScrollButton === 'undefined') {
         const freshPickupBtn = document.getElementById('desktopPickupBtn');
 
         freshDeliveryBtn.addEventListener('click', function(e) {
-            e.preventDefault();
-            e.stopPropagation();
-            pickupDropdown.classList.remove('show');
-            deliveryDropdown.classList.toggle('show');
-            console.log('📦 Доставка клик, show:', deliveryDropdown.classList.contains('show'));
-        });
+    e.preventDefault();
+    e.stopPropagation();
 
-        freshPickupBtn.addEventListener('click', function(e) {
-            e.preventDefault();
-            e.stopPropagation();
-            deliveryDropdown.classList.remove('show');
-            pickupDropdown.classList.toggle('show');
-            console.log('🏪 Самовывоз клик, show:', pickupDropdown.classList.contains('show'));
-        });
+    // Закрываем каталог (если открыт)
+    const catalogDropdown = document.querySelector('.dropdown-content');
+    if (catalogDropdown && catalogDropdown.classList.contains('show')) {
+        catalogDropdown.classList.remove('show');
+        document.querySelector('.categories-row')?.classList.remove('shifted');
+        document.body.classList.remove('dropdown-open');
+    }
+
+    pickupDropdown.classList.remove('show');
+    deliveryDropdown.classList.toggle('show');
+    console.log('📦 Доставка клик, show:', deliveryDropdown.classList.contains('show'));
+});
+
+freshPickupBtn.addEventListener('click', function(e) {
+    e.preventDefault();
+    e.stopPropagation();
+
+    // Закрываем каталог (если открыт)
+    const catalogDropdown = document.querySelector('.dropdown-content');
+    if (catalogDropdown && catalogDropdown.classList.contains('show')) {
+        catalogDropdown.classList.remove('show');
+        document.querySelector('.categories-row')?.classList.remove('shifted');
+        document.body.classList.remove('dropdown-open');
+    }
+
+    deliveryDropdown.classList.remove('show');
+    pickupDropdown.classList.toggle('show');
+    console.log('🏪 Самовывоз клик, show:', pickupDropdown.classList.contains('show'));
+});
 
         document.addEventListener('click', function(e) {
     const target = e.target;
