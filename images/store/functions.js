@@ -3340,6 +3340,55 @@ function showPickupInfo() {
     }
 }
 
+// ===== СТРЕЛКА ДЛЯ ПРОКРУТКИ ГАЛЕРЕИ =====
+function addGalleryScrollArrow() {
+    const gallery = document.querySelector('.modal-fullscreen .modal-gallery');
+    if (!gallery) return;
+
+    const wrapper = gallery.closest('.modal-gallery-wrapper');
+    if (!wrapper) return;
+
+    // Удаляем старую стрелку, если есть
+    const oldArrow = wrapper.querySelector('.gallery-scroll-arrow');
+    if (oldArrow) oldArrow.remove();
+
+    // Проверяем, нужно ли показывать стрелку (только если есть переполнение)
+    const canScroll = gallery.scrollWidth > gallery.clientWidth;
+    if (!canScroll) return;
+
+    // Создаём стрелку
+    const arrow = document.createElement('div');
+    arrow.className = 'gallery-scroll-arrow';
+    arrow.innerHTML = '→';
+    arrow.setAttribute('aria-label', 'Прокрутить галерею');
+
+    wrapper.style.position = 'relative';
+    wrapper.appendChild(arrow);
+
+    function updateArrowVisibility() {
+        const isAtEnd = gallery.scrollLeft + gallery.clientWidth >= gallery.scrollWidth - 5;
+        if (!isAtEnd) {
+            arrow.classList.add('visible');
+        } else {
+            arrow.classList.remove('visible');
+        }
+    }
+
+    // Показываем/скрываем при скролле и изменении размера
+    gallery.addEventListener('scroll', updateArrowVisibility);
+    window.addEventListener('resize', updateArrowVisibility);
+
+    // Проверяем сразу
+    setTimeout(updateArrowVisibility, 50);
+
+    // Клик по стрелке — прокрутка вправо
+    arrow.addEventListener('click', function(e) {
+        e.stopPropagation();
+        const scrollAmount = Math.min(300, gallery.scrollWidth - gallery.scrollLeft - gallery.clientWidth);
+        gallery.scrollBy({ left: scrollAmount, behavior: 'smooth' });
+    });
+}
+
 function updatePartnersHeight() {
     const partnersCollapsible = document.getElementById('partnersCollapsible');
     if (partnersCollapsible && partnersCollapsible.classList.contains('open')) {
@@ -3658,5 +3707,6 @@ if (typeof addScrollButton === 'undefined') {
     updateCategoriesVisibility();
     addScrollHelpers();
     observeCategories();
+	addGalleryScrollArrow();
     window.addEventListener('resize', updateCategoriesVisibility);
 })();
