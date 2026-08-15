@@ -3003,6 +3003,31 @@ body,
     .modal-overlay.modal-fullscreen .modal-left-column .modal-colors-wrapper {
         display: none !important;
     }
+	.modal-overlay.modal-fullscreen .modal-gallery {
+        max-width: calc(70px * 6 + 10px * 5) !important;
+        width: auto !important;
+        display: flex !important;
+        flex-wrap: nowrap !important;
+        overflow-x: auto !important;
+        gap: 10px !important;
+        padding: 8px 8px 18px 8px !important;
+        min-height: 60px !important;
+        max-height: 90px !important;
+        cursor: grab !important;
+    }
+
+    .modal-overlay.modal-fullscreen .modal-gallery-thumb {
+        flex: 0 0 70px !important;
+        width: 70px !important;
+        height: 56px !important;
+        border-radius: 8px !important;
+        object-fit: contain !important;
+        background: var(--bg-photo) !important;
+        border: 2px solid var(--border-card) !important;
+        cursor: pointer !important;
+        padding: 4px !important;
+        transition: border-color 0.2s, transform 0.2s !important;
+    }
 }
 
 /* ========================================
