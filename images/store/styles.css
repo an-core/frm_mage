@@ -973,7 +973,6 @@ body {
 .category-icon-wrapper.active {
     border-color: var(--bg-category-active);
     box-shadow: 0 0 6px 2px var(--neon-glow-color), 0 2px 8px rgba(59, 130, 246, 0.12);
-    margin-top: 1px;
 }
 .category-icon-wrapper.active .category-icon-label {
     color: var(--text-category);
@@ -3639,9 +3638,10 @@ body,
     .category-icon-wrapper {
         min-height: 140px !important;
 		flex: 0 0 auto;
-        width: 110px;
+        width: 115px;
         min-height: auto;
         scroll-snap-align: start;
+		margin-top: 1rem;
     }
     .category-icon-img {
         width: 100px !important;
