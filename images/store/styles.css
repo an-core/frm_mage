@@ -3226,7 +3226,7 @@ body,
         max-width: 100vw !important;
     }
 
-   .category-block {
+.category-block {
     margin-top: 0 !important;
     margin-bottom: .8rem !important;
     margin-left: 0 !important;
@@ -3235,9 +3235,8 @@ body,
 
 .categories-wrapper {
     margin-top: 0 !important;
-    padding-top: 0 !important;
-    width: 100% !important;
     padding: 0 !important;
+    width: 100% !important;
 }
 
 .categories-row {
@@ -3245,7 +3244,8 @@ body,
     flex-wrap: nowrap !important;
     overflow-x: auto !important;
     gap: 1rem !important;
-    margin: 0 !important;    
+    margin: 0 !important;
+    padding: 0 1rem 1rem 0 !important;
     justify-content: flex-start !important;
     border-bottom: 2px solid var(--border-card) !important;
     scroll-snap-type: x mandatory !important;
