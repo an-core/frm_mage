@@ -218,16 +218,18 @@ function updateCategoriesVisibility() {
     const isMobile = window.innerWidth <= 600;
     if (isMobile) {
         if (showCategories) {
+            document.body.classList.add('categories-visible');
             document.body.classList.remove('categories-hidden');
             categoriesIcon.textContent = '👁️';
             categoriesText.textContent = 'Скрыть иконки категорий';
         } else {
+            document.body.classList.remove('categories-visible');
             document.body.classList.add('categories-hidden');
             categoriesIcon.textContent = '🚫';
             categoriesText.textContent = 'Показать иконки категорий';
         }
     } else {
-        document.body.classList.remove('categories-hidden');
+        document.body.classList.remove('categories-hidden', 'categories-visible');
     }
 }
 

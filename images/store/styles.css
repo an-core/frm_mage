@@ -3237,6 +3237,10 @@ body,
     margin-top: 0 !important;
     padding: 0 !important;
     width: 100% !important;
+	display: none !important;
+}
+body.categories-visible .categories-wrapper {
+    display: flex !important;
 }
 
 .categories-row {
