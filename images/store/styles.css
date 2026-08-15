@@ -3051,7 +3051,7 @@ body,
         display: none !important;
     }
 	.modal-overlay.modal-fullscreen .modal-gallery {
-        max-width: calc(70px * 6 + 10px * 5) !important;
+        max-width: calc(70px * 7 + 10px * 5) !important;
         width: auto !important;
         display: flex !important;
         flex-wrap: nowrap !important;
