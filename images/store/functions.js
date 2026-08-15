@@ -193,11 +193,6 @@ const toggleBtn = document.getElementById('toggleCategoriesBtn');
 const categoriesIcon = document.getElementById('categoriesIcon');
 const categoriesText = document.getElementById('categoriesText');
 
-function closeAllDropdowns() {
-    deliveryDropdown.classList.remove('show');
-    pickupDropdown.classList.remove('show');
-}
-
 deliveryBtn.addEventListener('click', function(e) {
     e.stopPropagation();
     pickupDropdown.classList.remove('show');
@@ -3605,7 +3600,7 @@ if (typeof addScrollButton === 'undefined') {
             return;
         }
 
-        console.log('Выпадающие списки инициализированы');
+        console.log('✅ Выпадающие списки инициализированы');
 
         const newDeliveryBtn = deliveryBtn.cloneNode(true);
         deliveryBtn.parentNode.replaceChild(newDeliveryBtn, deliveryBtn);
