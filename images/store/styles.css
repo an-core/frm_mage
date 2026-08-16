@@ -2384,6 +2384,41 @@ input[readonly] {
     color: #585f6b;
 }
 
+/* ===== GIF ПО БОКАМ ЛОГОТИПА (ТОЛЬКО ДЕСКТОП) ===== */
+.header-logos {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    padding: 0 20px; /* опционально, чтобы не прилипало к краям */
+    box-sizing: border-box;
+}
+
+.gif-left,
+.gif-right {
+    flex: 0 0 auto;
+    max-width: 150px; /* ограничьте размер, если нужно */
+}
+
+.gif-left img,
+.gif-right img {
+    display: block;
+    max-height: 60px; /* подгоните под высоту логотипа */
+    width: auto;
+    height: auto;
+}
+
+/* Скрываем GIF на мобильных устройствах */
+@media (max-width: 768px) {
+    .gif-left,
+    .gif-right {
+        display: none !important;
+    }
+    .header-logos {
+        justify-content: center; /* центрируем логотип на мобильных */
+    }
+}
+
 /* ========================================
    ТУЛТИПЫ
    ======================================== */
