@@ -208,8 +208,7 @@ pickupBtn.addEventListener('click', function(e) {
 document.addEventListener('click', function(e) {
     const target = e.target;
     if (!target.closest('.desktop-delivery-btn') && !target.closest('#dropdownDelivery') &&
-        !target.closest('.desktop-pickup-btn') && !target.closest('#dropdownPickup')) {
-    }
+        !target.closest('.desktop-pickup-btn') && !target.closest('#dropdownPickup')) {}
 });
 
 let showCategories = localStorage.getItem('firemag_show_categories') === 'true';
@@ -1592,7 +1591,7 @@ document.addEventListener('keydown', function(e) {
 });
 
 function openModal(product, cardImgElement) {
-   
+
     hideAnnouncementForModal();
     modalOverlay.classList.add('active');
     document.body.style.overflow = 'hidden';
@@ -2186,13 +2185,11 @@ function restoreModalHandlers(product) {
 }
 
 function closeModal() {
-	
     if (currentCardImg && currentModalProduct) {
         const defaultImage = currentModalProduct.image || '';
         if (defaultImage) {
             currentCardImg.src = defaultImage;
         }
-
         const card = currentCardImg.closest('.product-card');
         if (card) {
             const swatches = card.querySelectorAll('.color-swatch');
@@ -2205,6 +2202,8 @@ function closeModal() {
 
     modalOverlay.classList.remove('active');
     document.body.style.overflow = '';
+    handleScroll();
+
     currentModalProduct = null;
     currentCardImg = null;
     thumbnailElements = [];
@@ -2478,21 +2477,21 @@ function initCatalogDropdown() {
 
     if (desktopBtn && dropdownContent) {
         desktopBtn.addEventListener('click', function(e) {
-    e.stopPropagation();
-    // Закрываем все другие дропдауны
-    closeAllDropdowns();
-    // Переключаем только каталог
-    requestAnimationFrame(() => {
-        const isOpen = dropdownContent.classList.toggle('show');
-        const row = document.querySelector('.categories-row');
-        if (row) row.classList.toggle('shifted', isOpen);
-        if (isOpen) {
-            document.body.classList.add('dropdown-open');
-        } else {
-            document.body.classList.remove('dropdown-open');
-        }
-    });
-});
+            e.stopPropagation();
+            // Закрываем все другие дропдауны
+            closeAllDropdowns();
+            // Переключаем только каталог
+            requestAnimationFrame(() => {
+                const isOpen = dropdownContent.classList.toggle('show');
+                const row = document.querySelector('.categories-row');
+                if (row) row.classList.toggle('shifted', isOpen);
+                if (isOpen) {
+                    document.body.classList.add('dropdown-open');
+                } else {
+                    document.body.classList.remove('dropdown-open');
+                }
+            });
+        });
     }
 
     if (mobileBtn && dropdownContent) {
@@ -2890,7 +2889,7 @@ let lastScrollY = window.scrollY;
 let ticking = false;
 
 function handleScroll() {
-     const modalSelectors = [
+    const modalSelectors = [
         '#modalOverlay', '#cartModal', '#checkoutModal',
         '#howToBuyModal', '#deliveryModal', '#pickupModal',
         '#jugglingNewsModal', '#fireNewsModal', '#festivalsModal',
@@ -2904,7 +2903,7 @@ function handleScroll() {
     if (anyModalOpen) {
         return;
     }
-	const currentScrollY = window.scrollY;
+    const currentScrollY = window.scrollY;
     const announcementBar = document.getElementById('announcementBar');
     const topBar = document.getElementById('topBar');
     const headerWrapper = document.querySelector('.header-wrapper');
@@ -2940,8 +2939,8 @@ function handleScroll() {
 
     lastScrollY = currentScrollY;
     ticking = false;
-	
-	if (currentScrollY <= 80) {
+
+    if (currentScrollY <= 80) {
         if (topBar) topBar.classList.remove('hidden');
         if (headerWrapper) headerWrapper.classList.remove('hidden');
         if (announcementBar && !announcementHiddenByModal) {
@@ -3029,7 +3028,10 @@ function initModalObserver() {
             }
         });
 
-        observer.observe(modal, { attributes: true, attributeFilter: ['class'] });
+        observer.observe(modal, {
+            attributes: true,
+            attributeFilter: ['class']
+        });
     });
 }
 
@@ -3060,7 +3062,7 @@ function openHowToBuy() {
         if (topBar) topBar.classList.add('hidden');
         if (headerWrapper) headerWrapper.classList.add('hidden');
     }
-	menuWasOpenBeforeModal = slideMenu.classList.contains('open');
+    menuWasOpenBeforeModal = slideMenu.classList.contains('open');
     if (menuWasOpenBeforeModal) closeMenu();
     hideAnnouncementForModal();
     howToBuyModal.classList.add('active');
@@ -3074,7 +3076,7 @@ function closeHowToBuy() {
         if (topBar) topBar.classList.remove('hidden');
         if (headerWrapper) headerWrapper.classList.remove('hidden');
     }
-	howToBuyModal.classList.remove('active');
+    howToBuyModal.classList.remove('active');
     document.body.style.overflow = '';
     showAnnouncementAfterModal();
     if (menuWasOpenBeforeModal) {
@@ -3093,6 +3095,7 @@ function openDelivery() {
     deliveryModal.classList.add('active');
     document.body.style.overflow = 'hidden';
 }
+
 function openPickup() {
     menuWasOpenBeforeModal = slideMenu.classList.contains('open');
     if (menuWasOpenBeforeModal) closeMenu();
@@ -3199,20 +3202,20 @@ if (howToBuyBtn) {
 
 if (deliveryBtn) {
     deliveryBtn.addEventListener('click', function(e) {
-    e.stopImmediatePropagation();
-    e.preventDefault();
-    // Закрываем все другие дропдауны
-    closeAllDropdowns();
-    // Переключаем только Доставку
-    deliveryDropdown.classList.toggle('show');
-});
+        e.stopImmediatePropagation();
+        e.preventDefault();
+        // Закрываем все другие дропдауны
+        closeAllDropdowns();
+        // Переключаем только Доставку
+        deliveryDropdown.classList.toggle('show');
+    });
 
-pickupBtn.addEventListener('click', function(e) {
-    e.stopImmediatePropagation();
-    e.preventDefault();
-    closeAllDropdowns();
-    pickupDropdown.classList.toggle('show');
-});
+    pickupBtn.addEventListener('click', function(e) {
+        e.stopImmediatePropagation();
+        e.preventDefault();
+        closeAllDropdowns();
+        pickupDropdown.classList.toggle('show');
+    });
 }
 
 if (pickupBtn) {
@@ -3395,7 +3398,10 @@ function addGalleryScrollArrow() {
     arrow.addEventListener('click', function(e) {
         e.stopPropagation();
         const scrollAmount = Math.min(300, gallery.scrollWidth - gallery.scrollLeft - gallery.clientWidth);
-        gallery.scrollBy({ left: scrollAmount, behavior: 'smooth' });
+        gallery.scrollBy({
+            left: scrollAmount,
+            behavior: 'smooth'
+        });
     });
 }
 
@@ -3633,7 +3639,7 @@ if (typeof addScrollButton === 'undefined') {
     if (deliveryBtn) {
         const newBtn = deliveryBtn.cloneNode(true);
         deliveryBtn.parentNode.replaceChild(newBtn, deliveryBtn);
-        
+
         document.getElementById('deliveryBtn').addEventListener('click', function(e) {
             e.stopPropagation();
             e.preventDefault();
@@ -3643,11 +3649,11 @@ if (typeof addScrollButton === 'undefined') {
             document.body.style.overflow = 'hidden';
         });
     }
-    
+
     if (pickupBtn) {
         const newBtn = pickupBtn.cloneNode(true);
         pickupBtn.parentNode.replaceChild(newBtn, pickupBtn);
-        
+
         document.getElementById('pickupBtn').addEventListener('click', function(e) {
             e.stopPropagation();
             e.preventDefault();
@@ -3675,7 +3681,7 @@ if (typeof addScrollButton === 'undefined') {
 
         const newDeliveryBtn = deliveryBtn.cloneNode(true);
         deliveryBtn.parentNode.replaceChild(newDeliveryBtn, deliveryBtn);
-        
+
         const newPickupBtn = pickupBtn.cloneNode(true);
         pickupBtn.parentNode.replaceChild(newPickupBtn, pickupBtn);
 
@@ -3683,51 +3689,51 @@ if (typeof addScrollButton === 'undefined') {
         const freshPickupBtn = document.getElementById('desktopPickupBtn');
 
         freshDeliveryBtn.addEventListener('click', function(e) {
-    e.preventDefault();
-    e.stopPropagation();
+            e.preventDefault();
+            e.stopPropagation();
 
-    // Закрываем каталог (если открыт)
-    const catalogDropdown = document.querySelector('.dropdown-content');
-    if (catalogDropdown && catalogDropdown.classList.contains('show')) {
-        catalogDropdown.classList.remove('show');
-        document.querySelector('.categories-row')?.classList.remove('shifted');
-        document.body.classList.remove('dropdown-open');
-    }
+            // Закрываем каталог (если открыт)
+            const catalogDropdown = document.querySelector('.dropdown-content');
+            if (catalogDropdown && catalogDropdown.classList.contains('show')) {
+                catalogDropdown.classList.remove('show');
+                document.querySelector('.categories-row')?.classList.remove('shifted');
+                document.body.classList.remove('dropdown-open');
+            }
 
-    pickupDropdown.classList.remove('show');
-    deliveryDropdown.classList.toggle('show');
-    console.log('📦 Доставка клик, show:', deliveryDropdown.classList.contains('show'));
-});
+            pickupDropdown.classList.remove('show');
+            deliveryDropdown.classList.toggle('show');
+            console.log('📦 Доставка клик, show:', deliveryDropdown.classList.contains('show'));
+        });
 
-freshPickupBtn.addEventListener('click', function(e) {
-    e.preventDefault();
-    e.stopPropagation();
+        freshPickupBtn.addEventListener('click', function(e) {
+            e.preventDefault();
+            e.stopPropagation();
 
-    // Закрываем каталог (если открыт)
-    const catalogDropdown = document.querySelector('.dropdown-content');
-    if (catalogDropdown && catalogDropdown.classList.contains('show')) {
-        catalogDropdown.classList.remove('show');
-        document.querySelector('.categories-row')?.classList.remove('shifted');
-        document.body.classList.remove('dropdown-open');
-    }
+            // Закрываем каталог (если открыт)
+            const catalogDropdown = document.querySelector('.dropdown-content');
+            if (catalogDropdown && catalogDropdown.classList.contains('show')) {
+                catalogDropdown.classList.remove('show');
+                document.querySelector('.categories-row')?.classList.remove('shifted');
+                document.body.classList.remove('dropdown-open');
+            }
 
-    deliveryDropdown.classList.remove('show');
-    pickupDropdown.classList.toggle('show');
-    console.log('🏪 Самовывоз клик, show:', pickupDropdown.classList.contains('show'));
-});
+            deliveryDropdown.classList.remove('show');
+            pickupDropdown.classList.toggle('show');
+            console.log('🏪 Самовывоз клик, show:', pickupDropdown.classList.contains('show'));
+        });
 
         document.addEventListener('click', function(e) {
-    const target = e.target;
-    // Если клик не по кнопкам и не по дропдаунам — закрываем всё
-    if (!target.closest('.dropdown-btn') && 
-        !target.closest('.dropdown-content') &&
-        !target.closest('.desktop-delivery-btn') && 
-        !target.closest('#dropdownDelivery') &&
-        !target.closest('.desktop-pickup-btn') && 
-        !target.closest('#dropdownPickup')) {
-        closeAllDropdowns();
-    }
-});
+            const target = e.target;
+            // Если клик не по кнопкам и не по дропдаунам — закрываем всё
+            if (!target.closest('.dropdown-btn') &&
+                !target.closest('.dropdown-content') &&
+                !target.closest('.desktop-delivery-btn') &&
+                !target.closest('#dropdownDelivery') &&
+                !target.closest('.desktop-pickup-btn') &&
+                !target.closest('#dropdownPickup')) {
+                closeAllDropdowns();
+            }
+        });
 
         document.addEventListener('keydown', function(e) {
             if (e.key === 'Escape') {
@@ -3756,6 +3762,6 @@ freshPickupBtn.addEventListener('click', function(e) {
     updateCategoriesVisibility();
     addScrollHelpers();
     observeCategories();
-	addGalleryScrollArrow();
+    addGalleryScrollArrow();
     window.addEventListener('resize', updateCategoriesVisibility);
 })();
