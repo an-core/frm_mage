@@ -219,12 +219,12 @@ function updateCategoriesVisibility() {
         if (showCategories) {
             document.body.classList.add('categories-visible');
             document.body.classList.remove('categories-hidden');
-            categoriesIcon.textContent = '👁️';
+            categoriesIcon.textContent = '🚫';
             categoriesText.textContent = 'Скрыть иконки категорий';
         } else {
             document.body.classList.remove('categories-visible');
             document.body.classList.add('categories-hidden');
-            categoriesIcon.textContent = '🚫';
+            categoriesIcon.textContent = '👁️';
             categoriesText.textContent = 'Показать иконки категорий';
         }
     } else {
