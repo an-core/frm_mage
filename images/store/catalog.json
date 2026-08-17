@@ -364,12 +364,12 @@
             {
                 "name": "Белый/Чёрный",
                 "hex": "#f0f0f0",
-                "image": "images/clubs/juggle_dream_trainer/juggle_dream_trainer_2.png"
+                "image": "images/clubs/trainer/trainer_2.png"
             },
             {
                 "name": "Белый",
                 "hex": "#f0f0f0",
-                "image": "images/clubs/juggle_dream_trainer/juggle_dream_trainer_3.png"
+                "image": "images/clubs/trainer/trainer_3.png"
             }
         ]
     },
@@ -854,7 +854,8 @@
             "images/clubs/loop_grip/loop_grip_training_4.png",
             "images/clubs/loop_grip/loop_grip_training_5.png",
             "images/clubs/loop_grip/loop_grip_training_6.png",
-            "images/clubs/loop_grip/loop_grip_training_7.png"
+            "images/clubs/loop_grip/loop_grip_training_7.png",
+			"images/clubs/loop_grip/loop_grip_training_8.png"
         ],
         "description": "Булавы для начинающих жонглёров.",
         "specs": [
@@ -886,7 +887,7 @@
             },
             {
                 "name": "Бирюзовый",
-                "hex": "#26c9ff",
+                "hex": "#00ffff",
                 "image": "images/clubs/loop_grip/loop_grip_training_5.png"
             },
             {
@@ -898,6 +899,11 @@
                 "name": "Жёлтый",
                 "hex": "#f1c40f",
                 "image": "images/clubs/loop_grip_training/loop_grip_training_7.png"
+            },
+			 {
+                "name": "Синий",
+                "hex": "#2693ff",
+                "image": "images/clubs/loop_grip_training/loop_grip_training_8.png"
             }
         ]
     },
