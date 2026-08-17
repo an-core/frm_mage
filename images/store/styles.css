@@ -2384,38 +2384,36 @@ input[readonly] {
     color: #585f6b;
 }
 
-/* ===== GIF ПО БОКАМ ЛОГОТИПА (ТОЛЬКО ДЕСКТОП) ===== */
 .header-logos {
     display: flex;
     align-items: center;
     justify-content: space-between;
     width: 100%;
-    padding: 0 20px; /* опционально, чтобы не прилипало к краям */
+    padding: 0 20px;
     box-sizing: border-box;
 }
 
 .gif-left,
 .gif-right {
     flex: 0 0 auto;
-    max-width: 150px; /* ограничьте размер, если нужно */
+    max-width: 150px;
 }
 
 .gif-left img,
 .gif-right img {
     display: block;
-    max-height: 60px; /* подгоните под высоту логотипа */
+    max-height: 60px;
     width: auto;
     height: auto;
 }
 
-/* Скрываем GIF на мобильных устройствах */
 @media (max-width: 768px) {
     .gif-left,
     .gif-right {
         display: none !important;
     }
     .header-logos {
-        justify-content: center; /* центрируем логотип на мобильных */
+        justify-content: center;
     }
 }
 
@@ -3391,8 +3389,8 @@ body,
 .category-block {
     margin-top: 0 !important;
     margin-bottom: .8rem !important;
-    margin-left: 0 !important;
-    margin-right: 0 !important;
+    margin-left: -50px !important;
+    margin-right: 30px !important;
 }
 
 .categories-wrapper {
@@ -3411,7 +3409,6 @@ body.categories-visible .categories-wrapper {
     overflow-x: auto !important;
     gap: 1rem !important;
     margin: 0 !important;
-    padding: 0 1rem 1rem 0 !important;
     justify-content: flex-start !important;
     border-bottom: 2px solid var(--border-card) !important;
     scroll-snap-type: x mandatory !important;
