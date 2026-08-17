@@ -503,7 +503,7 @@ body {
 .desktop-delivery-btn,
 .desktop-pickup-btn {
     background: var(--bg-card-delivery);
-    border: 2px solid #22c55e;
+    border: 2px solid #1778d942;
     border-radius: 60px;
     padding: 0.5rem 1.2rem;
     font-weight: 500;
@@ -517,7 +517,7 @@ body {
 }
 
 .desktop-pickup-btn {
-    border-color: #f59e0b;
+    border-color: #175c5c69;
 }
 
 .desktop-delivery-btn:hover,
@@ -550,11 +550,11 @@ body {
 }
 
 [data-theme="dark"] .dropdown-delivery {
-    border-color: #22c55e !important;
+    border-color: #07c1fb8c !important;
 }
 
 [data-theme="dark"] .dropdown-pickup {
-    border-color: #f59e0b !important;
+    border-color: #c80bf585 !important;
 }
 
 .dropdown-delivery.show,
