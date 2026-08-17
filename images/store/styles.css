@@ -1,9 +1,7 @@
-/* ========================================
-   ПЕРЕМЕННЫЕ
-   ======================================== */
 :root {
     --bg-body: #f3f3f3;
     --bg-card: #ffffff94;
+	--bg-card-delivery: #ffffff94;
     --bg-card-hover: #d4dce75c;
     --border-card: rgb(234 239 245 / 22%);
     --border-card-hover: #b9d0f0;
@@ -74,6 +72,7 @@
     --neon-glow-color: rgba(96, 165, 250, 0.8);
     --bg-body: #0c0e10;
     --bg-card: #181c24;
+	--bg-card-delivery: #181c24;
     --bg-card-hover: #1a2030;
     --border-card: #1e212c;
     --border-card-hover: #7b7c7c4f;
@@ -503,11 +502,10 @@ body {
    ======================================== */
 .desktop-delivery-btn,
 .desktop-pickup-btn {
-    background: var(--bg-card);
+    background: var(--bg-card-delivery);
     border: 2px solid #22c55e;
     border-radius: 60px;
     padding: 0.5rem 1.2rem;
-    font-size: 0.95rem;
     font-weight: 500;
     color: var(--text-primary);
     cursor: pointer;
