@@ -3303,42 +3303,38 @@ body,
     position: absolute;
     top: 50%;
     transform: translateY(-50%);
-    width: 48px;                /* больше */
-    height: 48px;               /* больше */
-    border-radius: 50%;
-    background: rgba(0, 0, 0, 0.6);
-    border: 2px solid rgba(255, 255, 255, 0.25);
-    color: #fff;
-    font-size: 2rem;            /* жирнее */
+    font-size: 3.2rem;
     font-weight: 700;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    color: #ffffff;
+    text-shadow: 0 2px 12px rgba(0,0,0,0.8), 0 0 30px rgba(0,0,0,0.6);
     cursor: pointer;
     pointer-events: auto;
-    transition: background 0.2s, transform 0.2s, opacity 0.3s;
+    transition: opacity 0.3s, transform 0.2s;
     opacity: 0;
-    backdrop-filter: blur(4px);
-    box-shadow: 0 4px 16px rgba(0,0,0,0.4);
     user-select: none;
     z-index: 10;
     line-height: 1;
+    padding: 0 10px;
+    background: none !important;
+    border: none !important;
+    backdrop-filter: none !important;
+    box-shadow: none !important;
 }
 
 .gallery-arrow-left {
-    left: -10px;  /* частично выходит за галерею */
+    left: 4px;
 }
 .gallery-arrow-right {
-    right: -10px; /* частично выходит за галерею */
+    right: 4px;
 }
 
 .gallery-arrow:hover {
-    background: rgba(0, 0, 0, 0.85);
-    transform: translateY(-50%) scale(1.1);
+    transform: translateY(-50%) scale(1.15);
+    color: #ffdddd;
 }
 
 .gallery-arrow.visible {
-    opacity: 1;
+    opacity: 0.85;
 }
 .gallery-arrow.hidden-arrow {
     opacity: 0;
