@@ -1810,6 +1810,7 @@ function openModal(product, cardImgElement) {
             modalGallery.appendChild(thumb);
             thumbnailElements.push(thumb);
         });
+		initGalleryScrollArrow();
 
         modalGallery.addEventListener('click', function(e) {
             const thumb = e.target.closest('.modal-gallery-thumb');
@@ -3774,28 +3775,21 @@ if (typeof addScrollButton === 'undefined') {
 
 function initGalleryScrollArrow() {
     const gallery = document.querySelector('.modal-fullscreen .modal-gallery');
-    if (!gallery) return;
+    if (!gallery) {
+        console.warn('Галерея не найдена');
+        return;
+    }
 
-    const wrapper = gallery.closest('.modal-gallery-wrapper');
-    if (!wrapper) return;
-
-    const oldArrow = wrapper.querySelector('.gallery-scroll-arrow');
-    if (oldArrow) oldArrow.remove();
-
-    const canScroll = gallery.scrollWidth > gallery.clientWidth;
-    if (!canScroll) return;
-
-    const arrow = document.createElement('div');
-    arrow.className = 'gallery-scroll-arrow';
-    arrow.innerHTML = '→';
-    arrow.setAttribute('aria-label', 'Прокрутить галерею');
-
-    wrapper.style.position = 'relative';
-    wrapper.appendChild(arrow);
+    const arrow = document.getElementById('galleryScrollArrow');
+    if (!arrow) {
+        console.warn('Стрелка не найдена в DOM');
+        return;
+    }
 
     function updateArrowVisibility() {
-        const isAtEnd = gallery.scrollLeft + gallery.clientWidth >= gallery.scrollWidth - 5;
-        if (!isAtEnd) {
+        const canScroll = gallery.scrollWidth > gallery.clientWidth;
+        const isAtEnd = gallery.scrollLeft + gallery.clientWidth >= gallery.scrollWidth - 2;
+        if (canScroll && !isAtEnd) {
             arrow.classList.add('visible');
         } else {
             arrow.classList.remove('visible');
@@ -3805,13 +3799,15 @@ function initGalleryScrollArrow() {
     gallery.addEventListener('scroll', updateArrowVisibility);
     window.addEventListener('resize', updateArrowVisibility);
 
-    setTimeout(updateArrowVisibility, 100);
+    setTimeout(updateArrowVisibility, 300);
 
     arrow.addEventListener('click', function(e) {
         e.stopPropagation();
         const scrollAmount = Math.min(300, gallery.scrollWidth - gallery.scrollLeft - gallery.clientWidth);
         gallery.scrollBy({ left: scrollAmount, behavior: 'smooth' });
     });
+
+    console.log('Стрелка галереи инициализирована');
 }
 
 (async function init() {
@@ -3823,10 +3819,8 @@ function initGalleryScrollArrow() {
     showAnnouncement();
     await loadPartnerLogos();
     initCatalogDropdown();
-	initGalleryScrollArrow();
     updateCategoriesVisibility();
     addScrollHelpers();
     observeCategories();
-    addGalleryScrollArrow();
     window.addEventListener('resize', updateCategoriesVisibility);
 })();

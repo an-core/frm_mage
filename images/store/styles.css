@@ -3283,12 +3283,16 @@ body,
     flex-shrink: 0 !important;
 }
 
+.modal-gallery-wrapper {
+    position: relative;
+}
+
 .gallery-scroll-arrow {
     position: absolute;
-    right: 4px;
+    right: 6px;
     top: 50%;
     transform: translateY(-50%);
-    background: rgba(0, 0, 0, 0.6);
+    background: rgba(0, 0, 0, 0.65);
     color: #fff;
     width: 36px;
     height: 36px;
@@ -3304,10 +3308,10 @@ body,
     pointer-events: none;
     transition: opacity 0.3s ease, background 0.3s ease;
     animation: pulse-arrow 1.5s ease-in-out infinite;
-    box-shadow: 0 2px 8px rgba(0,0,0,0.25);
+    box-shadow: 0 2px 8px rgba(0,0,0,0.3);
     user-select: none;
     backdrop-filter: blur(4px);
-    border: 1px solid rgba(255,255,255,0.1);
+    border: 1px solid rgba(255,255,255,0.15);
 }
 
 .gallery-scroll-arrow.visible {
@@ -3316,7 +3320,7 @@ body,
 }
 
 .gallery-scroll-arrow:hover {
-    background: rgba(0, 0, 0, 0.8);
+    background: rgba(0, 0, 0, 0.85);
 }
 
 @keyframes pulse-arrow {
