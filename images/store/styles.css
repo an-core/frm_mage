@@ -3332,9 +3332,6 @@ body,
 
 /* ДЕСКТОП (≥768px) */
 @media (min-width: 768px) {
-    .gallery-scroll-arrow {
-        display: none !important;
-    }
 	.container {
         padding: 0 2rem !important;
         max-width: 1700px !important;
