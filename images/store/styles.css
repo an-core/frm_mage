@@ -124,9 +124,6 @@
     --color-swatch-shadow: rgba(0, 0, 0, 0.4);
 }
 
-/* ========================================
-   БАЗОВЫЕ СТИЛИ
-   ======================================== */
 * {
     margin: 0;
     padding: 0;
@@ -177,9 +174,7 @@ body {
     scrollbar-color: var(--border-card-hover) var(--bg-photo);
 }
 
-/* ========================================
-   ВЕРХНЯЯ ПАНЕЛЬ
-   ======================================== */
+/* ВЕРХНЯЯ ПАНЕЛЬ */
 .top-bar {
     display: flex;
     justify-content: space-between;
@@ -236,9 +231,7 @@ body {
     width: 100%;
 }
 
-/* ========================================
-   БУРГЕР
-   ======================================== */
+/* БУРГЕР */
 .hamburger {
     display: flex;
     flex-direction: column;
@@ -297,9 +290,7 @@ body {
     background: var(--bg-category-hover);
 }
 
-/* ========================================
-   КОРЗИНА
-   ======================================== */
+/* КОРЗИНА */
 .cart-icon {
     background: rgb(245 245 245);
     backdrop-filter: blur(12px);
@@ -381,9 +372,7 @@ body {
     background: var(--bg-category-hover);
 }
 
-/* ========================================
-   ВЫПАДАЮЩИЙ СПИСОК КАТАЛОГА
-   ======================================== */
+/* ВЫПАДАЮЩИЙ СПИСОК КАТАЛОГА */
 .dropdown-catalog {
     position: relative;
     display: inline-block;
@@ -497,9 +486,7 @@ body {
     border-radius: 10px;
 }
 
-/* ========================================
-   ВЫПАДАЮЩИЕ СПИСКИ ДОСТАВКИ И САМОВЫВОЗА
-   ======================================== */
+/* ВЫПАДАЮЩИЕ СПИСКИ ДОСТАВКИ И САМОВЫВОЗА */
 .desktop-delivery-btn,
 .desktop-pickup-btn {
     background: var(--bg-card-delivery);
@@ -593,9 +580,7 @@ body {
     margin-bottom: 0.3rem;
 }
 
-/* ========================================
-   СЛАЙД-МЕНЮ
-   ======================================== */
+/* СЛАЙД-МЕНЮ */
 .slide-menu {
     position: fixed;
     top: 0;
@@ -932,9 +917,7 @@ body {
     padding-left: 0;
 }
 
-/* ========================================
-   ШАПКА
-   ======================================== */
+/* ШАПКА */
 .header-wrapper {
     margin-top: 80px;
     padding: .5rem 0 1rem;
@@ -981,9 +964,7 @@ body {
     margin-bottom: 5px;
 }
 
-/* ========================================
-   НАВИГАЦИЯ (КАТЕГОРИИ)
-   ======================================== */
+/* НАВИГАЦИЯ (КАТЕГОРИИ) */
 .nav-section {
     margin: .5rem 0 2rem;
 }
@@ -1191,9 +1172,7 @@ body {
     }
 }
 
-/* ========================================
-   ПОДКАТЕГОРИИ
-   ======================================== */
+/* ПОДКАТЕГОРИИ */
 .subcategory-block {
     margin-top: .0.3rem;
     margin-bottom: 2rem;
@@ -1239,9 +1218,7 @@ body {
     opacity: .6;
 }
 
-/* ========================================
-   СОРТИРОВКА
-   ======================================== */
+/* СОРТИРОВКА */
 .sort-section {
     display: flex;
     align-items: center;
@@ -1289,9 +1266,7 @@ body {
     background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%2394a3b8' stroke-width='2' fill='none'/%3E%3C/svg%3E");
 }
 
-/* ========================================
-   КАТАЛОГ (КАРТОЧКИ)
-   ======================================== */
+/* КАТАЛОГ (КАРТОЧКИ) */
 .catalog {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
@@ -1461,9 +1436,7 @@ body {
     color: #fff;
 }
 
-/* ========================================
-   ЦВЕТОВЫЕ СВОТЧИ
-   ======================================== */
+/* ЦВЕТОВЫЕ СВОТЧИ */
 .color-swatches {
     display: flex;
     flex-wrap: nowrap;
@@ -1579,9 +1552,7 @@ body {
     transform: scale(0.9);
 }
 
-/* ========================================
-   КНОПКИ В КАРТОЧКАХ
-   ======================================== */
+/* КНОПКИ В КАРТОЧКАХ */
 .add-to-cart-btn {
     background: #1de335b8;
     color: white;
@@ -1660,9 +1631,7 @@ body {
     background: var(--bg-category-hover);
 }
 
-/* ========================================
-   МОДАЛЬНЫЕ ОКНА
-   ======================================== */
+/* МОДАЛЬНЫЕ ОКНА */
 .modal-overlay {
     position: fixed;
     top: 0;
@@ -2059,9 +2028,7 @@ body {
     background: var(--border-card);
 }
 
-/* ========================================
-   МОДАЛЬНЫЙ БАДЖ
-   ======================================== */
+/* МОДАЛЬНЫЙ БЭЙДЖ */
 .modal-badge {
     display: inline-block;
     margin-left: 10px;
@@ -2108,9 +2075,7 @@ body {
     color: #fff;
 }
 
-/* ========================================
-   КОРЗИНА (МОДАЛКА)
-   ======================================== */
+/* КОРЗИНА (МОДАЛКА) */
 .cart-modal {
     position: fixed;
     top: 0;
@@ -2300,9 +2265,7 @@ body {
     border-color: var(--border-card-hover);
 }
 
-/* ========================================
-   ФОРМЫ
-   ======================================== */
+/* ФОРМЫ */
 .form-row {
     display: flex;
     gap: 1rem;
@@ -2394,9 +2357,7 @@ input[readonly] {
     width: auto !important;
 }
 
-/* ========================================
-   СДЭК
-   ======================================== */
+/* СДЭК */
 #cdekPickupBlock {
     background: var(--bg-body);
     border: 1px solid var(--border-card);
@@ -2473,9 +2434,7 @@ input[readonly] {
     color: #1e293b;
 }
 
-/* ========================================
-   ЗАКАЗ (УСПЕШНО)
-   ======================================== */
+/* ЗАКАЗ (УСПЕШНО) */
 .order-success-overlay {
     position: fixed;
     top: 0;
@@ -2572,9 +2531,7 @@ input[readonly] {
     vertical-align: middle;
 }
 
-/* ========================================
-   АНОНС (БЕГУЩАЯ СТРОКА)
-   ======================================== */
+/* АНОНС (БЕГУЩАЯ СТРОКА) */
 .announcement-bar {
     position: fixed;
     top: 0;
@@ -2695,9 +2652,7 @@ input[readonly] {
     }
 }
 
-/* ========================================
-   ТУЛТИПЫ
-   ======================================== */
+/* ТУЛТИПЫ */
 #termTooltip {
     position: fixed;
     padding: 2px 8px;
@@ -2782,9 +2737,7 @@ input[readonly] {
     }
 }
 
-/* ========================================
-   КАСТОМАЙЗЕР
-   ======================================== */
+/* КАСТОМАЙЗЕР */
 #customizerContainer {
     margin-top: 1.5rem;
     border-top: 1px solid var(--border-spec-item);
@@ -2856,9 +2809,7 @@ input[readonly] {
     pointer-events: none;
 }
 
-/* ========================================
-   ССЫЛКИ В МОДАЛКАХ
-   ======================================== */
+/* ССЫЛКИ В МОДАЛКАХ */
 .modal a[href^="tel:"],
 .modal a[href^="mailto:"],
 .modal a[href^="tg://"] {
@@ -2886,9 +2837,7 @@ input[readonly] {
     color: #93c5fd;
 }
 
-/* ========================================
-   ЦВЕТ ТЕЛЕФОНА В МОДАЛКЕ САМОВЫВОЗ
-   ======================================== */
+/* ЦВЕТ ТЕЛЕФОНА В МОДАЛКЕ САМОВЫВОЗ */
 #pickupModal .contact-phone,
 #pickupModal a[href^="tel:"] {
     color: #ff6b00 !important;
@@ -2915,9 +2864,7 @@ input[readonly] {
     color: #ffbb66 !important;
 }
 
-/* ========================================
-   TOAST
-   ======================================== */
+/* TOAST */
 .toast-success::before {
     content: '✔';
     color: #22c55e;
@@ -2954,9 +2901,7 @@ input[readonly] {
     color: #ffffff;
 }
 
-/* ========================================
-   АНИМАЦИИ
-   ======================================== */
+/* АНИМАЦИИ */
 @keyframes neonBorder {
     0% {
         border-color: #ff00cc;
@@ -3101,9 +3046,7 @@ input[readonly] {
     }
 }
 
-/* ========================================
-   ЗАТЕМНЕНИЕ ПРИ ОТКРЫТОМ ДРОПДАУНЕ
-   ======================================== */
+/* ЗАТЕМНЕНИЕ ПРИ ОТКРЫТОМ ДРОПДАУНЕ */
 body.dropdown-open {
     overflow: hidden;
 }
@@ -3118,9 +3061,7 @@ body.dropdown-open::before {
     background: var(--bg-modal) !important;
 }
 
-/* ========================================
-   МОБИЛЬНЫЕ КНОПКИ
-   ======================================== */
+/* МОБИЛЬНЫЕ КНОПКИ */
 .mobile-dropdown-btn {
     background: var(--bg-card);
     color: var(--text-primary);
@@ -3196,9 +3137,7 @@ body.dropdown-open::before {
     }
 }
 
-/* ========================================
-   ФАЙЕР-ПАРТИКЛЫ
-   ======================================== */
+/* ФАЙЕР-ПАРТИКЛЫ */
 #fire-particles {
     position: fixed;
     top: 0;
@@ -3245,9 +3184,7 @@ body.dropdown-open::before {
     background: radial-gradient(circle, rgba(255, 200, 100, .4), transparent 70%);
 }
 
-/* ========================================
-   Z-INDEX
-   ======================================== */
+/* Z-INDEX */
 .container,
 .header-wrapper,
 .nav-section,
@@ -3297,7 +3234,7 @@ body,
     transition: background 0.25s ease, color 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease;
 }
 
-/* ===== ПРИНУДИТЕЛЬНОЕ РАСПОЛОЖЕНИЕ: ГАЛЕРЕЯ СЛЕВА, ТЕКСТ СПРАВА ===== */
+/* РАСПОЛОЖЕНИЕ: ГАЛЕРЕЯ СЛЕВА, ТЕКСТ СПРАВА */
 .modal-overlay.modal-fullscreen .modal-body {
     display: grid !important;
     grid-template-columns: 1.6fr 1fr !important;
@@ -3325,7 +3262,6 @@ body,
     height: 100% !important;
 }
 
-/* Убираем лишние стили, которые могут ломать grid */
 .modal-overlay.modal-fullscreen .modal-left-column,
 .modal-overlay.modal-fullscreen .modal-right-column {
     width: auto !important;
@@ -3333,7 +3269,6 @@ body,
     flex: none !important;
 }
 
-/* На случай, если внутри есть flex-элементы, которые мешают */
 .modal-overlay.modal-fullscreen .modal-image-wrapper {
     flex: 1 1 auto !important;
     min-height: 0 !important;
@@ -3343,34 +3278,31 @@ body,
     flex-shrink: 0 !important;
 }
 
-/* ===== СТРЕЛКА ПРОКРУТКИ ГАЛЕРЕИ ===== */
-/* ===== СТРЕЛКА ПРОКРУТКИ ГАЛЕРЕИ ===== */
 .gallery-scroll-arrow {
     position: absolute;
-    right: 2px;
-    /* почти вплотную к краю */
+    right: 4px;
     top: 50%;
     transform: translateY(-50%);
-    background: rgba(0, 0, 0, 0.55);
+    background: rgba(0, 0, 0, 0.6);
     color: #fff;
-    width: 34px;
-    height: 34px;
+    width: 36px;
+    height: 36px;
     border-radius: 50%;
     display: flex;
     align-items: center;
     justify-content: center;
     cursor: pointer;
-    font-size: 1.4rem;
+    font-size: 1.5rem;
     font-weight: 300;
     z-index: 10;
     opacity: 0;
     pointer-events: none;
     transition: opacity 0.3s ease, background 0.3s ease;
     animation: pulse-arrow 1.5s ease-in-out infinite;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.25);
+    box-shadow: 0 2px 8px rgba(0,0,0,0.25);
     user-select: none;
     backdrop-filter: blur(4px);
-    -webkit-backdrop-filter: blur(4px);
+    border: 1px solid rgba(255,255,255,0.1);
 }
 
 .gallery-scroll-arrow.visible {
@@ -3383,31 +3315,17 @@ body,
 }
 
 @keyframes pulse-arrow {
-    0% {
-        transform: translateY(-50%) scale(1);
-    }
-
-    50% {
-        transform: translateY(-50%) scale(1.12);
-    }
-
-    100% {
-        transform: translateY(-50%) scale(1);
-    }
+    0% { transform: translateY(-50%) scale(1); }
+    50% { transform: translateY(-50%) scale(1.12); }
+    100% { transform: translateY(-50%) scale(1); }
 }
 
-/* На мобильных не показываем */
-@media (max-width: 768px) {
+/* ДЕСКТОП (≥768px) */
+@media (min-width: 768px) {
     .gallery-scroll-arrow {
         display: none !important;
     }
-}
-
-/* ========================================
-   ДЕСКТОП (≥768px)
-   ======================================== */
-@media (min-width: 768px) {
-    .container {
+	.container {
         padding: 0 2rem !important;
         max-width: 1700px !important;
         box-sizing: border-box !important;
@@ -3538,20 +3456,15 @@ body,
 
     .modal-overlay.modal-fullscreen .modal-body {
         grid-template-columns: 1.2fr 1fr !important;
-        /* правая колонка шире */
         gap: 0.8rem !important;
-        /* уменьшаем расстояние между колонками */
     }
 
     .modal-overlay.modal-fullscreen .modal-right-column {
         padding-right: 0 !important;
-        /* убираем лишний отступ справа */
     }
 }
 
-/* ========================================
-   ПЛАНШЕТЫ (≤900px)
-   ======================================== */
+/* ПЛАНШЕТЫ (≤900px) */
 @media (max-width: 900px) {
     .modal-fullscreen .modal-image {
         max-height: 60vh !important;
@@ -3569,9 +3482,7 @@ body,
     }
 }
 
-/* ========================================
-   МОБИЛЬНЫЕ (≤768px)
-   ======================================== */
+/* МОБИЛЬНЫЕ (≤768px) */
 @media (max-width: 768px) {
 
     html,
@@ -3747,11 +3658,13 @@ body,
     .header-wrapper {
         margin-top: 80px !important;
     }
+	
+    .gallery-scroll-arrow {
+        display: none !important;
+    }
 }
 
-/* ========================================
-   МОБИЛЬНЫЕ (≤600px)
-   ======================================== */
+/* МОБИЛЬНЫЕ (≤600px) */
 @media (max-width: 600px) {
     body {
         overflow-x: hidden;

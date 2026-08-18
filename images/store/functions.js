@@ -2204,6 +2204,7 @@ function closeModal() {
     currentModalProduct = null;
     currentCardImg = null;
     thumbnailElements = [];
+	document.querySelectorAll('.gallery-scroll-arrow').forEach(el => el.remove());
     showAnnouncementAfterModal();
 }
 
@@ -3771,6 +3772,48 @@ if (typeof addScrollButton === 'undefined') {
     }
 })();
 
+function initGalleryScrollArrow() {
+    const gallery = document.querySelector('.modal-fullscreen .modal-gallery');
+    if (!gallery) return;
+
+    const wrapper = gallery.closest('.modal-gallery-wrapper');
+    if (!wrapper) return;
+
+    const oldArrow = wrapper.querySelector('.gallery-scroll-arrow');
+    if (oldArrow) oldArrow.remove();
+
+    const canScroll = gallery.scrollWidth > gallery.clientWidth;
+    if (!canScroll) return;
+
+    const arrow = document.createElement('div');
+    arrow.className = 'gallery-scroll-arrow';
+    arrow.innerHTML = '→';
+    arrow.setAttribute('aria-label', 'Прокрутить галерею');
+
+    wrapper.style.position = 'relative';
+    wrapper.appendChild(arrow);
+
+    function updateArrowVisibility() {
+        const isAtEnd = gallery.scrollLeft + gallery.clientWidth >= gallery.scrollWidth - 5;
+        if (!isAtEnd) {
+            arrow.classList.add('visible');
+        } else {
+            arrow.classList.remove('visible');
+        }
+    }
+
+    gallery.addEventListener('scroll', updateArrowVisibility);
+    window.addEventListener('resize', updateArrowVisibility);
+
+    setTimeout(updateArrowVisibility, 100);
+
+    arrow.addEventListener('click', function(e) {
+        e.stopPropagation();
+        const scrollAmount = Math.min(300, gallery.scrollWidth - gallery.scrollLeft - gallery.clientWidth);
+        gallery.scrollBy({ left: scrollAmount, behavior: 'smooth' });
+    });
+}
+
 (async function init() {
     loadCart();
     await loadProducts();
@@ -3780,6 +3823,7 @@ if (typeof addScrollButton === 'undefined') {
     showAnnouncement();
     await loadPartnerLogos();
     initCatalogDropdown();
+	initGalleryScrollArrow();
     updateCategoriesVisibility();
     addScrollHelpers();
     observeCategories();
