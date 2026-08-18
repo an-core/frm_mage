@@ -3451,7 +3451,7 @@ body,
     }
 
     .modal-overlay.modal-fullscreen .modal-gallery {
-        max-width: calc(70px * 7 + 10px * 5) !important;
+        max-width: calc(70px * 8 + 10px * 5) !important;
         width: auto !important;
         display: flex !important;
         flex-wrap: nowrap !important;
@@ -3461,6 +3461,7 @@ body,
         min-height: 60px !important;
         max-height: 90px !important;
         cursor: grab !important;
+		margin-left: 50px;
     }
 
     .modal-overlay.modal-fullscreen .modal-gallery-thumb {
@@ -3490,8 +3491,7 @@ body,
 }
 
 .modal-fullscreen .modal-image {
-    margin-left: 10px !important;
-    object-position: 10px center !important;
+    margin-left: 90px !important;
 }
 }
 
