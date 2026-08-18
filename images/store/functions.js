@@ -2841,6 +2841,7 @@ function closeCartModal() {
     if (!checkoutModal.classList.contains('active')) {
         showAnnouncementAfterModal();
     }
+	handleScroll();
 }
 
 function closeCheckoutModal() {
@@ -2849,6 +2850,7 @@ function closeCheckoutModal() {
     submitOrderBtn.textContent = 'Отправить заказ';
     isSubmitting = false;
     showAnnouncementAfterModal();
+	handleScroll();
 }
 cartIcon.addEventListener('click', openCartModal);
 cartCloseBtn.addEventListener('click', closeCartModal);
@@ -3128,6 +3130,7 @@ function closeHowToBuy() {
         document.body.style.overflow = 'hidden';
         menuWasOpenBeforeModal = false;
     }
+	handleScroll();
 }
 
 function openDelivery() {
@@ -3157,6 +3160,7 @@ function closeDelivery() {
         document.body.style.overflow = 'hidden';
         menuWasOpenBeforeModal = false;
     }
+	handleScroll();
 }
 
 function closePickup() {
@@ -3170,6 +3174,7 @@ function closePickup() {
         document.body.style.overflow = 'hidden';
         menuWasOpenBeforeModal = false;
     }
+	handleScroll();
 }
 
 function openJugglingNews() {
@@ -3191,6 +3196,7 @@ function closeJugglingNews() {
         document.body.style.overflow = 'hidden';
         menuWasOpenBeforeModal = false;
     }
+	handleScroll();
 }
 
 function openFireNews() {
@@ -3212,6 +3218,7 @@ function closeFireNews() {
         document.body.style.overflow = 'hidden';
         menuWasOpenBeforeModal = false;
     }
+	handleScroll();
 }
 
 function openFestivals() {
@@ -3233,6 +3240,7 @@ function closeFestivals() {
         document.body.style.overflow = 'hidden';
         menuWasOpenBeforeModal = false;
     }
+	handleScroll();
 }
 
 if (howToBuyBtn) {
