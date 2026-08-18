@@ -491,6 +491,15 @@ body {
     border-radius: 10px;
 }
 
+[data-theme="light"] .dropdown-content .category-item {
+    color: #000000 !important;
+}
+
+[data-theme="light"] .dropdown-content .category-item:hover {
+    color: #222222 !important;
+    background: var(--bg-category-hover);
+}
+
 /* ВЫПАДАЮЩИЕ СПИСКИ ДОСТАВКИ И САМОВЫВОЗА */
 .desktop-delivery-btn,
 .desktop-pickup-btn {
