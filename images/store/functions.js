@@ -2477,12 +2477,12 @@ function initCatalogDropdown() {
     if (!desktopBtn || !dropdownContent) return;
 
     const catalogContainer = desktopBtn.closest('.dropdown-catalog');
+	let closeTimer = null;
 
-    function toggleCatalog(show) {
+     function toggleCatalog(show) {
         if (show) {
-            if (typeof closeAllDropdowns === 'function') {
-                closeAllDropdowns();
-            }
+            clearTimeout(closeTimer);
+            if (typeof closeAllDropdowns === 'function') closeAllDropdowns();
             dropdownContent.classList.add('show');
             const row = document.querySelector('.categories-row');
             if (row) row.classList.add('shifted');
@@ -2495,22 +2495,25 @@ function initCatalogDropdown() {
         }
     }
 
-    function initHover() {
-        catalogContainer.removeEventListener('mouseenter', toggleCatalog);
-        catalogContainer.removeEventListener('mouseleave', handleMouseLeave);
+    function handleMouseLeave(e) {
+        const related = e.relatedTarget;
+        if (related && catalogContainer.contains(related)) return;
+        clearTimeout(closeTimer);
+        closeTimer = setTimeout(() => {
+            toggleCatalog(false);
+        }, 300);
+    }
 
+    function initHover() {
+        catalogContainer.removeEventListener('mouseenter', () => toggleCatalog(true));
+        catalogContainer.removeEventListener('mouseleave', handleMouseLeave);
         if (window.innerWidth >= 768) {
             catalogContainer.addEventListener('mouseenter', function() {
+                clearTimeout(closeTimer);
                 toggleCatalog(true);
             });
             catalogContainer.addEventListener('mouseleave', handleMouseLeave);
         }
-    }
-
-    function handleMouseLeave(e) {
-        const related = e.relatedTarget;
-        if (related && catalogContainer.contains(related)) return;
-        toggleCatalog(false);
     }
 
     initHover();
