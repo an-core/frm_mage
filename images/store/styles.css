@@ -3301,7 +3301,7 @@ body,
 
 .gallery-arrow {
     position: absolute;
-    top: 50%;
+    top: 32%;
     transform: translateY(-50%);
     font-size: 3.2rem;
     font-weight: 700;
@@ -3325,7 +3325,7 @@ body,
     left: 4px;
 }
 .gallery-arrow-right {
-    right: 4px;
+    right: 15px;
 }
 
 .gallery-arrow:hover {
@@ -3487,7 +3487,7 @@ body,
 }
 
 .modal-fullscreen .modal-image {
-    margin-left: 90px !important;
+    margin-left: 110px !important;
 }
 }
 
