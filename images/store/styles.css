@@ -3284,34 +3284,35 @@ body,
 }
 
 .modal-gallery-wrapper {
-    position: relative;
+    position: relative !important;
 }
 
 .gallery-scroll-arrow {
-    position: absolute;
-    right: 6px;
-    top: 50%;
-    transform: translateY(-50%);
-    background: rgba(0, 0, 0, 0.65);
-    color: #fff;
-    width: 36px;
-    height: 36px;
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    cursor: pointer;
-    font-size: 1.5rem;
-    font-weight: 300;
-    z-index: 10;
-    opacity: 0;
-    pointer-events: none;
-    transition: opacity 0.3s ease, background 0.3s ease;
-    animation: pulse-arrow 1.5s ease-in-out infinite;
-    box-shadow: 0 2px 8px rgba(0,0,0,0.3);
-    user-select: none;
-    backdrop-filter: blur(4px);
-    border: 1px solid rgba(255,255,255,0.15);
+    position: absolute !important;
+    right: 6px !important;
+    top: 50% !important;
+    transform: translateY(-50%) !important;
+    background: rgba(0, 0, 0, 0.75) !important;
+    color: #ffffff !important;
+    width: 38px !important;
+    height: 38px !important;
+    border-radius: 50% !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    cursor: pointer !important;
+    font-size: 1.6rem !important;
+    font-weight: 300 !important;
+    z-index: 9999 !important;
+    opacity: 1 !important;
+    pointer-events: auto !important;
+    transition: background 0.2s !important;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.5) !important;
+    user-select: none !important;
+    border: 1px solid rgba(255,255,255,0.2) !important;
+    visibility: visible !important;
+    clip: auto !important;
+    overflow: visible !important;
 }
 
 .gallery-scroll-arrow.visible {
@@ -3320,7 +3321,7 @@ body,
 }
 
 .gallery-scroll-arrow:hover {
-    background: rgba(0, 0, 0, 0.85);
+    background: rgba(0, 0, 0, 0.9) !important;
 }
 
 @keyframes pulse-arrow {
