@@ -3484,6 +3484,15 @@ body,
     .modal-overlay.modal-fullscreen .modal-right-column {
         padding-right: 0 !important;
     }
+	
+.modal-fullscreen .modal-image-wrapper {
+    padding-left: 10px !important;
+}
+
+.modal-fullscreen .modal-image {
+    margin-left: 10px !important;
+    object-position: 10px center !important;
+}
 }
 
 /* ПЛАНШЕТЫ (≤900px) */
