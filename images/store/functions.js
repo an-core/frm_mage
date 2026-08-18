@@ -3780,34 +3780,46 @@ function initGalleryScrollArrow() {
         return;
     }
 
-    const arrow = document.getElementById('galleryScrollArrow');
-    if (!arrow) {
-        console.warn('Стрелка не найдена в DOM');
+    const leftArrow = document.querySelector('.gallery-arrow-left');
+    const rightArrow = document.querySelector('.gallery-arrow-right');
+    if (!leftArrow || !rightArrow) {
+        console.warn('Стрелки не найдены в DOM');
         return;
     }
 
-    function updateArrowVisibility() {
-        const canScroll = gallery.scrollWidth > gallery.clientWidth;
-        const isAtEnd = gallery.scrollLeft + gallery.clientWidth >= gallery.scrollWidth - 2;
-        if (canScroll && !isAtEnd) {
-            arrow.classList.add('visible');
-        } else {
-            arrow.classList.remove('visible');
-        }
+    function updateArrows() {
+        const canScrollLeft = gallery.scrollLeft > 5;
+        const canScrollRight = gallery.scrollLeft + gallery.clientWidth < gallery.scrollWidth - 5;
+
+        leftArrow.classList.toggle('visible', canScrollLeft);
+        leftArrow.classList.toggle('hidden-arrow', !canScrollLeft);
+        rightArrow.classList.toggle('visible', canScrollRight);
+        rightArrow.classList.toggle('hidden-arrow', !canScrollRight);
     }
 
-    gallery.addEventListener('scroll', updateArrowVisibility);
-    window.addEventListener('resize', updateArrowVisibility);
+    function scrollGallery(direction) {
+        const step = gallery.clientWidth * 0.85;
+        const target = direction === 'left'
+            ? Math.max(0, gallery.scrollLeft - step)
+            : Math.min(gallery.scrollWidth - gallery.clientWidth, gallery.scrollLeft + step);
+        gallery.scrollTo({ left: target, behavior: 'smooth' });
+    }
 
-    setTimeout(updateArrowVisibility, 300);
-
-    arrow.addEventListener('click', function(e) {
+    leftArrow.addEventListener('click', function(e) {
         e.stopPropagation();
-        const scrollAmount = Math.min(300, gallery.scrollWidth - gallery.scrollLeft - gallery.clientWidth);
-        gallery.scrollBy({ left: scrollAmount, behavior: 'smooth' });
+        scrollGallery('left');
+    });
+    rightArrow.addEventListener('click', function(e) {
+        e.stopPropagation();
+        scrollGallery('right');
     });
 
-    console.log('Стрелка галереи инициализирована');
+    gallery.addEventListener('scroll', updateArrows);
+    window.addEventListener('resize', updateArrows);
+
+    setTimeout(updateArrows, 200);
+
+    console.log('Стрелки галереи инициализированы');
 }
 
 (async function init() {

@@ -3283,7 +3283,7 @@ body,
     flex-shrink: 0 !important;
 }
 
-/* ===== НАВИГАЦИЯ ГАЛЕРЕИ (ДВЕ СТРЕЛКИ) ===== */
+/* ===== БОЛЬШИЕ СТРЕЛКИ ГАЛЕРЕИ ===== */
 .modal-gallery-wrapper {
     position: relative;
     overflow: visible !important;
@@ -3303,14 +3303,14 @@ body,
     position: absolute;
     top: 50%;
     transform: translateY(-50%);
-    width: 36px;
-    height: 36px;
+    width: 48px;                /* больше */
+    height: 48px;               /* больше */
     border-radius: 50%;
-    background: rgba(0, 0, 0, 0.55);
-    border: 1px solid rgba(255, 255, 255, 0.15);
+    background: rgba(0, 0, 0, 0.6);
+    border: 2px solid rgba(255, 255, 255, 0.25);
     color: #fff;
-    font-size: 1.8rem;
-    font-weight: 300;
+    font-size: 2rem;            /* жирнее */
+    font-weight: 700;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -3319,20 +3319,24 @@ body,
     transition: background 0.2s, transform 0.2s, opacity 0.3s;
     opacity: 0;
     backdrop-filter: blur(4px);
-    box-shadow: 0 2px 8px rgba(0,0,0,0.3);
+    box-shadow: 0 4px 16px rgba(0,0,0,0.4);
     user-select: none;
     z-index: 10;
+    line-height: 1;
 }
+
 .gallery-arrow-left {
-    left: 6px;
+    left: -10px;  /* частично выходит за галерею */
 }
 .gallery-arrow-right {
-    right: 6px;
+    right: -10px; /* частично выходит за галерею */
 }
+
 .gallery-arrow:hover {
-    background: rgba(0, 0, 0, 0.8);
+    background: rgba(0, 0, 0, 0.85);
     transform: translateY(-50%) scale(1.1);
 }
+
 .gallery-arrow.visible {
     opacity: 1;
 }
