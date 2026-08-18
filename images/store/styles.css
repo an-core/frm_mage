@@ -290,6 +290,11 @@ body {
     background: var(--bg-category-hover);
 }
 
+[data-theme="dark"] .hamburger,
+[data-theme="dark"] .hamburger:hover {
+    box-shadow: none !important;
+}
+
 /* КОРЗИНА */
 .cart-icon {
     background: rgb(245 245 245);
