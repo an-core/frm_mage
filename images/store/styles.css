@@ -1772,6 +1772,26 @@ body {
     flex-shrink: 0;
     cursor: grab;
     margin-top: auto !important;
+    position: relative;
+    scroll-behavior: smooth;
+}
+
+.modal-gallery::after {
+    content: '';
+    position: absolute;
+    right: 0;
+    top: 0;
+    height: 100%;
+    width: 50px;
+    background: linear-gradient(to right, transparent, var(--bg-body));
+    pointer-events: none;
+    z-index: 2;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.modal-gallery-wrapper.fade-active .modal-gallery::after {
+    opacity: 1;
 }
 
 .modal-gallery:active {

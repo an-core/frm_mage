@@ -3738,7 +3738,7 @@ if (typeof addScrollButton === 'undefined') {
 
             pickupDropdown.classList.remove('show');
             deliveryDropdown.classList.toggle('show');
-            console.log('📦 Доставка клик, show:', deliveryDropdown.classList.contains('show'));
+            console.log('Доставка клик, show:', deliveryDropdown.classList.contains('show'));
         });
 
         freshPickupBtn.addEventListener('click', function(e) {
@@ -3786,17 +3786,14 @@ if (typeof addScrollButton === 'undefined') {
 
 function initGalleryScrollArrow() {
     const gallery = document.querySelector('.modal-fullscreen .modal-gallery');
-    if (!gallery) {
-        console.warn('Галерея не найдена');
-        return;
-    }
+    if (!gallery) return;
+
+    const wrapper = gallery.closest('.modal-gallery-wrapper');
+    if (!wrapper) return;
 
     const leftArrow = document.querySelector('.gallery-arrow-left');
     const rightArrow = document.querySelector('.gallery-arrow-right');
-    if (!leftArrow || !rightArrow) {
-        console.warn('Стрелки не найдены в DOM');
-        return;
-    }
+    if (!leftArrow || !rightArrow) return;
 
     function updateArrows() {
         const canScrollLeft = gallery.scrollLeft > 5;
@@ -3806,6 +3803,7 @@ function initGalleryScrollArrow() {
         leftArrow.classList.toggle('hidden-arrow', !canScrollLeft);
         rightArrow.classList.toggle('visible', canScrollRight);
         rightArrow.classList.toggle('hidden-arrow', !canScrollRight);
+        wrapper.classList.toggle('fade-active', canScrollRight);
     }
 
     function scrollGallery(direction) {
@@ -3827,10 +3825,7 @@ function initGalleryScrollArrow() {
 
     gallery.addEventListener('scroll', updateArrows);
     window.addEventListener('resize', updateArrows);
-
     setTimeout(updateArrows, 200);
-
-    console.log('Стрелки галереи инициализированы');
 }
 
 (async function init() {
