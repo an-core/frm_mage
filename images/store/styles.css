@@ -961,7 +961,7 @@ body {
     color: var(--text-primary);
     padding-left: 0;
     transition: color .25s;
-    margin-top: -20px;
+    margin-top: -150px;
 }
 
 .header-left .subhead {
@@ -2660,7 +2660,7 @@ input[readonly] {
 
 .header-png {
     display: block;
-    max-height: 150px;
+    max-height: 250px;
     width: auto;
     height: auto;
     object-fit: contain;
@@ -2668,11 +2668,11 @@ input[readonly] {
 
 #logoImage {
     display: block;
-    max-height: 100px;
     width: auto;
     height: auto;
-    margin: 0 !important;
     transform: translateY(-10px);
+	max-height: 180px;
+    max-width: 350px;
 }
 
 /* ТУЛТИПЫ */
