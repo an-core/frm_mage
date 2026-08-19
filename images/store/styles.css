@@ -2667,9 +2667,8 @@ input[readonly] {
 }
 
 #logoImage {
-    display: block;
     width: auto;
-    height: auto;
+	margin-top: -160px !important;
     transform: translateY(-10px);
 	max-height: 180px;
     max-width: 350px;
