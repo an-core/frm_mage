@@ -2953,19 +2953,19 @@ function handleScroll() {
     const headerWrapper = document.querySelector('.header-wrapper');
 
     if (!announcementBar || announcementBar.style.display === 'none') {
-        if (topBar) {
-            if (currentScrollY > lastScrollY && currentScrollY > 80) {
-                topBar.classList.add('hidden');
-                if (headerWrapper) headerWrapper.classList.add('hidden');
-            } else {
-                topBar.classList.remove('hidden');
-                if (headerWrapper) headerWrapper.classList.remove('hidden');
-            }
+    if (topBar) {
+        if (currentScrollY > lastScrollY && currentScrollY > 0) {
+            topBar.classList.add('hidden');
+            if (headerWrapper) headerWrapper.classList.add('hidden');
+        } else if (currentScrollY === 0) {
+            topBar.classList.remove('hidden');
+            if (headerWrapper) headerWrapper.classList.remove('hidden');
         }
-        lastScrollY = currentScrollY;
-        ticking = false;
-        return;
     }
+    lastScrollY = currentScrollY;
+    ticking = false;
+    return;
+}
 
     if (currentScrollY > lastScrollY && currentScrollY > 80) {
         if (topBar) topBar.classList.add('hidden');
