@@ -3346,6 +3346,10 @@ body,
     pointer-events: none;
 }
 
+#logoImage {
+    margin-top: -60px !important;
+}
+
 /* ДЕСКТОП (≥768px) */
 @media (min-width: 768px) {
 	.container {
