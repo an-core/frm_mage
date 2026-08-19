@@ -5,6 +5,8 @@
     --bg-card-hover: #d4dce75c;
     --border-card: rgb(234 239 245 / 22%);
     --border-card-hover: #b9d0f0;
+	--border-delivery: #bec8d342;
+	--border-pickup: #bec8d342;
     --text-primary: #0f172a;
     --text-secondary: #1e293b;
     --text-muted: #475569;
@@ -77,6 +79,8 @@
     --border-card: #1e212c;
     --border-card-hover: #7b7c7c4f;
     --border-hamburger-cart: #1e212c;
+	--border-delivery: #1778d942;
+	--border-pickup: #175c5c69;
     --text-primary: #f1f5f9;
     --text-secondary: #e2e8f0;
     --text-close: #acac9d;
@@ -504,7 +508,7 @@ body {
 .desktop-delivery-btn,
 .desktop-pickup-btn {
     background: var(--bg-card-delivery);
-    border: 2px solid #1778d942;
+    border: 2px solid var(--border-delivery);
     border-radius: 60px;
     padding: 0.5rem 1.2rem;
     font-weight: 500;
@@ -518,7 +522,7 @@ body {
 }
 
 .desktop-pickup-btn {
-    border-color: #175c5c69;
+    border-color: var(--border-pickup);
 }
 
 .desktop-delivery-btn:hover,
@@ -2668,7 +2672,7 @@ input[readonly] {
 
 #logoImage {
     width: auto;
-	margin-top: -160px !important;
+	margin-top: -150px !important;
     transform: translateY(-10px);
 	max-height: 180px;
     max-width: 350px;
