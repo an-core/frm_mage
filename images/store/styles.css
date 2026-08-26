@@ -2668,7 +2668,6 @@ input[readonly] {
     width: auto;
     height: auto;
     object-fit: contain;
-    transform: translateY(-50px);
 }
 
 #logoImage {
