@@ -1044,7 +1044,7 @@ body {
 }
 
 .categories-row.shifted {
-    transform: none !important;
+    transform: translateX(0) !important;
     margin-top: 0 !important;
 }
 
