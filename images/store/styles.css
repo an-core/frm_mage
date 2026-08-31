@@ -3446,7 +3446,7 @@ body,
     }
 
     .categories-row.shifted {
-        transform: translateX(14rem) !important;
+        transform: translateX(0) !important;
         margin-top: 0 !important;
         margin-left: 0 !important;
     }
