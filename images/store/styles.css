@@ -3499,6 +3499,10 @@ body,
     .modal-fullscreen .modal-image {
         margin-left: 110px !important;
     }
+	
+	html {
+    overflow-y: scroll;
+   }
 }
 
 @media (max-width: 900px) {
