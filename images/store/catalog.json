@@ -2554,7 +2554,7 @@
         "price": "8 500 ₽",
         "badge": "ПРЕДЗАКАЗ",
         "category": "Реквизит для фаершоу",
-        "subcategory": "Чаши огненные",
+        "subcategory": "Чаши",
         "imageFile": "images/fire/chashy/lotos.png",
         "images": [
             "images/fire/chashy/lotos_2.png"
@@ -2574,7 +2574,7 @@
         "price": "3 700 ₽",
         "badge": "",
         "category": "Реквизит для фаершоу",
-        "subcategory": "Чаши огненные",
+        "subcategory": "Чаши",
         "imageFile": "images/fire/chashy/default.png",
         "images": [],
         "description": "Пара огненных чаш с фитилями из керамоленты. Удобная ручка дает возможность держать чашу разными хватами и устойчиво ставить ее. Чаши уже готовы к использованию!",
