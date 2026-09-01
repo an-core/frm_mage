@@ -4628,12 +4628,12 @@
             {
                 "name": "Оранжевый/Оранжевый/Белый/Оранжевый/Оранжевый",
                 "hex": "#cccccc",
-                "image": "iimages/clubs/custom/loop_grip/lg_custom_3.png"
+                "image": "images/clubs/custom/loop_grip/lg_custom_3.png"
             },
             {
                 "name": "Жёлтый/Жёлтый/Белый/Жёлтый/Жёлтый",
                 "hex": "#cccccc",
-                "image": "iimages/clubs/custom/loop_grip/lg_custom_4.png"
+                "image": "images/clubs/custom/loop_grip/lg_custom_4.png"
             },
             {
                 "name": "Зелёный/Зелёный/Белый/Зелёный/Зелёный",
@@ -4643,12 +4643,12 @@
             {
                 "name": "Синий/Синий/Белый/Синий/Синий",
                 "hex": "#cccccc",
-                "image": "iimages/clubs/custom/loop_grip/lg_custom_6.png"
+                "image": "images/clubs/custom/loop_grip/lg_custom_6.png"
             },
             {
                 "name": "Зелёный/Бирюзовый/Белый/Бирюзовый/Зелёный",
                 "hex": "#cccccc",
-                "image": "iimages/clubs/custom/loop_grip/lg_custom_7.png"
+                "image": "images/clubs/custom/loop_grip/lg_custom_7.png"
             },
             {
                 "name": "Розовый/Розовый/Белый/Розовый/Розовый",
@@ -4658,12 +4658,12 @@
             {
                 "name": "Белый/Розовый/Белый/Синий/Белый",
                 "hex": "#cccccc",
-                "image": "iimages/clubs/custom/loop_grip/lg_custom_9.png"
+                "image": "images/clubs/custom/loop_grip/lg_custom_9.png"
             },
             {
                 "name": "Белый/Жёлтый/Белый/Оранжевый/Белый",
                 "hex": "#cccccc",
-                "image": "iimages/clubs/custom/loop_grip/lg_custom_10.png"
+                "image": "images/clubs/custom/loop_grip/lg_custom_10.png"
             },
             {
                 "name": "Белый/Розовый/Белый/Жёлтый/Белый",
@@ -4673,17 +4673,17 @@
             {
                 "name": "Белый/Синий/Белый/Бирюзовый/Белый",
                 "hex": "#cccccc",
-                "image": "iimages/clubs/custom/loop_grip/lg_custom_12.png"
+                "image": "images/clubs/custom/loop_grip/lg_custom_12.png"
             },
             {
                 "name": "Белый/Оранжевый/Белый/Розовый/Белый",
                 "hex": "#cccccc",
-                "image": "iimages/clubs/custom/loop_grip/lg_custom_13.png"
+                "image": "images/clubs/custom/loop_grip/lg_custom_13.png"
             },
             {
                 "name": "Белый/Розовый/Белый/Оранжевый/Белый",
                 "hex": "#cccccc",
-                "image": "iimages/clubs/custom/loop_grip/lg_custom_14.png"
+                "image": "images/clubs/custom/loop_grip/lg_custom_14.png"
             },
             {
                 "name": "Белый/Бирюзовый/Белый/Розовый/Белый",
@@ -4693,12 +4693,12 @@
             {
                 "name": "Белый/Синий/Белый/Зелёный/Белый",
                 "hex": "#cccccc",
-                "image": "iimages/clubs/custom/loop_grip/lg_custom_16.png"
+                "image": "images/clubs/custom/loop_grip/lg_custom_16.png"
             },
             {
                 "name": "Белый/Синий/Белый/Розовый/Белый",
                 "hex": "#cccccc",
-                "image": "iimages/clubs/custom/loop_grip/lg_custom_17.png"
+                "image": "images/clubs/custom/loop_grip/lg_custom_17.png"
             }
         ]
     }
