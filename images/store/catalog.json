@@ -521,7 +521,7 @@
             },
             {
                 "name": "Чёрный",
-                "hex": "#111111",
+                "hex": "#000000",
                 "image": "images/clubs/knob_standard/knob_standard_3.png"
             },
             {
@@ -585,7 +585,7 @@
             },
             {
                 "name": "Чёрный",
-                "hex": "#111111",
+                "hex": "#000000",
                 "image": "images/clubs/knob_classic/knob_classic_3.png"
             },
             {
@@ -649,7 +649,7 @@
             },
             {
                 "name": "Чёрный",
-                "hex": "#111111",
+                "hex": "#000000",
                 "image": "images/clubs/top_classic/top_classic_3.png"
             },
             {
@@ -713,7 +713,7 @@
             },
             {
                 "name": "Чёрный",
-                "hex": "#111111",
+                "hex": "#000000",
                 "image": "images/clubs/top_standard/top_standard_3.png"
             },
             {
@@ -771,7 +771,7 @@
             },
             {
                 "name": "Жёлтый",
-                "hex": "#111111",
+                "hex": "#000000",
                 "image": "images/clubs/knob_standard/knob_standard_3.png"
             },
             {
@@ -3545,7 +3545,7 @@
             },
             {
                 "name": "Чёрный",
-                "hex": "#111111",
+                "hex": "#000000",
                 "image": "images/diabolo/handstick/handstick_alu_2.png"
             },
             {
