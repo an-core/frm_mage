@@ -747,49 +747,7 @@
             "Вес: 235 г",
             "Производитель: Henrys (Германия)"
         ],
-        "colors": [
-            {
-                "name": "Все",
-                "hex": "#cccccc",
-                "image": null,
-                "imageIndex": -1
-            },
-            {
-                "name": "Синий",
-                "hex": "#1a5fb4",
-                "image": "images/clubs/knob_standard/knob_standard_4.png"
-            },
-            {
-                "name": "Красный",
-                "hex": "#c0392b",
-                "image": "images/clubs/knob_standard/knob_standard_7.png"
-            },
-            {
-                "name": "Зелёный",
-                "hex": "#27ae60",
-                "image": "images/clubs/knob_standard/knob_standard_5.png"
-            },
-            {
-                "name": "Жёлтый",
-                "hex": "#000000",
-                "image": "images/clubs/knob_standard/knob_standard_3.png"
-            },
-            {
-                "name": "Оранжевый",
-                "hex": "#e67e22",
-                "image": "images/clubs/knob_standard/knob_standard_2.png"
-            },
-            {
-                "name": "Белый",
-                "hex": "#f0f0f0",
-                "image": "images/clubs/knob_standard/knob_standard_8.png"
-            },
-            {
-                "name": "Розовый",
-                "hex": "#e84393",
-                "image": "images/clubs/knob_standard/knob_standard_6.png"
-            }
-        ]
+        "colors": []
     },
     {
         "id": 14,
