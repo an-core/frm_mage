@@ -1547,7 +1547,7 @@ function setupDragScroll() {
             container.style.cursor = 'grabbing';
         });
 
-        container.addEventListener('mouseleave', () => {
+container.addEventListener('mouseleave', () => {
             isDown = false;
             container.style.cursor = 'grab';
         });
@@ -2318,7 +2318,7 @@ document.getElementById('modalAddToCartBtn').addEventListener('click', function(
     showToast('Товар "' + product.name + '"' + colorName + ' добавлен в корзину!');
 });
 
-const GITHUB_BASE_URL = 'https://an-core.github.io/frm_mage/';
+const GITHUB_BASE_URL = 'https://an-core.github.io/frmfr_image/';
 
 async function loadAllImages() {
     const catalog = document.getElementById('catalogContainer');
