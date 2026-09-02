@@ -57,11 +57,6 @@
                 "image": "images/clubs/delphin_long/delphin_long_training_3.png"
             },
             {
-                "name": "Белый",
-                "hex": "#f0f0f0",
-                "image": "images/clubs/delphin_long/delphin_long_training_10.png"
-            },
-            {
                 "name": "Розовый",
                 "hex": "#e84393",
                 "image": "images/clubs/delphin_long/delphin_long_training_8.png"
@@ -70,6 +65,11 @@
                 "name": "Фиолетовый",
                 "hex": "#6c3483",
                 "image": "images/clubs/delphin_long/delphin_long_training_5.png"
+            },
+			{
+                "name": "Белый",
+                "hex": "#f0f0f0",
+                "image": "images/clubs/delphin_long/delphin_long_training_10.png"
             },
             {
                 "name": "Белый/Чёрный",
@@ -247,20 +247,10 @@
                 "image": "images/clubs/loop_training/loop_training_4.png"
             },
             {
-                "name": "Белый/Чёрный",
-                "hex": "#f0f0f0",
-                "image": "images/clubs/loop_training/loop_training_2.png"
-            },
-            {
                 "name": "Оранжевый",
                 "hex": "#e67e22",
                 "image": "images/clubs/loop_training/loop_training_9.png"
-            },
-            {
-                "name": "Белый",
-                "hex": "#f0f0f0",
-                "image": "images/clubs/loop_training/loop_training_10.png"
-            },
+            },  
             {
                 "name": "Фиолетовый",
                 "hex": "#6c3483",
@@ -270,6 +260,16 @@
                 "name": "Жёлтый",
                 "hex": "#f1c40f",
                 "image": "images/clubs/loop_training/loop_training_5.png"
+            },
+			{
+                "name": "Белый",
+                "hex": "#f0f0f0",
+                "image": "images/clubs/loop_training/loop_training_10.png"
+            },
+		    {
+                "name": "Белый/Чёрный",
+                "hex": "#f0f0f0",
+                "image": "images/clubs/loop_training/loop_training_2.png"
             }
         ]
     },
@@ -362,14 +362,14 @@
                 "imageIndex": -1
             },
             {
-                "name": "Белый/Чёрный",
-                "hex": "#f0f0f0",
-                "image": "images/clubs/trainer/trainer_2.png"
-            },
-            {
                 "name": "Белый",
                 "hex": "#f0f0f0",
                 "image": "images/clubs/trainer/trainer_3.png"
+            },
+			{
+                "name": "Белый/Чёрный",
+                "hex": "#f0f0f0",
+                "image": "images/clubs/trainer/trainer_2.png"
             }
         ]
     },
@@ -466,14 +466,14 @@
                 "image": "images/clubs/mirage_europ/mirage_europ_metallic_3.png"
             },
             {
-                "name": "Серебристый",
-                "hex": "#dddddd",
-                "image": "images/clubs/mirage_europ/mirage_europ_metallic_7.png"
-            },
-            {
                 "name": "Жёлтый",
                 "hex": "#f1c40f",
                 "image": "images/clubs/mirage_europ/mirage_europ_metallic_5.png"
+            },
+			{
+                "name": "Серебристый",
+                "hex": "#dddddd",
+                "image": "images/clubs/mirage_europ/mirage_europ_metallic_7.png"
             }
         ]
     },
@@ -525,14 +525,14 @@
                 "image": "images/clubs/knob_standard/knob_standard_2.png"
             },
             {
-                "name": "Белый",
-                "hex": "#f0f0f0",
-                "image": "images/clubs/knob_standard/knob_standard_8.png"
-            },
-            {
                 "name": "Розовый",
                 "hex": "#e84393",
                 "image": "images/clubs/knob_standard/knob_standard_6.png"
+            },
+			{
+                "name": "Белый",
+                "hex": "#f0f0f0",
+                "image": "images/clubs/knob_standard/knob_standard_8.png"
             },
 			{
                 "name": "Чёрный",
@@ -589,14 +589,14 @@
                 "image": "images/clubs/knob_classic/knob_classic_2.png"
             },
             {
-                "name": "Белый",
-                "hex": "#f0f0f0",
-                "image": "images/clubs/knob_classic/knob_classic_8.png"
-            },
-            {
                 "name": "Розовый",
                 "hex": "#e84393",
                 "image": "images/clubs/knob_classic/knob_classic_6.png"
+            },
+			{
+                "name": "Белый",
+                "hex": "#f0f0f0",
+                "image": "images/clubs/knob_classic/knob_classic_8.png"
             },
 		    {
                 "name": "Чёрный",
@@ -651,16 +651,16 @@
                 "name": "Оранжевый",
                 "hex": "#e67e22",
                 "image": "images/clubs/top_classic/top_classic_2.png"
-            },
-            {
-                "name": "Белый",
-                "hex": "#f0f0f0",
-                "image": "images/clubs/top_classic/top_classic_8.png"
-            },
+            },           
             {
                 "name": "Розовый",
                 "hex": "#e84393",
                 "image": "images/clubs/top_classic/top_classic_6.png"
+            },
+			{
+                "name": "Белый",
+                "hex": "#f0f0f0",
+                "image": "images/clubs/top_classic/top_classic_8.png"
             },
 			{
                 "name": "Чёрный",
@@ -717,14 +717,14 @@
                 "image": "images/clubs/top_standard/top_standard_2.png"
             },
             {
-                "name": "Белый",
-                "hex": "#f0f0f0",
-                "image": "images/clubs/top_standard/top_standard_8.png"
-            },
-            {
                 "name": "Розовый",
                 "hex": "#e84393",
                 "image": "images/clubs/top_standard/top_standard_6.png"
+            },
+			{
+                "name": "Белый",
+                "hex": "#f0f0f0",
+                "image": "images/clubs/top_standard/top_standard_8.png"
             },
 	     	{
                 "name": "Чёрный",
@@ -849,19 +849,19 @@
                 "image": "images/clubs/loop_grip/loop_grip_training_5.png"
             },
             {
-                "name": "Белый",
-                "hex": "#f0f0f0",
-                "image": "images/clubs/loop_grip/loop_grip_training_6.png"
-            },
-            {
                 "name": "Жёлтый",
                 "hex": "#f1c40f",
                 "image": "images/clubs/loop_grip_training/loop_grip_training_7.png"
             },
-			 {
+			{
                 "name": "Синий",
                 "hex": "#2693ff",
                 "image": "images/clubs/loop_grip_training/loop_grip_training_8.png"
+            },
+			{
+                "name": "Белый",
+                "hex": "#f0f0f0",
+                "image": "images/clubs/loop_grip/loop_grip_training_6.png"
             }
         ]
     },
@@ -1011,11 +1011,6 @@
                 "image": "images/clubs/delphin_short/delphin_short_training_9.png"
             },
             {
-                "name": "Белый",
-                "hex": "#f0f0f0",
-                "image": "images/clubs/delphin_short/delphin_short_training_10.png"
-            },
-            {
                 "name": "Розовый",
                 "hex": "#e84393",
                 "image": "images/clubs/delphin_short/delphin_short_training_4.png"
@@ -1024,6 +1019,11 @@
                 "name": "Фиолетовый",
                 "hex": "#6c3483",
                 "image": "images/clubs/delphin_short/delphin_short_training_7.png"
+            },
+			{
+                "name": "Белый",
+                "hex": "#f0f0f0",
+                "image": "images/clubs/delphin_short/delphin_short_training_10.png"
             },
             {
                 "name": "Белый/Чёрный",
@@ -1111,11 +1111,6 @@
                 "image": "images/balls/hix_full/hix_full_8.png"
             },
             {
-                "name": "Белый",
-                "hex": "#f0f0f0",
-                "image": "images/balls/hix_full/hix_full_9.png"
-				},
-            {
                 "name": "Синий",
                 "hex": "#1a5fb4",
                 "image": "images/balls/hix_full/hix_full_7.png"
@@ -1124,7 +1119,12 @@
                 "name": "Жёлтый",
                 "hex": "#f1c40f",
                 "image": "images/balls/hix_full/hix_full_5.png"
-            }
+            },
+			{
+                "name": "Белый",
+                "hex": "#f0f0f0",
+                "image": "images/balls/hix_full/hix_full_9.png"
+		    }
         ]
     },
     {
@@ -1184,11 +1184,6 @@
                 "image": "images/balls/hix_full/hix_full_8.png"
             },
             {
-                "name": "Белый",
-                "hex": "#f0f0f0",
-                "image": "images/balls/hix_full/hix_full_9.png"
-            },
-            {
                 "name": "Синий",
                 "hex": "#1a5fb4",
                 "image": "images/balls/hix_full/hix_full_7.png"
@@ -1197,6 +1192,11 @@
                 "name": "Жёлтый",
                 "hex": "#f1c40f",
                 "image": "images/balls/hix_full/hix_full_5.png"
+            },
+			{
+                "name": "Белый",
+                "hex": "#f0f0f0",
+                "image": "images/balls/hix_full/hix_full_9.png"
             }
         ]
     },
@@ -1443,11 +1443,6 @@
                 "image": "images/balls/g_force60/g_force60_7.png"
             },
             {
-                "name": "Белый",
-                "hex": "#f0f0f0",
-                "image": "images/balls/g_force60/g_force60_2.png"
-            },
-            {
                 "name": "Зелёный",
                 "hex": "#27ae60",
                 "image": "images/balls/g_force60/g_force60_4.png"
@@ -1461,6 +1456,11 @@
                 "name": "Салатовый",
                 "hex": "#79ff4c",
                 "image": "images/balls/g_force60/g_force60_7.png"
+            },
+			{
+                "name": "Белый",
+                "hex": "#f0f0f0",
+                "image": "images/balls/g_force60/g_force60_2.png"
             }
         ]
     },
@@ -1504,11 +1504,6 @@
                 "image": "images/balls/g_force65/g_force65_7.png"
             },
             {
-                "name": "Белый",
-                "hex": "#f0f0f0",
-                "image": "images/balls/g_force65/g_force65_2.png"
-            },
-            {
                 "name": "Зелёный",
                 "hex": "#27ae60",
                 "image": "images/balls/g_force65/g_force65_4.png"
@@ -1522,6 +1517,11 @@
                 "name": "Салатовый",
                 "hex": "#79ff4c",
                 "image": "images/balls/g_force65/g_force65_7.png"
+            },
+			{
+                "name": "Белый",
+                "hex": "#f0f0f0",
+                "image": "images/balls/g_force65/g_force65_2.png"
             }
         ]
     },
@@ -1623,11 +1623,6 @@
                 "image": "images/balls/mmx62/mmx62_9.png"
             },
             {
-                "name": "Белый",
-                "hex": "#f0f0f0",
-                "image": "images/balls/mmx62/mmx62_2.png"
-            },
-            {
                 "name": "Жёлтый",
                 "hex": "#f1c40f",
                 "image": "images/balls/mmx62/mmx62_5.png"
@@ -1651,6 +1646,11 @@
                 "name": "Синий",
                 "hex": "#1a5fb4",
                 "image": "images/balls/mmx62/mmx62_8.png"
+            },
+			{
+                "name": "Белый",
+                "hex": "#f0f0f0",
+                "image": "images/balls/mmx62/mmx62_2.png"
             }
         ]
     },
@@ -1758,11 +1758,6 @@
                 "image": "images/balls/srx67/srx67_3.png"
             },
             {
-                "name": "Белый",
-                "hex": "#f0f0f0",
-                "image": "images/balls/srx67/srx67_2.png"
-            },
-            {
                 "name": "Жёлтый",
                 "hex": "#f1c40f",
                 "image": "images/balls/srx67/srx67_6.png"
@@ -1786,6 +1781,11 @@
                 "name": "Синий",
                 "hex": "#1a5fb4",
                 "image": "images/balls/srx67/srx67_4.png"
+            },
+			{
+                "name": "Белый",
+                "hex": "#f0f0f0",
+                "image": "images/balls/srx67/srx67_2.png"
             }
         ]
     },
@@ -1926,11 +1926,6 @@
                 "image": "images/rings/rings_standard/rings_standard_8.png"
             },
             {
-                "name": "Белый",
-                "hex": "#f0f0f0",
-                "image": "images/rings/rings_standard/rings_standard_2.png"
-            },
-            {
                 "name": "Жёлтый",
                 "hex": "#f1c40f",
                 "image": "images/rings/rings_standard/rings_standard_6.png"
@@ -1954,6 +1949,11 @@
                 "name": "Оранжевый",
                 "hex": "#e67e22",
                 "image": "images/rings/rings_standard/rings_standard_3.png"
+            },
+			{
+                "name": "Белый",
+                "hex": "#f0f0f0",
+                "image": "images/rings/rings_standard/rings_standard_2.png"
             }
         ]
     },
@@ -3089,11 +3089,6 @@
                 "imageIndex": -1
             },
             {
-                "name": "Белый",
-                "hex": "#ffffff",
-                "image": "images/diabolo/vision/vision_2.png"
-            },
-            {
                 "name": "Красный",
                 "hex": "#ff0000",
                 "image": "images/diabolo/vision/vision_3.png"
@@ -3117,6 +3112,11 @@
                 "name": "Жёлтый",
                 "hex": "#ffff00",
                 "image": "images/diabolo/vision/vision_7.png"
+            },
+			{
+                "name": "Белый",
+                "hex": "#ffffff",
+                "image": "images/diabolo/vision/vision_2.png"
             },
             {
                 "name": "Чёрный",
@@ -3156,11 +3156,6 @@
                 "imageIndex": -1
             },
             {
-                "name": "Белый",
-                "hex": "#ffffff",
-                "image": "images/diabolo/vision/vision_free_2.png"
-            },
-            {
                 "name": "Красный",
                 "hex": "#ff0000",
                 "image": "images/diabolo/vision/vision_free_3.png"
@@ -3184,6 +3179,11 @@
                 "name": "Жёлтый",
                 "hex": "#ffff00",
                 "image": "images/diabolo/vision/vision_free_8.png"
+            },
+			{
+                "name": "Белый",
+                "hex": "#ffffff",
+                "image": "images/diabolo/vision/vision_free_2.png"
             },
             {
                 "name": "Чёрный",
@@ -3502,11 +3502,6 @@
                 "imageIndex": -1
             },
             {
-                "name": "Чёрный",
-                "hex": "#000000",
-                "image": "images/diabolo/handstick/handstick_alu_2.png"
-            },
-            {
                 "name": "Зелёный",
                 "hex": "#00d936",
                 "image": "images/diabolo/handstick/handstick_alu_3.png"
@@ -3515,6 +3510,11 @@
                 "name": "Оранжевый",
                 "hex": "#ff8000",
                 "image": "images/diabolo/handstick/handstick_alu_4.png"
+            },
+			{
+                "name": "Чёрный",
+                "hex": "#000000",
+                "image": "images/diabolo/handstick/handstick_alu_2.png"
             }
         ]
     },
