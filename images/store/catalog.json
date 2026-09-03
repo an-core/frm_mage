@@ -3120,7 +3120,7 @@
             },
             {
                 "name": "Чёрный",
-                "hex": "#222222",
+                "hex": "#000000",
                 "image": "images/diabolo/vision/vision_8.png"
             }
         ]
@@ -3187,7 +3187,7 @@
             },
             {
                 "name": "Чёрный",
-                "hex": "#222222",
+                "hex": "#000000",
                 "image": "images/diabolo/vision/vision_free_7.png"
             }
         ]
